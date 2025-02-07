@@ -23,6 +23,13 @@ font-face{
     display: none;
 }
 
+#editor {
+    font-family: 'Sahel', sans-serif;
+    font-size: 20px;
+    height: 700px;
+
+}
+
 /* general styles */
 body {
     font-family: Sahel;
