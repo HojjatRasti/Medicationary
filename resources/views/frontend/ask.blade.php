@@ -12,7 +12,7 @@
   <!-- ask form -->
   <div class="container">
       @include('errors.message')
-    <form action="{{route('admin.inquiries.addInquiries')}}" method="post" class="m-5 d-lg-flex justify-content-around">
+    <form action="{{route('admin.inquiries.addInquiries')}}" method="post" class="m-5 mb-3 d-lg-flex justify-content-around">
         @csrf
 
      <div class="d-lg-flex justify-content-between col-lg-12" dir="ltr">
@@ -73,6 +73,14 @@
       <button id="askSubBtn" type="submit" class="btn p-2 w-50 h-100 " style="color: #fff; background-color: #4867BC;">ارسال</button>
     </div>
 
+
+
     </form>
+    {{-- save question permision --}}
+    <div class="form-check d-flex justify-content-center fs-4" >
+        <input class="form-check-input ms-2" type="checkbox" value="" id="flexCheckChecked" checked>
+        <label class="form-check-label" for="flexSwitchCheckChecked" dir="rtl">تمایل دارم که پرسش و جواب آن در سایت قرار گیرد.</label>
+    </div>
+
   </div>
 @endsection
