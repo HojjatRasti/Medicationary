@@ -343,6 +343,28 @@ button{
     margin-top: 5rem;
 }
 
+/* search button styles */
+.search-box{
+
+    margin-top: -3.8%;
+
+}
+
+.search-btn{
+    opacity: 1;
+    border: none;
+}
+
+.hide-btn{
+    opacity: 0;
+    transition: opacity 0.6s linear;
+}
+
+.btn .disabled{
+    opacity: 0;
+}
+
+
 /* ADMIN */
 
 /* login page */
