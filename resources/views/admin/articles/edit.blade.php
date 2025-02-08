@@ -37,16 +37,63 @@
                 </div>
                 <!-- file upload area -->
                 <div class="col-10 mt-3 text-center">
-                    <label for="thumbnail_url" class="mb-3"><b> تامبنیل مقاله</b></label>
+                    <img src="/{{ $post->thumbnail_url }}" alt="" height="100px" width="100px" class="rounded mb-2" >
                     <br>
-                    <img src="/{{ $post->thumbnail_url }}" alt="" height="100px" width="100px" class="rounded" >
-                    <input class="form-control m-3" type="file" id="formFileMultiple" name="thumbnail_url" multiple title="افزودن تامبنیل">
-                    <label for="thumbnail_url" class=""><b> فایل مقاله</b></label>
-                    <br>
-                    Current file: {{$post->post_url}}
-                    <input class="form-control m-3" type="file" id="formFileMultiple" name="post_url" multiple>
+                    <label for="thumbnail_url">افزودن تامبنیل مقاله</label>
+                    <input class="form-control mt-3" type="file" id="formFileMultiple" name="thumbnail_url" multiple title="افزودن تامبنیل">
+                   {{-- quill text editor --}}
+                    <div class="mt-3 rounded" >
+                        <div id="toolbar-container" class="bg-light fs-3">
+                            <span class="ql-formats">
+                                <select class="ql-size"></select>
+                            </span>
+                            <span class="ql-formats">
+                                <button class="ql-bold"></button>
+                                <button class="ql-italic"></button>
+                                <button class="ql-underline"></button>
+                                <button class="ql-strike"></button>
+                            </span>
+                            <span class="ql-formats">
+                                <select class="ql-color"></select>
+                                <select class="ql-background"></select>
+                            </span>
+                            <span class="ql-formats">
+                                <button class="ql-script" value="sub"></button>
+                                <button class="ql-script" value="super"></button>
+                            </span>
+                            <span class="ql-formats">
+                                <button class="ql-header" value="1"></button>
+                                <button class="ql-header" value="2"></button>
+                                <button class="ql-header" value="3"></button>
+                                <button class="ql-header" value="4"></button>
+                                <button class="ql-blockquote"></button>
+                                <button class="ql-code-block"></button>
+                            </span>
+                            <span class="ql-formats">
+                                <button class="ql-list" value="ordered"></button>
+                                <button class="ql-list" value="bullet"></button>
+                                <button class="ql-indent" value="-1"></button>
+                                <button class="ql-indent" value="+1"></button>
+                            </span>
+                            <span class="ql-formats">
+                                <button class="ql-direction" value="rtl"></button>
+                                <select class="ql-align"></select>
+                            </span>
+                            <span class="ql-formats">
+                                <button class="ql-link"></button>
+                                <button class="ql-image"></button>
+                                <button class="ql-video"></button>
+                                <button class="ql-formula"></button>
+                            </span>
+                            <span class="ql-formats">
+                                <button class="ql-clean"></button>
+                            </span>
+                        </div>
+                        <div id="editor" class="bg-light">
+                        </div>
+                    </div>
                     <!-- submit btn -->
-                    <div class="col-auto">
+                    <div class="col-auto mt-3">
                         <button type="submit" class="btn btn-primary mb-3 ps-5 pe-5 pt-2 pb-2 ">ثبت</button>
                     </div>
 
@@ -57,4 +104,15 @@
         </div>
 
     </div>
+    <!-- Initialize Quill editor -->
+<script>
+    const quill = new Quill('#editor', {
+      modules: {
+        syntax: true,
+        toolbar: '#toolbar-container',
+      },
+      theme: 'snow',
+
+    });
+</script>
 @endsection
