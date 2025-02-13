@@ -59,6 +59,13 @@ class PodcastsController extends Controller
         return view('admin.podcasts.edit', compact('podcast','currentUser'));
     }
 
+    public function category(){
+
+        $currentUser = auth()->user();
+
+        return view('admin.podcasts.category', compact('currentUser'));
+    }
+
     public function update(UpdateRequest $request, $podcast_id){
         $validatedData = $request->validated();
 

@@ -45,7 +45,7 @@ class PostController extends Controller
         $createdPost = Post::create([
             'user_id' => $currentUser['id'],
             'title' => $validatedData['title'],
-            'category' => $validatedData['category'],
+//            'category' => $validatedData['category'],
             'abstract' => $validatedData['abstract'],
             'author' => $validatedData['author'],
         ]);
@@ -75,6 +75,13 @@ class PostController extends Controller
         $post = Post::findOrFail($post_id);
 
         return view('admin.articles.edit', compact('post','currentUser'));
+    }
+
+    public function category(){
+
+        $currentUser = auth()->user();
+
+        return view('admin.articles.category', compact('currentUser'));
     }
 
     /**

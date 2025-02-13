@@ -42,9 +42,9 @@
             </div>
 
             <!-- discription input -->
-            <div class="col-8">
-                <textarea class="form-control" required rows="2" cols="8" dir="rtl" placeholder="توضیحات" name="abstract"></textarea>
-            </div>
+{{--            <div class="col-8">--}}
+{{--                <textarea class="form-control" required rows="2" cols="8" dir="rtl" placeholder="توضیحات" name="abstract"></textarea>--}}
+{{--            </div>--}}
             <!-- file upload area -->
             <div class="col-10 mt-3 text-center">
                 <label for="thumbnail_url">افزودن تامبنیل مقاله</label>
@@ -98,6 +98,7 @@
                         </span>
                     </div>
                     <div id="editor" class="bg-light">
+{{--                        texts--}}
                     </div>
                 </div>
                 <!-- submit btn -->

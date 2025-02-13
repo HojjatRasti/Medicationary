@@ -45,6 +45,7 @@ Route::prefix('admin')->group(function(){
             Route::get('create',[WebinarsController::class, 'create'])->name('admin.webinars.create');
             Route::post('store',[WebinarsController::class, 'store'])->name('admin.webinars.store');
             Route::get('{webinar_id}/edit',[WebinarsController::class, 'edit'])->name('admin.webinars.edit');
+            Route::get('category',[WebinarsController::class, 'category'])->name('admin.webinars.category');
             Route::put('{webinar_id}/update',[WebinarsController::class, 'update'])->name('admin.webinars.update');
             Route::delete('{webinar_id}/delete',[WebinarsController::class, 'delete'])->name('admin.webinars.delete');
 
@@ -56,6 +57,7 @@ Route::prefix('admin')->group(function(){
             Route::get('create', [PodcastsController::class, 'create'])->name('admin.podcasts.create');
             Route::post('store', [PodcastsController::class, 'store'])->name('admin.podcasts.store');
             Route::get('{podcast_id}/edit', [PodcastsController::class, 'edit'])->name('admin.podcasts.edit');
+            Route::get('category',[PodcastsController::class, 'category'])->name('admin.podcasts.category');
             Route::put('{podcast_id}/update', [PodcastsController::class, 'update'])->name('admin.podcasts.update');
             Route::delete('{podcast_id}/delete', [PodcastsController::class, 'delete'])->name('admin.podcasts.delete');
 
@@ -68,6 +70,7 @@ Route::prefix('admin')->group(function(){
             Route::get('{question_id}/answer',[InquiriesController::class, 'answer'])->name('admin.inquiries.answer');
             Route::post('{question_id}/insert',[InquiriesController::class, 'insert'])->name('admin.inquiries.insert');
             Route::get('{answer_id}/edit',[InquiriesController::class, 'edit'])->name('admin.inquiries.edit');
+            Route::get('category',[InquiriesController::class, 'category'])->name('admin.inquiries.category');
             Route::put('{answer_id}/update',[InquiriesController::class, 'update'])->name('admin.inquiries.update');
             Route::delete('{answer_id}/delete',[InquiriesController::class, 'delete'])->name('admin.inquiries.delete');
 
@@ -79,6 +82,7 @@ Route::prefix('admin')->group(function(){
             Route::get('create',[PostController::class, 'create'])->name('admin.post.create');
             Route::post('store',[PostController::class, 'store'])->name('admin.post.store');
             Route::get('{post_id}/edit',[PostController::class, 'edit'])->name('admin.post.edit');
+            Route::get('category',[PostController::class, 'category'])->name('admin.post.category');
             Route::put('{post_id}/update',[PostController::class, 'update'])->name('admin.post.update');
             Route::delete('{post_id}/delete',[PostController::class, 'delete'])->name('admin.post.delete');
 //            Route::get('create',[CommentController::class, 'create'])->name('admin.articles.create');
@@ -97,5 +101,5 @@ Route::prefix('')->group(function (){
     Route::get('responses',[WeblogController::class, 'responses'])->name('home.responses');
     Route::get('podcast',[WeblogController::class, 'podcast'])->name('home.podcast');
     Route::get('blog',[WeblogController::class, 'blog'])->name('home.blog');
-    Route::get('blog/post{post_id}',[WeblogController::class, 'post'])->name('home.post');
+    Route::get('blog/post{post_id}',[WeblogController::class, 'article'])->name('home.post');
 });

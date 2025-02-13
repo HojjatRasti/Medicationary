@@ -95,6 +95,13 @@ class InquiriesController extends Controller
         return view('admin.inquiries.edit', compact('answer', 'currentUser' , 'question'));
     }
 
+    public function category(){
+
+        $currentUser = auth()->user();
+
+        return view('admin.inquiries.category', compact('currentUser'));
+    }
+
     public function update(UpdateRequest $request, $answer_id){
         $validatedData = $request->validated();
 

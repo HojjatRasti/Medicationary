@@ -24,10 +24,10 @@ class BlogRequest extends FormRequest
         return [
 //            'user_id' => 'required|exists:users,id',
             'title' => 'required|min:3|max:50',
-            'category' => 'required|min:3|max:50',
+            'category' => 'min:3|max:50',
             'author' => 'required|min:3|max:50',
             'abstract' => 'required|min:10',
-            'post_url' => 'required|file|mimes:pdf',
+            'post_url' => 'file|mimes:pdf',
             'thumbnail_url' => 'required|image|mimes:jpeg,png,jpg'
 
         ];

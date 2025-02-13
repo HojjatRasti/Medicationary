@@ -60,6 +60,13 @@ class WebinarsController extends Controller
 
     }
 
+    public function category(){
+
+        $currentUser = auth()->user();
+
+        return view('admin.webinars.category', compact('currentUser'));
+    }
+
     public function update(UpdateRequest $request, $webinar_id){
         $validatedData = $request->validated();
 

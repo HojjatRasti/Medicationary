@@ -43,11 +43,13 @@ class WeblogController extends Controller
 
         return view('frontend.answers', compact('responses'));
     }
-    public function post($post_id){
+    public function article($post_id){
 
         $post = Post::findOrFail($post_id);
 
-        return response()->file($post->post_url);
+        return view('frontend.specificArticle', compact('post'));
+
+//        return response()->file($post->post_url);
 
 //        return view('frontend.post', compact('post'));
     }

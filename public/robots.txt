@@ -1,2 +1,9 @@
-User-agent: *
-Disallow:
+user-agent: *
+Disallow: *?s=*
+Disallow: *?p=*
+Disallow: *&preview*
+Disallow: /admin/
+Disallow: /podcast/
+Disallow: /webinarsList/
+
+sitemap:https://Medicationary.ir/sitemap_index.xml
