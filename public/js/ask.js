@@ -1,3 +1,22 @@
+var searchBtn = document.querySelector('.search-btn');
+var closeSearch = document.querySelector('.search-close');
+
+searchBtn.addEventListener('click',function(){
+
+    searchBtn.classList.add('hide-btn', 'd-none');
+    closeSearch.classList.remove('hide-btn' , 'd-none');
+
+
+});
+
+closeSearch.addEventListener('click',function(){
+
+    searchBtn.classList.remove('hide-btn' , 'd-none');
+    closeSearch.classList.add('hide-btn', 'd-none');
+
+});
+
+
 // ask page codes
 
 const askEmail = document.getElementById('askEmailInput');
@@ -12,3 +31,4 @@ askSubBtn.addEventListener('click',function () {
         askPhone.setAttribute('required','');
     };
 });
+

@@ -23,6 +23,13 @@ font-face{
     display: none;
 }
 
+#editor {
+    font-family: 'Sahel', sans-serif;
+    font-size: 20px;
+    height: 700px;
+
+}
+
 /* general styles */
 body {
     font-family: Sahel;
@@ -335,6 +342,28 @@ button{
 .card-body{
     margin-top: 5rem;
 }
+
+/* search button styles */
+.search-box{
+
+    margin-top: -3.8%;
+
+}
+
+.search-btn{
+    opacity: 1;
+    border: none;
+}
+
+.hide-btn{
+    opacity: 0;
+    transition: opacity 0.6s linear;
+}
+
+.btn .disabled{
+    opacity: 0;
+}
+
 
 /* ADMIN */
 
