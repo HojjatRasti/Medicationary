@@ -5,19 +5,21 @@
       <!-- Section: Social media -->
       <section class="col-12 d-flex justify-content-center p-2">
 
-        <a class="btn" href="about-us.html" role="button" title="درباره ما">
+        {{-- <a class="btn" href="#" role="button" title="درباره ما" rel="nofollow">
 
             <iconify-icon icon="mdi:about-circle-outline"></iconify-icon>
 
         </a>
 
-        <a class="btn" href="rules.html" role="button">
+        {{-- <a class="btn" href="rules.html" role="button">
           قوانین و مقررات
-        </a>
+        </a> --}}
 
-        <a class="btn" href="contact-us.html" role="button">
+        {{--
+
+        <a class="btn" href="#" role="button" rel="nofollow">
           <iconify-icon icon="ic:baseline-telegram"></iconify-icon>
-        </a>
+        </a> --}}
 
       </section>
       <!-- Section: Social media -->
