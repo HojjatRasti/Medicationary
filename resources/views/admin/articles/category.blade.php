@@ -35,7 +35,7 @@
             </div>
 
             {{-- change category --}}
-            <div class="answer-text col-12 text-center">
+            {{-- <div class="answer-text col-12 text-center">
                 <span class="fs-3 mt-2 ">تغییر دسته‌بندی</span>
                 <div class="input-group mb-3 p-5 ">
                 <button class="btn btn-secondary col-4" type="button" id="button-addon1">تغییر</button>
@@ -50,7 +50,7 @@
                     <option value="3">Three</option>
                 </select>
                 </div>
-            </div>
+            </div> --}}
 
 
 
