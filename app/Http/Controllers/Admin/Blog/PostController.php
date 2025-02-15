@@ -77,13 +77,6 @@ class PostController extends Controller
         return view('admin.articles.edit', compact('post','currentUser'));
     }
 
-    public function category(){
-
-        $currentUser = auth()->user();
-
-        return view('admin.articles.category', compact('currentUser'));
-    }
-
     /**
      * Update the specified resource in storage.
      */

@@ -10,4 +10,8 @@ class Podcast extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function category(){
+        return $this->belongsTo(Podcast_category::class);
+    }
 }
