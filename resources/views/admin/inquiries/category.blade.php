@@ -12,7 +12,7 @@
             </ol>
         </nav>
         @include('errors.message')
-        <form action="{{ route('admin.answer.categories.store') }}" method="post"
+        <form action="{{ route('admin.inquiry.categories.store') }}" method="post"
               class="d-flex justify-content-center flex-wrap mt-5">
         @csrf
         {{-- add category --}}
@@ -25,7 +25,7 @@
         </form>
 
 
-        <form action="{{ route('admin.answer.categories.delete') }}" method="post"
+        <form action="{{ route('admin.inquiry.categories.delete', $answer_categories[0]->id) }}" method="post"
               class="d-flex justify-content-center flex-wrap mt-5">
 
             {{-- delete category --}}
@@ -40,7 +40,7 @@
                 </select>
             </div>
         </form>
-        <form action="{{ route('admin.answer.categories.edit') }}" method="post"
+        <form action="{{ route('admin.inquiry.categories.edit', $answer_categories[0]->id) }}" method="post"
               class="d-flex justify-content-center flex-wrap mt-5">
             <div class="answer-text col-12 text-center">
                 <span class="fs-3 mt-2 ">تغییر دسته‌بندی</span>

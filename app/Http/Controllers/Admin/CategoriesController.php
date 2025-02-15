@@ -26,21 +26,27 @@ class CategoriesController extends Controller
 
         $currentUser = auth()->user();
 
-        return view('admin.articles.category', compact('currentUser'));
+        $post_categories = Post_category::get();
+
+        return view('admin.articles.category', compact('currentUser', 'post_categories'));
     }
 
     public function landscapePodcast(){
 
         $currentUser = auth()->user();
 
-        return view('admin.podcasts.category', compact('currentUser'));
+        $podcast_categories = Podcast_category::get();
+
+        return view('admin.podcasts.category', compact('currentUser', 'podcast_categories'));
     }
 
     public function landscapeInquiries(){
 
         $currentUser = auth()->user();
 
-        return view('admin.inquiries.category', compact('currentUser'));
+        $answer_categories = Answer_category::get();
+
+        return view('admin.inquiries.category', compact('currentUser', 'answer_categories'));
     }
 
     public function store(CreateRequest $request){

@@ -25,7 +25,7 @@
         </form>
 
 
-        <form action="{{ route('admin.podcast.categories.delete' ) }}" method="post"
+        <form action="{{ route('admin.podcast.categories.delete', $podcast_categories[0]->id ) }}" method="post"
               class="d-flex justify-content-center flex-wrap mt-5">
             {{-- delete category --}}
             <span class="fs-3 ">حذف دسته‌بندی</span>
@@ -39,7 +39,7 @@
                 </select>
             </div>
         </form>
-        <form action="{{ route('admin.podcast.categories.edit' ) }}" method="post"
+        <form action="{{ route('admin.podcast.categories.edit', $podcast_categories[0]->id) }}" method="post"
               class="d-flex justify-content-center flex-wrap mt-5">
         <div class="answer-text col-12 text-center">
                 <span class="fs-3 mt-2 ">تغییر دسته‌بندی</span>
