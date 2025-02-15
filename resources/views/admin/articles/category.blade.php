@@ -13,15 +13,18 @@
             </ol>
         </nav>
         @include('errors.message')
-        <form action="{{ route('admin.post.store') }}" method="post" class="d-flex justify-content-center flex-wrap mt-5" enctype="multipart/form-data">
+        <form action="{{ route('admin.post.categories.store') }}" method="post" class="d-flex justify-content-center flex-wrap mt-5">
             @csrf
             {{-- add category --}}
             <span class="fs-3 ">افزودن دسته‌بندی</span>
             <div class="input-group mb-3 p-5 question-text">
-                <button class="btn btn-secondary col-4" type="button" id="button-addon1">افزودن</button>
-                <input type="text" class="form-control col-8" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                <button class="btn btn-secondary col-4" type="submit" id="button-addon1">افزودن</button>
+                <input type="text" class="form-control col-8" name="title" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1" REQUIRED>
             </div>
+        </form>
 
+
+        <form action="{{ route('admin.post.categories.store' ) }}" method="post" class="d-flex justify-content-center flex-wrap mt-5">
             {{-- delete category --}}
             <span class="fs-3 ">حذف دسته‌بندی</span>
             <div class="input-group mb-3 p-5">
@@ -34,8 +37,7 @@
                 </select>
             </div>
 
-            {{-- change category --}}
-            {{-- <div class="answer-text col-12 text-center">
+             <div class="answer-text col-12 text-center">
                 <span class="fs-3 mt-2 ">تغییر دسته‌بندی</span>
                 <div class="input-group mb-3 p-5 ">
                 <button class="btn btn-secondary col-4" type="button" id="button-addon1">تغییر</button>
@@ -50,12 +52,7 @@
                     <option value="3">Three</option>
                 </select>
                 </div>
-            </div> --}}
-
-
-
-
-
+            </div>
         </form>
 
     </div>

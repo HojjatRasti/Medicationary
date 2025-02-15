@@ -11,7 +11,12 @@ class Answer extends Model
 
     protected $guarded = [];
 
+    public function category(){
+        return $this->belongsTo(Answer_category::class);
+    }
+
     public function question(){
         return $this->belongsTo(Question::class);
     }
+
 }
