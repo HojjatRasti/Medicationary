@@ -21,15 +21,16 @@
                 <div class="input-group mb-3 w-100">
                     <!-- category input -->
                     <div class="btn-group col-md-6" >
-                        <button type="button" class="btn dropdown-toggle" style="background-color: #fff; border-top-right-radius:0; border-bottom-right-radius: 0;" data-bs-toggle="dropdown" aria-expanded="false" dir="rtl">
-                          دسته بندی
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-center col-12">
-                          <li><a class="dropdown-item" href="#">Menu item</a></li>
-                          <li><a class="dropdown-item" href="#">Menu item</a></li>
-                          <li><a class="dropdown-item" href="#">Menu item</a></li>
-                        </ul>
-                      </div>
+                        <select class="form-select text-center " id="inputGroupSelect03" aria-label="Example select with button addon" dir="rtl">
+                            <option selected>دسته‌بندی</option>
+                            <option value="1">
+                              <span>تناسب اندام</span>
+                              <span>(56)</span>
+                            </option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                          </select>
+                    </div>
                     <!-- middle pic -->
                     <span class="input-group-text">
                         <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 64 64">
