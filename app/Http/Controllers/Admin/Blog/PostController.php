@@ -42,11 +42,14 @@ class PostController extends Controller
 
         $validatedData = $request->validated();
 
+//        dd($validatedData);
+
         $createdPost = Post::create([
             'user_id' => $currentUser['id'],
             'title' => $validatedData['title'],
-//            'category' => $validatedData['category'],
+//            'category_id' =>$validatedData['category_id'] ,
             'abstract' => $validatedData['abstract'],
+            'body' => $validatedData['body'],
             'author' => $validatedData['author'],
         ]);
 
@@ -91,8 +94,9 @@ class PostController extends Controller
         $updatePost = $post->Update([
             'user_id' => $currentUser['id'],
             'title' => $validatedData['title'],
-            'category' => $validatedData['category'],
+//            'category_id' =>$validatedData['category_id'] ,
             'abstract' => $validatedData['abstract'],
+            'body' => $validatedData['body'],
             'author' => $validatedData['author'],
         ]);
 

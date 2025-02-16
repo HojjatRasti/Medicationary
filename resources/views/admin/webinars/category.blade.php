@@ -25,17 +25,17 @@
         </form>
 
 
-        <form action="{{ route('admin.webinar.categories.delete', $webinar_categories[0]->id ) }}" method="post"
+        <form action="{{ route('admin.webinar.categories.delete', $webinar_categories[0]->id) }}" method="post"
               class="d-flex justify-content-center flex-wrap mt-5">
             @csrf
             @method('delete')
             {{-- delete category --}}
             <span class="fs-3 ">حذف دسته‌بندی</span>
             <div class="input-group mb-3 p-5">
-                <button class="btn btn-secondary col-4" type="button" id="button-addon1">حذف</button>
+                <button class="btn btn-secondary col-4" type="submit" id="button-addon1">حذف</button>
                 <select class="form-select text-center" id="inputGroupSelect01" name="category_id_delete" dir="rtl">
-                    @foreach($webinar_categories as $webinar_category)
                     <option selected>یک دسته بندی را انتخاب کنید</option>
+                    @foreach($webinar_categories as $webinar_category)
                     <option value="{{$webinar_category->id}}">{{$webinar_category->title}}</option>
                     @endforeach
                 </select>
