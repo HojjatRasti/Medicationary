@@ -45,14 +45,12 @@ class PostController extends Controller
 
         $validatedData = $request->validated();
 
-//        dd($validatedData);
-
         $createdPost = Post::create([
             'user_id' => $currentUser['id'],
             'title' => $validatedData['title'],
-//            'category_id' =>$validatedData['category_id'] ,
+            'category_id' =>$validatedData['category_id'] ,
             'abstract' => $validatedData['abstract'],
-            'body' => $validatedData['body'],
+            'body' => $validatedData['quillBody'],
             'author' => $validatedData['author'],
         ]);
 
@@ -80,7 +78,9 @@ class PostController extends Controller
 
         $post = Post::findOrFail($post_id);
 
-        return view('admin.articles.edit', compact('post','currentUser'));
+        $categories = Post_category::get();
+
+        return view('admin.articles.edit', compact('post','currentUser', 'categories'));
     }
 
     /**
@@ -97,9 +97,9 @@ class PostController extends Controller
         $updatePost = $post->Update([
             'user_id' => $currentUser['id'],
             'title' => $validatedData['title'],
-//            'category_id' =>$validatedData['category_id'] ,
+            'category_id' =>$validatedData['category_id'] ,
             'abstract' => $validatedData['abstract'],
-            'body' => $validatedData['body'],
+            'body' => $validatedData['quillBody'],
             'author' => $validatedData['author'],
         ]);
 

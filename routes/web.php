@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\ArticlesController;
 use App\Http\Controllers\Admin\Blog\PostController;
+use App\Http\Controllers\Admin\Blog\QuillController;
 use App\Http\Controllers\Admin\CategoriesController;
 use App\Http\Controllers\Admin\InquiriesController;
 use App\Http\Controllers\Admin\LoginController;

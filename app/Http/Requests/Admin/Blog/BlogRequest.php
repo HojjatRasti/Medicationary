@@ -27,7 +27,7 @@ class BlogRequest extends FormRequest
             'category_id' => 'required|exists:post_categories,id',
             'author' => 'required|min:3|max:50',
             'abstract' => 'required|min:10',
-            'body' => 'required|min:20',
+            'quillBody' => 'required|min:20',
             'post_url' => 'file|mimes:pdf',
             'thumbnail_url' => 'required|image|mimes:jpeg,png,jpg'
 

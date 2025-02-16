@@ -18,14 +18,10 @@
             <div class="input-group mb-3 w-100" >
                 <!-- category input -->
                 <div class="btn-group col-md-6" >
-                    <select class="form-select text-center " id="inputGroupSelect03" aria-label="Example select with button addon" dir="rtl">
-                        <option selected>دسته‌بندی</option>
-                        <option value="1">
-                          <span>تناسب اندام</span>
-                          <span>(56)</span>
-                        </option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select class="form-select text-center" name="category_id" id="inputGroupSelect03" aria-label="Example select with button addon" dir="rtl">
+                    @foreach($categories as $category)
+                        <option value="{{$category->id}}">{{$category->title}}</option>
+                        @endforeach
                       </select>
                 </div>
 
@@ -50,7 +46,9 @@
             <div class="col-10 mt-3 text-center">
                 <label for="thumbnail_url">افزودن تامبنیل مقاله</label>
                 <input class="form-control mt-3" type="file" id="formFileMultiple" name="thumbnail_url" multiple title="افزودن تامبنیل">
-               {{-- quill text editor --}}
+
+                {{-- quill text editor --}}
+
                 <div class="mt-3 rounded" >
                     <div id="toolbar-container" class="bg-light fs-3">
                         <span class="ql-formats">
@@ -102,15 +100,13 @@
 {{--                        texts--}}
                     </div>
                 </div>
+                <input type="hidden" name="quillBody">
                 <!-- submit btn -->
                 <div class="col-auto mt-3">
                     <button type="submit" class="btn btn-primary mb-3 ps-5 pe-5 pt-2 pb-2 ">ثبت</button>
                 </div>
 
             </div>
-
-                <input type="hidden" name="body">
-
         </form>
 
     </div>
@@ -130,9 +126,9 @@
     var form = document.getElementById("article"); // get form by ID
 
     form.onsubmit = function() { // onsubmit do this first
-        var name = document.querySelector('input[body]'); // set name input var
-        name.value = JSON.stringify(quill.getContents()); // populate name input with quill data
-        return true; // submit form
+        var name = document.querySelector('input[name=quillBody]'); // set name input var
+        name.value =  quill.root.innerHTML; // populate name input with quill data
+        // return true; // submit form
     }
 
 </script>
