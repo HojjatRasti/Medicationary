@@ -13,7 +13,7 @@
             </ol>
         </nav>
         @include('errors.message')
-        <form action="{{ route('admin.post.store') }}" method="post" class="d-flex justify-content-center flex-wrap mt-5" enctype="multipart/form-data">
+        <form action="{{ route('admin.post.store') }}" id="article" method="post" class="d-flex justify-content-center flex-wrap mt-5" enctype="multipart/form-data">
             @csrf
             <div class="input-group mb-3 w-100" >
                 <!-- category input -->
@@ -43,9 +43,9 @@
             </div>
 
             <!-- discription input -->
-{{--            <div class="col-8">--}}
-{{--                <textarea class="form-control" required rows="2" cols="8" dir="rtl" placeholder="توضیحات" name="abstract"></textarea>--}}
-{{--            </div>--}}
+            <div class="col-8">
+                <textarea class="form-control" required rows="2" cols="8" dir="rtl" placeholder="توضیحات" name="abstract"></textarea>
+            </div>
             <!-- file upload area -->
             <div class="col-10 mt-3 text-center">
                 <label for="thumbnail_url">افزودن تامبنیل مقاله</label>
@@ -109,7 +109,7 @@
 
             </div>
 
-
+                <input type="hidden" name="body">
 
         </form>
 
@@ -126,5 +126,14 @@
       theme: 'snow',
 
     });
+
+    var form = document.getElementById("article"); // get form by ID
+
+    form.onsubmit = function() { // onsubmit do this first
+        var name = document.querySelector('input[body]'); // set name input var
+        name.value = JSON.stringify(quill.getContents()); // populate name input with quill data
+        return true; // submit form
+    }
+
 </script>
 @endsection

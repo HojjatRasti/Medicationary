@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Blog\BlogRequest;
 use App\Http\Requests\Admin\Blog\UpdateRequest;
 use App\Models\Post;
+use App\Models\Post_category;
 use App\Utilities\ImageUploader;
 use Illuminate\Http\Request;
 
@@ -30,7 +31,9 @@ class PostController extends Controller
     {
         $currentUser = auth()->user();
 
-        return view('admin.articles.add', compact('currentUser'));
+        $categories = Post_category::get();
+
+        return view('admin.articles.add', compact('currentUser', 'categories'));
     }
 
     /**
@@ -42,11 +45,14 @@ class PostController extends Controller
 
         $validatedData = $request->validated();
 
+//        dd($validatedData);
+
         $createdPost = Post::create([
             'user_id' => $currentUser['id'],
             'title' => $validatedData['title'],
-//            'category' => $validatedData['category'],
+//            'category_id' =>$validatedData['category_id'] ,
             'abstract' => $validatedData['abstract'],
+            'body' => $validatedData['body'],
             'author' => $validatedData['author'],
         ]);
 
@@ -91,8 +97,9 @@ class PostController extends Controller
         $updatePost = $post->Update([
             'user_id' => $currentUser['id'],
             'title' => $validatedData['title'],
-            'category' => $validatedData['category'],
+//            'category_id' =>$validatedData['category_id'] ,
             'abstract' => $validatedData['abstract'],
+            'body' => $validatedData['body'],
             'author' => $validatedData['author'],
         ]);
 

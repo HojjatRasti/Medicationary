@@ -50,6 +50,11 @@ return new class extends Migration
             $table->dropColumn(['category']);
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('podcast_categories')->onDelete('cascade');        });
+
+        Schema::table('posts', function (Blueprint $table) {
+           $table->longText('body')->after('abstract');
+            });
+
     }
 
     /**

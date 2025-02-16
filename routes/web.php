@@ -49,7 +49,8 @@ Route::prefix('admin')->group(function(){
             Route::get('category',[CategoriesController::class, 'landscapeWebinar'])->name('admin.webinars.category');
             Route::post('Webinar',[CategoriesController::class, 'store'])->name('admin.webinar.categories.store');
             Route::delete('{category_id}/deleteWebinar',[CategoriesController::class, 'delete'])->name('admin.webinar.categories.delete');
-            Route::get('{category_id}/edit',[CategoriesController::class, 'edit'])->name('admin.webinar.categories.edit');
+            Route::get('{category_id}/webinars',[CategoriesController::class, 'edit'])->name('admin.webinar.category.edit');
+            Route::put('{category_id}/updateWebinar',[CategoriesController::class, 'update'])->name('admin.webinar.categories.update');
             Route::put('{webinar_id}/update',[WebinarsController::class, 'update'])->name('admin.webinars.update');
             Route::delete('{webinar_id}/delete',[WebinarsController::class, 'delete'])->name('admin.webinars.delete');
 
@@ -64,7 +65,8 @@ Route::prefix('admin')->group(function(){
             Route::get('category',[CategoriesController::class, 'landscapePodcast'])->name('admin.podcasts.category');
             Route::post('Podcast',[CategoriesController::class, 'store'])->name('admin.podcast.categories.store');
             Route::delete('{category_id}/deletePodcast',[CategoriesController::class, 'delete'])->name('admin.podcast.categories.delete');
-            Route::get('{category_id}/editPodcast',[CategoriesController::class, 'edit'])->name('admin.podcast.categories.edit');
+            Route::get('{category_id}/podcasts',[CategoriesController::class, 'edit'])->name('admin.podcast.category.edit');
+            Route::put('{category_id}/updatePodcast',[CategoriesController::class, 'update'])->name('admin.podcast.categories.update');
             Route::put('{podcast_id}/update', [PodcastsController::class, 'update'])->name('admin.podcasts.update');
             Route::delete('{podcast_id}/delete', [PodcastsController::class, 'delete'])->name('admin.podcasts.delete');
 
@@ -79,7 +81,8 @@ Route::prefix('admin')->group(function(){
             Route::get('{answer_id}/edit',[InquiriesController::class, 'edit'])->name('admin.inquiries.edit');
             Route::get('category',[CategoriesController::class, 'landscapeInquiries'])->name('admin.inquiries.category');
             Route::delete('{category_id}/deleteInquiry',[CategoriesController::class, 'delete'])->name('admin.inquiry.categories.delete');
-            Route::get('{category_id}/editInquiry',[CategoriesController::class, 'edit'])->name('admin.inquiry.categories.edit');
+            Route::get('{category_id}/inquiries',[CategoriesController::class, 'edit'])->name('admin.inquiry.category.edit');
+            Route::put('{category_id}/updateAnswer',[CategoriesController::class, 'update'])->name('admin.inquiry.categories.update');
             Route::post('Answer',[CategoriesController::class, 'store'])->name('admin.inquiry.categories.store');
             Route::put('{answer_id}/update',[InquiriesController::class, 'update'])->name('admin.inquiries.update');
             Route::delete('{answer_id}/delete',[InquiriesController::class, 'delete'])->name('admin.inquiries.delete');
@@ -94,7 +97,8 @@ Route::prefix('admin')->group(function(){
             Route::get('{post_id}/edit',[PostController::class, 'edit'])->name('admin.post.edit');
             Route::get('category',[CategoriesController::class, 'landscapeArticles'])->name('admin.post.category');
             Route::delete('{category_id}/deletePost',[CategoriesController::class, 'delete'])->name('admin.post.categories.delete');
-            Route::get('{category_id}/editPost',[CategoriesController::class, 'edit'])->name('admin.post.categories.edit');
+            Route::get('{category_id}/articles',[CategoriesController::class, 'edit'])->name('admin.post.category.edit');
+            Route::put('{category_id}/updatePost',[CategoriesController::class, 'update'])->name('admin.post.categories.update');
             Route::post('Post',[CategoriesController::class, 'store'])->name('admin.post.categories.store');
 
             Route::put('{post_id}/update',[PostController::class, 'update'])->name('admin.post.update');
