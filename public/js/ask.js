@@ -1,5 +1,8 @@
+// search box codes
 var searchBtn = document.querySelector('.search-btn');
 var closeSearch = document.querySelector('.search-close');
+// var searchResult = document.querySelector('.searchResultList');
+// var searchInput = document.querySelector('.searchInput');
 
 searchBtn.addEventListener('click',function(){
 
@@ -15,6 +18,16 @@ closeSearch.addEventListener('click',function(){
     closeSearch.classList.add('hide-btn', 'd-none');
 
 });
+
+// searchInput.addEventListener('keyup',function(){
+
+//     searchInput.value == "" ? searchResult.classList.add('d-none') : searchResult.classList.remove('d-none');
+
+// });
+
+
+
+
 
 
 // ask page codes
