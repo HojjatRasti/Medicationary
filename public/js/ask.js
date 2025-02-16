@@ -1,8 +1,10 @@
 // search box codes
 var searchBtn = document.querySelector('.search-btn');
 var closeSearch = document.querySelector('.search-close');
-// var searchResult = document.querySelector('.searchResultList');
-// var searchInput = document.querySelector('.searchInput');
+var switchBtn = document.querySelector('.searchBtn')
+var categoryBtn = document.querySelector('.categoryBtn');
+var searchDiv = document.querySelector('.searchDiv');
+var categoryDiv = document.querySelector('.categoryDiv');
 
 searchBtn.addEventListener('click',function(){
 
@@ -19,11 +21,19 @@ closeSearch.addEventListener('click',function(){
 
 });
 
-// searchInput.addEventListener('keyup',function(){
+switchBtn.addEventListener('click',function(){
 
-//     searchInput.value == "" ? searchResult.classList.add('d-none') : searchResult.classList.remove('d-none');
+    categoryDiv.classList.toggle('d-none');
+    searchDiv.classList.toggle('d-none');
 
-// });
+});
+
+categoryBtn.addEventListener('click',function(){
+
+    categoryDiv.classList.toggle('d-none');
+    searchDiv.classList.toggle('d-none');
+
+});
 
 
 

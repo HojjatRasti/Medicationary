@@ -23,15 +23,32 @@
             </div>
             {{-- search box --}}
             <div class="collapse col-12" id="collapseExample">
-                <div class="input-group flex-nowrap " dir="ltr">
-                    {{-- search btn --}}
-                    {{-- <span class="btn input-group-text rounded-bottom-0" id="addon-wrapping" style="background-color: #f8f9fa; border:1px solid #dee2e6;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path fill="#8ad9e6" d="M10 18a7.95 7.95 0 0 0 4.897-1.688l4.396 4.396l1.414-1.414l-4.396-4.396A7.95 7.95 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8s3.589 8 8 8m0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6s-6-2.691-6-6s2.691-6 6-6" stroke-width="0.5" stroke="#8ad9e6"/></svg>
-                    </span> --}}
+                <div class="input-group flex-nowrap searchDiv " dir="ltr">
+                    {{-- switch to category search --}}
+                    <button class="btn input-group-text categoryBtn" id="addon-wrapping" style="background-color: #f8f9fa; border:1px solid #dee2e6;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 32 32"><path fill="#8ad9e6" d="M27 22.141V18a2 2 0 0 0-2-2h-8v-4h2a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-6a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2v4H7a2 2 0 0 0-2 2v4.142a4 4 0 1 0 2 0V18h8v4.142a4 4 0 1 0 2 0V18h8v4.141a4 4 0 1 0 2 0M13 4h6l.001 6H13ZM8 26a2 2 0 1 1-2-2a2 2 0 0 1 2 2m10 0a2 2 0 1 1-2-2a2.003 2.003 0 0 1 2 2m8 2a2 2 0 1 1 2-2a2 2 0 0 1-2 2" stroke-width="1" stroke="#8ad9e6"/></svg>
+                    </button>
                     {{-- search input --}}
-                    <input dir="rtl" type="text" class="border-primary-subtle border-4 rounded-2 searchInput form-control text-center" placeholder="جستجو..."  aria-describedby="addon-wrapping">
+                    <input dir="rtl" type="text" class=" searchInput form-control text-center" placeholder="جستجو..."  aria-describedby="addon-wrapping">
 
                 </div>
+                {{-- category search --}}
+                <div class="categoryDiv input-group mb-3 d-none " dir="ltr">
+
+                    <button class="btn input-group-text searchBtn" id="addon-wrapping" style="background-color: #f8f9fa; border:1px solid #dee2e6;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path fill="#8ad9e6" d="M10 18a7.95 7.95 0 0 0 4.897-1.688l4.396 4.396l1.414-1.414l-4.396-4.396A7.95 7.95 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8s3.589 8 8 8m0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6s-6-2.691-6-6s2.691-6 6-6" stroke-width="0.5" stroke="#8ad9e6"/></svg>
+                    </button>
+                    <select class="form-select text-center " id="inputGroupSelect03" aria-label="Example select with button addon" dir="rtl">
+                      <option selected>Choose...</option>
+                      <option value="1">
+                        <span>تناسب اندام</span>
+                        <span>(56)</span>
+                      </option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                </div>
+
                 {{-- search result --}}
                 {{-- <div class="searchResultList text-center d-none">
                     <ul class="list-group p-0 rounded-top-0">
