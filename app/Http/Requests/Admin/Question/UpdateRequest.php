@@ -23,9 +23,9 @@ class UpdateRequest extends FormRequest
     {
         return [
             'title' => 'required|min:5|max:75',
-            'category' => 'required|min:5|max:50',
+            'category_id' => 'required|exists:answer_categories,id',
             'description' => 'required|min:5',
-            'file_url' => 'nullable|file|mimes:pdf',
+//            'file_url' => 'nullable|file|mimes:pdf',
             'thumbnail_url' => 'nullable|image|mimes:png,jpeg,jpg'
         ];
     }

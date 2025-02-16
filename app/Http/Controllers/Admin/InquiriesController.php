@@ -7,6 +7,7 @@ use App\Http\Requests\Admin\Question\InsertRequest;
 use App\Http\Requests\Admin\Question\UpdateRequest;
 use App\Http\Requests\Frontend\Question\QuestionRequest;
 use App\Models\Answer;
+use App\Models\Answer_category;
 use App\Models\Question;
 use App\Utilities\ImageUploader;
 
@@ -57,7 +58,9 @@ class InquiriesController extends Controller
 
         $question = Question::findOrFail($question_id);
 
-        return view('admin.inquiries.answer', compact('currentUser','question'));
+        $categories = Answer_category::get();
+
+        return view('admin.inquiries.answer', compact('currentUser','question','categories'));
     }
 
     public function insert(InsertRequest $request, $question_id){
@@ -69,7 +72,7 @@ class InquiriesController extends Controller
         $createdAnswer = Answer::create([
             'question_id' => $question_id,
             'title' => $validatedData['title'],
-            'category' => $validatedData['category'],
+            'category_id' => $validatedData['category_id'],
             'description' => $validatedData['description'],
             'user_id' => $currentUser['id']
         ]);
@@ -104,7 +107,7 @@ class InquiriesController extends Controller
 
         $updatedAnswer = $answer->update([
             'title' => $validatedData['title'],
-            'category' => $validatedData['category'],
+            'category_id' => $validatedData['category'],
             'description' => $validatedData['description'],
             'user_id' => $currentUser['id']
         ]);

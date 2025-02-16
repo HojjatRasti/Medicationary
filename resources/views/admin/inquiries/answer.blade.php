@@ -22,20 +22,16 @@
 
         <div class="answer-text mt-3 p-3">
             @include('errors.message')
-            <form action="{{ route('admin.inquiries.insert', $question->id) }}" method="post" class="d-flex justify-content-center flex-wrap mt-5" enctype="multipart/form-data" dir="ltr">
+            <form action="{{ route('admin.inquiries.insert', $question->id) }}" id="answer" method="post" class="d-flex justify-content-center flex-wrap mt-5" enctype="multipart/form-data" dir="ltr">
                 @csrf
                 <div class="input-group mb-3 w-100" >
 
                     <!-- category input -->
                     <div class="btn-group col-md-6" >
-                        <select class="form-select text-center " id="inputGroupSelect03" aria-label="Example select with button addon" dir="rtl">
-                            <option selected>دسته‌بندی</option>
-                            <option value="1">
-                              <span>تناسب اندام</span>
-                              <span>(56)</span>
-                            </option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                        <select class="form-select text-center " name="category_id" id="inputGroupSelect03" aria-label="Example select with button addon" dir="rtl">
+                            @foreach($categories as $category)
+                            <option value="{{$category->id}}">{{$category->title}}</option>
+                            @endforeach
                           </select>
                     </div>
                     <!-- middle pic -->
@@ -48,9 +44,9 @@
                 </div>
 
                 <!-- discription input -->
-                <div class="col-8">
-                    <textarea class="form-control" required rows="5" dir="rtl" placeholder="جواب پرسش" name="description"></textarea>
-                </div>
+{{--                <div class="col-8">--}}
+{{--                    <textarea class="form-control" required rows="5" dir="rtl" placeholder="جواب پرسش" name="description"></textarea>--}}
+{{--                </div>--}}
                 <!-- file upload area -->
                 <div class="col-10 mt-3 text-center">
                     <label for="thumbnail_url">افزودن تامبنیل مقاله</label>
@@ -106,6 +102,7 @@
                         <div id="editor" class="bg-light">
                         </div>
                     </div>
+                    <input type="hidden" name="description">
                     <!-- submit btn -->
                     <div class="col-auto mt-3">
                         <button type="submit" class="btn btn-primary mb-3 ps-5 pe-5 pt-2 pb-2 ">ثبت</button>
@@ -129,5 +126,13 @@
       theme: 'snow',
 
     });
+
+    var form = document.getElementById("answer"); // get form by ID
+
+    form.onsubmit = function() { // onsubmit do this first
+        var name = document.querySelector('input[name=description]'); // set name input var
+        name.value =  quill.root.innerHTML; // populate name input with quill data
+        // return true; // submit form
+    }
 </script>
 @endsection

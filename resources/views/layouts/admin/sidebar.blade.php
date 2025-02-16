@@ -150,7 +150,7 @@
       <div id="ask-item" class="collap-data collapse text-center col-10">
         <ul id="side-item">
           <!-- ask upload -->
-          <a href="#"><li id="webinar1">
+          <a href="{{route('admin.inquiries.input')}}"><li id="webinar1">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="15.999" viewBox="0 0 16 15.999">
             <defs>
               <clipPath id="clip-path">
