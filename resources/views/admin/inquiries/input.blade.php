@@ -14,9 +14,11 @@
 
 
         <div class="list-page-titles d-flex justify-content-start p-3 text-center">
+
             <div class="h4 col-1">#</div>
             <div class="h4 col-2">تاریخ ایجاد</div>
-            <div class="h4 col-8 text-center">عنوان پرسش</div>
+            <div class="h4 col-6 text-center">عنوان پرسش</div>
+            <div class="h4 col-2">وضیعت پاسخ</div>
 
         </div>
 
@@ -27,9 +29,20 @@
 {{--
             <div class="display-4 col-8 overflow-hidden p-0">
 --}}
-            <div id="admin-ask-title" class="display-4 col-8 overflow-hidden">
+            <div id="admin-ask-title" class="display-4 col-6 overflow-hidden">
                 {{$question->title}}
             </div>
+
+            <div class="col-2 ">
+                <input type="checkbox" class="btn-check " id="btn-check-outlined" autocomplete="off">
+                <label class="btn btn-outline-primary p-0 ansStaus noAns " for="btn-check-outlined">
+                    <p class="answerStatus m-2">
+                        بی پاسخ
+                    </p>
+                </label>
+            </div>
+
+
             <div class="list-icons d-flex justify-content-around col-1 pe-4 ps-4" title="جواب دادن به پرسش">
                 <a href="{{ route('admin.inquiries.answer', $question->id)}}">
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
@@ -47,5 +60,21 @@
         {{$questions->links()}}
     </div>
 </div>
+
+<script>
+    const answerStatus = document.querySelector('.answerStatus');
+    const ansStaus = document.querySelector('.ansStaus');
+    answerStatus.addEventListener('click',function(){
+
+        if(ansStaus.classList.contains('noAns') == true){
+            answerStatus.innerHTML = "با پاسخ";
+            ansStaus.classList.remove('noAns');
+        }else{
+            answerStatus.innerHTML = "بی پاسخ"
+            ansStaus.classList.add('noAns');
+        }
+    });
+
+</script>
 
 @endsection
