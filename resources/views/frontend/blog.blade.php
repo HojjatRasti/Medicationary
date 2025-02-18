@@ -26,14 +26,10 @@
                 <div class="input-group flex-nowrap searchDiv " dir="ltr">
                     {{-- switch to category search --}}
                     <button class="btn input-group-text categoryBtn" id="addon-wrapping" style="background-color: #f8f9fa; border:1px solid #dee2e6;">
-
-{{--                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 32 32"><path fill="#8ad9e6" d="M27 22.141V18a2 2 0 0 0-2-2h-8v-4h2a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-6a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2v4H7a2 2 0 0 0-2 2v4.142a4 4 0 1 0 2 0V18h8v4.142a4 4 0 1 0 2 0V18h8v4.141a4 4 0 1 0 2 0M13 4h6l.001 6H13ZM8 26a2 2 0 1 1-2-2a2 2 0 0 1 2 2m10 0a2 2 0 1 1-2-2a2.003 2.003 0 0 1 2 2m8 2a2 2 0 1 1 2-2a2 2 0 0 1-2 2" stroke-width="1" stroke="#8ad9e6"/></svg>--}}
-
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32"><path fill="#8ad9e6" d="M27 22.141V18a2 2 0 0 0-2-2h-8v-4h2a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-6a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2v4H7a2 2 0 0 0-2 2v4.142a4 4 0 1 0 2 0V18h8v4.142a4 4 0 1 0 2 0V18h8v4.141a4 4 0 1 0 2 0M13 4h6l.001 6H13ZM8 26a2 2 0 1 1-2-2a2 2 0 0 1 2 2m10 0a2 2 0 1 1-2-2a2.003 2.003 0 0 1 2 2m8 2a2 2 0 1 1 2-2a2 2 0 0 1-2 2" stroke-width="1" stroke="#8ad9e6"/></svg>
-
                     </button>
                     {{-- search input --}}
-                    <input dir="rtl" type="text" id="search" class=" searchInput form-control text-center" placeholder="جستجو..."  aria-describedby="addon-wrapping">
+                    <input dir="rtl" type="text" id="searchBox" class=" searchInput form-control text-center" placeholder="جستجو..."  aria-describedby="addon-wrapping">
 
                 </div>
                 {{-- category search --}}
@@ -47,25 +43,10 @@
                       <option disabled selected>دسته بندی مدنظر خود را انتخاب کنید</option>
                     @foreach($categories as $category)
                       <option value="{{$category->id}}">{{$category->title}}</option>
-                        @endforeach
+                    @endforeach
                     </select>
                 </div>
 
-                {{-- search result --}}
-                {{-- <div class="searchResultList text-center d-none">
-                    <ul class="list-group p-0 rounded-top-0">
-                        <li class="list-group-item">
-                            <div class="d-flex justify-content-around mt-2">
-                                <p>تایتل مقاله</p>
-                                <p>نویسند</p>
-                            </div>
-                        </li>
-                        <li class="list-group-item">A second item</li>
-                        <li class="list-group-item">A third item</li>
-                        <li class="list-group-item">A fourth item</li>
-                        <li class="list-group-item">And a fifth one</li>
-                    </ul>
-                </div> --}}
 
             </div>
         </div>
@@ -105,8 +86,7 @@
 
     <div class="search-results">
     </div>
-{{--    <div class="categorySearch-results">--}}
-{{--    </div>--}}
+
     {{-- pagination --}}
     {{$posts->links()}}
 
@@ -114,7 +94,7 @@
 
         $(document).ready(function() {
 
-            $('#search').on('keyup', function() {
+            $('#searchBox').on('keyup', function() {
                 const input = $(this);
                 const searchResult = $('.search-results');
                 // searchResult.html('در حال جستجو ...');
@@ -164,18 +144,5 @@
 
         });
 
-
-        // Data-table Code
-        /*        $(document).ready(function(){
-                    $(".data-table").DataTable({
-                        processing: true,
-                        severSide: true,
-{{--ajax: "{{route('home.blog.index')}}",--}}
-        column: [
-            {data: 'title', name: 'title'},
-            {data: 'author', name: 'author'}
-        ]
-    })
-});*/
     </script>
 @endsection
