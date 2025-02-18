@@ -120,5 +120,8 @@ Route::prefix('')->group(function (){
     Route::get('responses',[WeblogController::class, 'responses'])->name('home.responses');
     Route::get('podcast',[WeblogController::class, 'podcast'])->name('home.podcast');
     Route::get('blog',[WeblogController::class, 'blog'])->name('home.blog');
+    Route::get('basicSearch',[WeblogController::class, 'basicSearch'])->name('home.blog.search');
+    Route::get('categorySearch',[WeblogController::class, 'categorySearch'])->name('home.blog.categorySearch');
+//    Route::get('DataTable',[WeblogController::class, 'DataTable'])->name('home.blog.index');
     Route::get('blog/post{post_id}',[WeblogController::class, 'article'])->name('home.post');
 });

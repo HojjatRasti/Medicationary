@@ -3,12 +3,18 @@
 namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Frontend\Blog\categorySearchRequest;
+use App\Http\Requests\Frontend\Blog\SearchRequest;
 use App\Models\Answer;
 use App\Models\Podcast;
 use App\Models\Post;
+use App\Models\Post_category;
 use App\Models\Webinar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
+use Yajra\DataTables\Services\DataTable;
+use function App\Utilities\diePage;
+use function App\Utilities\isAjaxRequest;
 
 class WeblogController extends Controller
 {
@@ -29,7 +35,101 @@ class WeblogController extends Controller
 
         $posts = Post::paginate(5);
 
-        return view('frontend.blog', compact('posts'));
+        $categories = Post_category::get();
+
+        return view('frontend.blog', compact('posts', 'categories'));
+    }
+
+    // Data-table command
+/*    public function dataTable(Request $request){
+
+        if ($request->ajax()){
+            $user = Post::query();
+
+            return DataTable::of($user)->make(true);
+        }
+    }*/
+    public function basicSearch(SearchRequest $request){
+
+        $validatedData = $request->validated();
+
+        $output = "";
+//        ->orWhere('author', 'Like', '%'.$validatedData['keyword'].'%')
+        $results = Post::where('title', 'Like', '%'.$validatedData['keyword'].'%')->get();
+
+        foreach ($results as $result){
+            $output .=
+                "<div class='article container text-center d-md-flex justify-content-end data-table'>
+
+                <img class='col-md-4 ms-3 img-thumbnail rounded object-fit-fill ' src='/" . $result->thumbnail_url . "' alt=''
+                     style='max-height: 245px;'>
+
+                <div class='article-data col-md-8 text-md-end'>
+                    <p class='article-cat h3'>" . $result->category->title . "</p>
+
+                    <p class='article-title h2'>" . $result->title . "</p>
+
+                    <p class='article-cat h3'>نام نویسنده: {$result->author}</p>
+
+                    <p class='article-date'>{$result->created_at->jdate('j F Y')}</p>
+
+                    <p class='article-discription'>{$result->abstract}</p>
+                    <a href='" . route('home.post', $result->id) . "'>
+                        <button class='article-btn btn'>مطالعه بیشتر</button>
+                    </a>
+                </div>
+
+            </div>";
+        }
+
+        if (!$output){
+            $noReuslt = '';
+            return response('نتیجه ای یافت نشد');
+        }
+
+        return response($output);
+
+    }
+
+    public function categorySearch(categorySearchRequest $request){
+
+        $validatedData = $request->validated();
+
+        $output = "";
+
+        $results = Post::where('category_id', 'Like', $validatedData['keyword'])->get();
+
+        foreach ($results as $result){
+            $output .=
+                "<div class='article container text-center d-md-flex justify-content-end data-table'>
+
+                <img class='col-md-4 ms-3 img-thumbnail rounded object-fit-fill ' src='/" . $result->thumbnail_url . "' alt=''
+                     style='max-height: 245px;'>
+
+                <div class='article-data col-md-8 text-md-end'>
+                    <p class='article-cat h3'>" . $result->category->title . "</p>
+
+                    <p class='article-title h2'>" . $result->title . "</p>
+
+                    <p class='article-cat h3'>نام نویسنده: {$result->author}</p>
+
+                    <p class='article-date'>{$result->created_at->jdate('j F Y')}</p>
+
+                    <p class='article-discription'>{$result->abstract}</p>
+                    <a href='" . route('home.post', $result->id) . "'>
+                        <button class='article-btn btn'>مطالعه بیشتر</button>
+                    </a>
+                </div>
+
+            </div>";
+        }
+
+        if (!$output){
+            $noReuslt = '';
+            return response('نتیجه ای یافت نشد');
+        }
+
+        return response($output);
     }
     public function podcast(){
 
