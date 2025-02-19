@@ -77,6 +77,7 @@ Route::prefix('admin')->group(function(){
         Route::prefix('inquiries')->middleware('auth')->group(function (){
             Route::get('',[InquiriesController::class, 'landscape'])->name('admin.inquiries.landscape');
             Route::get('input',[InquiriesController::class, 'input'])->name('admin.inquiries.input');
+            Route::get('toggleStatus',[InquiriesController::class, 'toggleStatus'])->name('admin.inquiries.toggleStatus');
             Route::get('{question_id}/answer',[InquiriesController::class, 'answer'])->name('admin.inquiries.answer');
             Route::post('{question_id}/insert',[InquiriesController::class, 'insert'])->name('admin.inquiries.insert');
             Route::get('{answer_id}/edit',[InquiriesController::class, 'edit'])->name('admin.inquiries.edit');

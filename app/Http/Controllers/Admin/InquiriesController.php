@@ -4,12 +4,14 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Question\InsertRequest;
+use App\Http\Requests\Admin\Question\ToggleRequest;
 use App\Http\Requests\Admin\Question\UpdateRequest;
 use App\Http\Requests\Frontend\Question\QuestionRequest;
 use App\Models\Answer;
 use App\Models\Answer_category;
 use App\Models\Question;
 use App\Utilities\ImageUploader;
+use http\Env\Request;
 
 class InquiriesController extends Controller
 {
@@ -50,6 +52,35 @@ class InquiriesController extends Controller
         $questions = Question::paginate(10);
 
         return view('admin.inquiries.input', compact('currentUser','questions'));
+    }
+
+    public function toggleStatus(ToggleRequest $request){
+
+        $question = Question::findOrFail($request['status']);
+
+        $outPut = "";
+
+        $changeToggle = $question->Update([
+            'toggle_status' => 1 - $question['toggle_status']
+        ]);
+
+        return response($changeToggle);
+
+//        $status= '';
+//
+//        if ($question->toggle_status == 0){
+//            $status = "پاسخ داده نشده";
+//        } else {
+//            $status = 'پاسخ داده شده';
+//        }
+
+//        $outPut .= "
+//                <input type='checkbox' class='btn-check' questionId='{{$question->id}}' id='btn-check-outlined' autocomplete='off'>
+//                <label  for='btn-check-outlined' class='btn btn-outline-primary p-0  ansStaus " .   $question->toggle_status == 0 ? 'noAns' : '' . "'>
+//                    <p class='answerStatus m-2'>".
+//            $status
+//                    ."</p>
+//                </label>";
     }
 
     public function answer($question_id){

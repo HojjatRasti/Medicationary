@@ -33,13 +33,8 @@
                 {{$question->title}}
             </div>
 
-            <div class="col-2 ">
-                <input type="checkbox" class="btn-check " id="btn-check-outlined" autocomplete="off">
-                <label class="btn btn-outline-primary p-0 ansStaus noAns " for="btn-check-outlined">
-                    <p class="answerStatus m-2">
-                        بی پاسخ
-                    </p>
-                </label>
+            <div class="col-2" >
+                <button type="button" class="statusToggle {{ $question->toggle_status ? 'btn btn-primary' : '' }}" questionId="{{$question->id}}">پاسخ داده شد</button>
             </div>
 
 
@@ -62,18 +57,25 @@
 </div>
 
 <script>
-    const answerStatus = document.querySelector('.answerStatus');
-    const ansStaus = document.querySelector('.ansStaus');
-    answerStatus.addEventListener('click',function(){
 
-        if(ansStaus.classList.contains('noAns') == true){
-            answerStatus.innerHTML = "با پاسخ";
-            ansStaus.classList.remove('noAns');
-        }else{
-            answerStatus.innerHTML = "بی پاسخ"
-            ansStaus.classList.add('noAns');
-        }
+$(document).ready(function(){
+    $('.statusToggle').click(function (){
+        const btn = $(this);
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            url: '{{route('admin.inquiries.toggleStatus')}}',
+            method: 'GET',
+            data: {status:btn.attr('questionId')},
+            success: function(response) {
+                if(response == 1){
+                    btn.toggleClass('btn btn-primary')
+                }
+            },
+        });
     });
+})
 
 </script>
 
