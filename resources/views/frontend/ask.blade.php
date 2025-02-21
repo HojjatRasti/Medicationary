@@ -10,11 +10,16 @@
 
   </header>
   <!-- ask form -->
-  <div class="container">
+  <div class="container d-flex flex-wrap justify-content-center">
       @include('errors.message')
-    <form action="{{route('admin.inquiries.addInquiries')}}" method="post" class="m-5 mb-3 d-lg-flex justify-content-around">
-        @csrf
+        <div class="text-center d-flex justify-content-center">
+            <p class="p-3 col-6 border border-danger-subtle border-3 rounded">
+                سولات پرسیده شده در به دو صورت پاسخ داده می شوند در صورت جزئی بودن سوال جواب به ایمیل یا شماره تماس شما ارسال شده و در صورت کلی و مهم بودن جواب را می توانید رد بخش پاسخ‌ها پیدا کنید.
+            </p>
+        </div>
+    <form action="{{route('admin.inquiries.addInquiries')}}" method="post" class="m-2 p-2 mb-3 d-lg-flex justify-content-center col-12">
 
+        @csrf
      <div class="d-lg-flex justify-content-between col-lg-12" dir="ltr">
       <!-- qusetion and tittle section -->
      <div id="ask-left-items" class="col-12 p-3 col-lg-6">
@@ -76,11 +81,7 @@
 
 
     </form>
-    {{-- save question permision --}}
-    <div class="form-check d-flex justify-content-center fs-4" >
-        <input class="form-check-input ms-2" type="checkbox" value="" id="flexCheckChecked" checked>
-        <label class="form-check-label" for="flexSwitchCheckChecked" dir="rtl">تمایل دارم که پرسش و جواب آن در سایت قرار گیرد.</label>
-    </div>
+
 
   </div>
 @endsection
