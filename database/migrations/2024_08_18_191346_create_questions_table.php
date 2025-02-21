@@ -18,6 +18,7 @@ return new class extends Migration
             $table->char('mobile',11)->nullable();
             $table->char('explanation');
             $table->string('email')->unique()->nullable();
+            $table->boolean('toggle_status')->default(0);
             $table->timestamps();
         });
     }
