@@ -16,8 +16,8 @@
                 @csrf
                 <div class="input-group mb-3 w-100">
                     <!-- category input -->
-                    <div class="btn-group col-md-6" >
-                        <select class="form-select text-center " id="inputGroupSelect03" aria-label="Example select with button addon" dir="rtl">
+                    <div class="btn-group form-control" >
+                        <select class="form-select text-center cat-multi-select" multiple="multiple" id="inputGroupSelect03" aria-label="Example select with button addon" dir="rtl" pl>
                             <option selected>دسته‌بندی</option>
                             <option value="1">
                               <span>تناسب اندام</span>
@@ -28,7 +28,7 @@
                           </select>
                     </div>
                     <!-- middle pic -->
-                    <span class="input-group-text">
+                    <span class="input-group-text d-none d-sm-inline ">
                         <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 64 64">
                             <g transform="rotate(180 32 32)">
                                 <path fill="currentColor"
@@ -41,7 +41,7 @@
                         </svg>
                     </span>
                     <!-- title input -->
-                    <input type="text" class="form-control text-center" name="title" placeholder="عنوان" required>
+                    <input type="text" class="form-control text-center " name="title" placeholder="عنوان" required>
                 </div>
                 <!-- discription input -->
                 <div class="col-8">
@@ -65,4 +65,5 @@
         </div>
 
     </div>
+
 @endsection
