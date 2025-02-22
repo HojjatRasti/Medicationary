@@ -15,6 +15,7 @@
 {{--    <script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>--}}
     <script type="module" src="../js/podcast.js"></script>
     <script type="module" src="../js/ask.js"></script>
+    @turnstileScripts()
 </head>
 <body>
     <!-- nav bar -->

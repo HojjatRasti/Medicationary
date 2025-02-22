@@ -11,7 +11,7 @@ use App\Models\Answer;
 use App\Models\Answer_category;
 use App\Models\Question;
 use App\Utilities\ImageUploader;
-use http\Env\Request;
+
 
 class InquiriesController extends Controller
 {
@@ -43,6 +43,13 @@ class InquiriesController extends Controller
         }
         return back()->with('success', 'درخواست با موفقیت ثبت شد');
 
+    }
+
+    public function submit(Request $request)
+    {
+        $request->validate([
+            'cf-turnstile-response' => ['required', Rule::turnstile()],
+        ]);
     }
 
     public function input(){
