@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Frontend\Question;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class QuestionRequest extends FormRequest
 {
@@ -26,7 +27,8 @@ class QuestionRequest extends FormRequest
             'question_title' => 'required|min:5|max:80',
             'email' => 'nullable|email|min:3|max:200',
             'mobile' => 'nullable|digits:11',
-            'explanation' => 'required|min:10'
+            'explanation' => 'required|min:10',
+            'turnstile_response' => ['required', Rule::turnstile()],
         ];
     }
 }
