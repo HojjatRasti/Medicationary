@@ -18,7 +18,7 @@
                 <div class="input-group mb-3 w-100">
                     <!-- category input -->
                     <div class="btn-group col-md-6" >
-                        <select class="form-select text-center " id="inputGroupSelect03" aria-label="Example select with button addon" dir="rtl">
+                        <select class="form-select text-center cat-multi-select" name="cat[]" multiple="multiple" id="inputGroupSelect03" aria-label="Example select with button addon" dir="rtl">
                             <option selected>دسته‌بندی</option>
                             <option value="1">
                               <span>تناسب اندام</span>
