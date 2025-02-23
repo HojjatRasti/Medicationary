@@ -19,13 +19,10 @@
                     <!-- category input -->
                     <div class="btn-group col-md-6" >
                         <select class="form-select text-center cat-multi-select" name="cat[]" multiple="multiple" id="inputGroupSelect03" aria-label="Example select with button addon" dir="rtl">
-                            <option selected>دسته‌بندی</option>
-                            <option value="1">
-                              <span>تناسب اندام</span>
-                              <span>(56)</span>
-                            </option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                            @foreach($categories as $category)
+                            <option value="{{$category->id}} {{ str_contains($podcast->category_id, $category->title) ? 'selected' : '' }}" >
+                                {{$category->title}}</option>
+                            @endforeach
                           </select>
                     </div>
                     <!-- middle pic -->

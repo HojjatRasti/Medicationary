@@ -45,9 +45,8 @@ class PodcastsController extends Controller
         foreach ($validatedData['cat'] as $cat){
             $array_categories = Podcast_category::findorFail($cat)->pluck('title')->toArray();
 //            $array_categories = $category->title;
-
         }
-
+        dd($array_categories);
         $string_cat = implode(' ', $array_categories);
 
         $createdPodcast = Podcast::create([
@@ -71,7 +70,9 @@ class PodcastsController extends Controller
 
         $podcast = Podcast::findOrFail($podcast_id);
 
-        return view('admin.podcasts.edit', compact('podcast','currentUser'));
+        $categories = Podcast_category::get();
+
+        return view('admin.podcasts.edit', compact('podcast','currentUser', 'categories'));
     }
 
     public function update(UpdateRequest $request, $podcast_id){
