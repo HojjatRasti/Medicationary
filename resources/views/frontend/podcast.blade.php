@@ -23,7 +23,7 @@
 
                 <span id="podcast-name" class="fs-2 fw-semibold">{{$podcast->title}}</span>
 
-                <span id="podcast-creator-name" class="fs-5 fw-light text-body-secondary me-3 mt-2">{{$podcast->category}}</span>
+                <span id="podcast-creator-name" class="fs-5 fw-light text-body-secondary me-3 mt-2">{{$podcast->category_id}}</span>
 
             </div>
 

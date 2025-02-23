@@ -11,7 +11,15 @@ class Podcast extends Model
 
     protected $guarded = [];
 
+    public function setCatAttribute($value)
+    {
+        $this->attributes['cat'] = json_encode($value);
+    }
+    public function getCatAttribute($value)
+    {
+        return $this->attributes['cat'] = json_decode($value);
+    }
     public function category(){
-        return $this->belongsTo(Podcast_category::class);
+        return $this->hasMany(Podcast_category::class);
     }
 }

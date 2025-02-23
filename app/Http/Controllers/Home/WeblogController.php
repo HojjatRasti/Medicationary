@@ -96,6 +96,9 @@ class WeblogController extends Controller
         $validatedData = $request->validated();
 
         $output = "";
+        // آیدی کتگوری رو تا اینجا داری
+
+//        $category = Post_category::where()
 
         $results = Post::where('category_id', 'Like', $validatedData['keyword'])->get();
 

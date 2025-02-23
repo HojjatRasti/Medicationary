@@ -17,14 +17,10 @@
                 <div class="input-group mb-3 w-100">
                     <!-- category input -->
                     <div class="btn-group form-control" >
-                        <select class="form-select text-center cat-multi-select" multiple="multiple" id="inputGroupSelect03" aria-label="Example select with button addon" dir="rtl" pl>
-                            <option selected>دسته‌بندی</option>
-                            <option value="1">
-                              <span>تناسب اندام</span>
-                              <span>(56)</span>
-                            </option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                        <select class="form-select text-center cat-multi-select" name="cat[]" multiple="multiple" id="inputGroupSelect03" aria-label="Example select with button addon" dir="rtl" pl>
+                            @foreach($categories as $category)
+                            <option value="{{$category->id}}">{{$category->title}}</option>
+                            @endforeach
                           </select>
                     </div>
                     <!-- middle pic -->

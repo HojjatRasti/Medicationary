@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Podcast\PodcastRequest;
 use App\Http\Requests\Admin\Podcast\UpdateRequest;
 use App\Models\Podcast;
+use App\Models\Podcast_category;
 use App\Utilities\ImageUploader;
 use Illuminate\Http\Request;
 
@@ -18,6 +19,8 @@ class PodcastsController extends Controller
 
         $podcasts = Podcast::paginate(10);
 
+
+
         return view('admin.podcasts.index', compact('currentUser', 'podcasts'));
     }
 
@@ -26,7 +29,9 @@ class PodcastsController extends Controller
 
         $currentUser = auth()->user();
 
-        return view('admin.podcasts.add', compact('currentUser'));
+        $categories = Podcast_category::get();
+
+        return view('admin.podcasts.add', compact('currentUser','categories'));
     }
 
     public function store(PodcastRequest $request)
@@ -35,9 +40,19 @@ class PodcastsController extends Controller
 
         $currentUser = auth()->user();
 
+        $array_categories = [];
+
+        foreach ($validatedData['cat'] as $cat){
+            $array_categories = Podcast_category::findorFail($cat)->pluck('title')->toArray();
+//            $array_categories = $category->title;
+
+        }
+
+        $string_cat = implode(' ', $array_categories);
+
         $createdPodcast = Podcast::create([
             'title' => $validatedData['title'],
-            'category' => $validatedData['category'],
+            'category_id' => $string_cat,
             'description' => $validatedData['description'],
             'user_id' => $currentUser['id']
         ]);

@@ -23,7 +23,7 @@ class PodcastRequest extends FormRequest
     {
         return [
             'title' => 'required|min:3|max:128',
-            'category' => 'required|min:3|max:128',
+            'cat' => 'required',
             'description' => 'required|min:10',
             'podcast_url' => 'required|file|mimes:mp3,m4a',
             'thumbnail_url' => 'required|image|mimes:jpeg,png,jpg'
