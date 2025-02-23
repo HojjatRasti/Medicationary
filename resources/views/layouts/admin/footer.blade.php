@@ -10,11 +10,9 @@
     const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
 
     $(document).ready(function() {
+        
         $('.cat-multi-select').select2();
-        $('.select2-selection').css({'border-radius':'.375rem 0 0 .375rem ' , 'border': } ,);
-        $('.select2-selection').css( ,'none');
-        $('.select2-selection').attr('placeholder', 'دسته‌بندی');
-
+        $('.select2-selection').css({'border-radius':'.375rem 0 0 .375rem ' , 'border':'none' } ,);
     });
 
 </script>
