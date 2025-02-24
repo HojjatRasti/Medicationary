@@ -214,10 +214,14 @@ button{
 }
 
 #blog-article-title{
-    height: 500px;
-    background-color: #F1F9FF;
+    height: 350px;
+    background-color: #9fc6e4;
     margin-top: -10rem;
 
+}
+
+.article-title{
+    margin-top: 10rem;
 }
 
 #blog-article-title h3{
@@ -231,9 +235,15 @@ button{
 }
 
 #blog-article-text{
-    background-color: #F1F9FF;
+    background-color: #cbe9ff;
     /* border: 1px solid #06184B; */
     border-radius: 5px;
+
+}
+
+#blog-article-text img{
+    /* height: 100%; */
+    max-width: 100%;
 }
 
 #blog-article-text p{
