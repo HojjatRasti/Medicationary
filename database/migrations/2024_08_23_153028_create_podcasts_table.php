@@ -17,6 +17,7 @@ return new class extends Migration
             $table->char('title',255);
             $table->char('category');
             $table->char('description');
+            $table->char('abstract')->nullable();
             $table->char('podcast_url')->nullable();
             $table->char('thumbnail_url')->nullable();
             $table->timestamps();

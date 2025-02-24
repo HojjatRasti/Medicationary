@@ -17,7 +17,7 @@
                 <div class="input-group mb-3 w-100">
                     <!-- category input -->
                     <div class="btn-group form-control" >
-                        <select class="form-select text-center cat-multi-select" name="cat[]" multiple="multiple" id="inputGroupSelect03" aria-label="Example select with button addon" dir="rtl">
+                        <select class="form-select text-center cat-multi-select" name="cat[]" multiple id="inputGroupSelect03" aria-label="Example select with button addon" dir="rtl">
                             @foreach($categories as $category)
                             <option value="{{$category->id}}">{{$category->title}}</option>
                             @endforeach
