@@ -43,11 +43,10 @@ class PodcastsController extends Controller
         $array_categories = [];
 
         foreach ($validatedData['cat'] as $cat){
-            $array_categories = Podcast_category::findorFail($cat)->pluck('title')->toArray();
-//            $array_categories = $category->title;
+            $array_categories[] = Podcast_category::where('id',$cat)->value('title');
         }
-        dd($array_categories);
-        $string_cat = implode(' ', $array_categories);
+
+        $string_cat = implode(', ', $array_categories);
 
         $createdPodcast = Podcast::create([
             'title' => $validatedData['title'],
@@ -82,9 +81,17 @@ class PodcastsController extends Controller
 
         $podcast = Podcast::findOrFail($podcast_id);
 
+        $array_categories = [];
+
+        foreach ($validatedData['cat'] as $cat){
+            $array_categories[] = Podcast_category::where('id',$cat)->value('title');
+        }
+
+        $string_cat = implode(', ', $array_categories);
+
         $updatedPodcast = $podcast->update([
             'title' => $validatedData['title'],
-            'category' => $validatedData['category'],
+            'category_id' => $string_cat,
             'description' => $validatedData['description'],
             'user_id' => $currentUser['id']
         ]);

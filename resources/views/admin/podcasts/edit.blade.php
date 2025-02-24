@@ -18,9 +18,9 @@
                 <div class="input-group mb-3 w-100">
                     <!-- category input -->
                     <div class="btn-group col-md-6" >
-                        <select class="form-select text-center cat-multi-select" name="cat[]" multiple="multiple" id="inputGroupSelect03" aria-label="Example select with button addon" dir="rtl">
+                        <select class="form-select text-center cat-multi-select" name="cat[]" multiple id="inputGroupSelect03" aria-label="Example select with button addon" dir="rtl">
                             @foreach($categories as $category)
-                            <option value="{{$category->id}} {{ str_contains($podcast->category_id, $category->title) ? 'selected' : '' }}" >
+                            <option value="{{$category->id}}"{{ str_contains($podcast->category_id, $category->title) ? 'selected' : '' }} >
                                 {{$category->title}}</option>
                             @endforeach
                           </select>
