@@ -46,9 +46,11 @@
                     <!-- title input -->
                     <input type="text" class="form-control text-center" name="title" value="{{$webinar->title}}" placeholder="عنوان" required>
                 </div>
-                <div class="col-xl-5 col-12 mb-3 text-center">
+                <div class="col-xl-8 col-12 mb-3 text-center">
                     {{-- author input --}}
                     <input type="text" class="form-control text-center mb-3 col-12" value="{{$webinar->instructor}}" placeholder="نام برگذارکننده" name="instructor" required>
+                    <input type="text" class="form-control text-center mb-3 col-12" placeholder="متا تایتل" name="instructor" required maxlength="70" minlength="40">
+                    <input type="text" class="form-control text-center mb-3 col-12" placeholder="متا دیسکریپشن" name="instructor" required maxlength="170" minlength="140">
                     {{-- webinar hoolder pic --}}
                     <label for="thumbnail_url"><b>تصویر برگذارکننده</b></label>
                     <br>

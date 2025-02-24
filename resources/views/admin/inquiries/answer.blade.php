@@ -42,11 +42,15 @@
                     <input type="text" class="form-control text-center" placeholder="عنوان" name="title" required autofocus>
 
                 </div>
+                <div class="col-xl-8 col-12 mb-3 text-center">
+                    {{-- meta input --}}
 
-                <!-- discription input -->
-{{--                <div class="col-8">--}}
-{{--                    <textarea class="form-control" required rows="5" dir="rtl" placeholder="جواب پرسش" name="description"></textarea>--}}
-{{--                </div>--}}
+                    <input type="text" class="form-control text-center mb-3 col-12" placeholder="متا تایتل" name="instructor" required maxlength="70" minlength="40">
+                    <input type="text" class="form-control text-center mb-3 col-12" placeholder="متا دیسکریپشن" name="instructor" required maxlength="170" minlength="140">
+
+                </div>
+
+
                 <!-- file upload area -->
                 <div class="col-10 mt-3 text-center">
                     <label for="thumbnail_url">افزودن تامبنیل مقاله</label>

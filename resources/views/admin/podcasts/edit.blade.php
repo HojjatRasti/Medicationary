@@ -41,6 +41,13 @@
                     <!-- title input -->
                     <input type="text" class="form-control text-center" name="title" value="{{$podcast->title}}" placeholder="عنوان" required>
                 </div>
+                <div class="col-xl-8 col-12 mb-3 text-center">
+                    {{-- meta input --}}
+
+                    <input type="text" class="form-control text-center mb-3 col-12" placeholder="متا تایتل" name="instructor" required maxlength="70" minlength="40">
+                    <input type="text" class="form-control text-center mb-3 col-12" placeholder="متا دیسکریپشن" name="instructor" required maxlength="170" minlength="140">
+
+                </div>
                 <!-- discription input -->
                 <div class="col-8">
                     <textarea class="form-control" required rows="5" dir="rtl" name="description" placeholder="توضیحات">{{$podcast->description}}</textarea>

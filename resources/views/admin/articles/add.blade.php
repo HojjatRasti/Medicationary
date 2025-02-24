@@ -32,10 +32,14 @@
                 <!-- title input -->
                 <input type="text" class="form-control text-center" placeholder="عنوان" name="title" required autofocus>
 
+
             </div>
-            <div class="col-xl-5 col-12 mb-3">
+            <div class="col-xl-8 col-12 mb-3">
                 {{-- author input --}}
-                <input type="text" class="form-control text-center" placeholder="نویسنده" name="author" required>
+                <input type="text" class="form-control text-center mb-3 col-12" placeholder="نویسنده" name="author" required>
+                <input type="text" class="form-control text-center mb-3 col-12" placeholder="متا تایتل" name="instructor" required maxlength="70" minlength="40">
+                <input type="text" class="form-control text-center mb-3 col-12" placeholder="متا دیسکریپشن" name="instructor" required maxlength="170" minlength="140">
+
             </div>
 
             <!-- discription input -->
