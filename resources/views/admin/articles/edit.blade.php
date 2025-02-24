@@ -19,8 +19,8 @@
                 <input type="hidden" name="post_id" value="{{$post->id}}">
                 <div class="input-group mb-3 w-100" >
                     <!-- category input -->
-                    <div class="btn-group col-md-6" >
-                        <select class="form-select text-center " id="inputGroupSelect03" aria-label="Example select with button addon" dir="rtl">
+                    <div class="btn-group form-control" >
+                        <select class="form-select text-center cat-multi-select " multiple " id="inputGroupSelect03" aria-label="Example select with button addon" dir="rtl">
                             @foreach($categories as $category)
                             <option value="{{$category->id}} {{ $category->id == $post->category_id ? 'selected' : '' }}">{{$category->title}}</option>
                             @endforeach
