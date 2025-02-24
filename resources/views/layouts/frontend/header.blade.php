@@ -10,12 +10,9 @@
     <link rel="stylesheet" href="/css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.7/dist/iconify-icon.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-{{-- Data-table CDN--}}
-    {{--    <script src="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css"></script>--}}
-{{--    <script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>--}}
     <script type="module" src="../js/podcast.js"></script>
     <script type="module" src="../js/ask.js"></script>
-    @turnstileScripts()
+@turnstileScripts()
 </head>
 <body>
     <!-- nav bar -->

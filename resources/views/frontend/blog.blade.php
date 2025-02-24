@@ -84,7 +84,7 @@
     @endforeach
     </div>
 
-    <div class="search-results">
+    <div class="search-results text-center mb-3 fs-4">
     </div>
 
     {{-- pagination --}}
@@ -97,7 +97,7 @@
             $('#searchBox').on('keyup', function() {
                 const input = $(this);
                 const searchResult = $('.search-results');
-                // searchResult.html('در حال جستجو ...');
+                searchResult.html('در حال جستجو ...');
                 if(input !== null){
                     $('.allData').hide();
                     $('.search-searchResult').show();
