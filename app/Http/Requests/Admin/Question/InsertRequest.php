@@ -24,8 +24,10 @@ class InsertRequest extends FormRequest
         return [
 //            'question_id' => 'required|exists:questions,id',
             'title' => 'required|min:3|max:75',
-            'category_id' => 'required|exists:answer_categories,id',
+            'cat' => 'required',
             'description' => 'required|min:5',
+            'meta_description' => 'required|min:3',
+            'meta_title' => 'required|min:3',
 //            'file_url' => 'required|file|mimes:pdf',
             'thumbnail_url' => 'required|image|mimes:png,jpeg,jpg'
         ];

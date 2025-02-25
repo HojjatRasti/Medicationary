@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignIdFor(\App\Models\User::class)->constrained()->restrictOnDelete();
             $table->char('title');
             $table->char('category');
-            $table->char('description');
+            $table->longText('description');
             $table->char('file_url')->nullable();
             $table->char('thumbnail_url')->nullable();
             $table->timestamps();

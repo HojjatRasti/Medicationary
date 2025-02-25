@@ -45,12 +45,22 @@ class PostController extends Controller
 
         $validatedData = $request->validated();
 
+        $array_categories = [];
+
+        foreach ($validatedData['cat'] as $cat){
+            $array_categories[] = Post_category::where('id',$cat)->value('title');
+        }
+
+        $string_cat = implode(', ', $array_categories);
+
         $createdPost = Post::create([
             'user_id' => $currentUser['id'],
             'title' => $validatedData['title'],
-            'category_id' =>$validatedData['category_id'] ,
+            'category_id' =>$string_cat ,
             'abstract' => $validatedData['abstract'],
             'body' => $validatedData['quillBody'],
+            'meta_description' => $validatedData['meta_description'],
+            'meta_title' => $validatedData['meta_title'],
             'author' => $validatedData['author'],
         ]);
 
@@ -94,12 +104,22 @@ class PostController extends Controller
 
         $post = Post::findOrFail($post_id);
 
+        $array_categories = [];
+
+        foreach ($validatedData['cat'] as $cat){
+            $array_categories[] = Post_category::where('id',$cat)->value('title');
+        }
+
+        $string_cat = implode(', ', $array_categories);
+
         $updatePost = $post->Update([
             'user_id' => $currentUser['id'],
             'title' => $validatedData['title'],
-            'category_id' =>$validatedData['category_id'] ,
+            'category_id' =>$string_cat ,
             'abstract' => $validatedData['abstract'],
             'body' => $validatedData['quillBody'],
+            'meta_description' => $validatedData['meta_description'],
+            'meta_title' => $validatedData['meta_title'],
             'author' => $validatedData['author'],
         ]);
 

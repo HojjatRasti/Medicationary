@@ -24,10 +24,12 @@ class BlogRequest extends FormRequest
         return [
 //            'user_id' => 'required|exists:users,id',
             'title' => 'required|min:3|max:50',
-            'category_id' => 'required|exists:post_categories,id',
+            'cat' => 'required',
             'author' => 'required|min:3|max:50',
             'abstract' => 'required|min:10',
             'quillBody' => 'required|min:20',
+            'meta_description' => 'required|min:3',
+            'meta_title' => 'required|min:3',
             'post_url' => 'file|mimes:pdf',
             'thumbnail_url' => 'required|image|mimes:jpeg,png,jpg'
 

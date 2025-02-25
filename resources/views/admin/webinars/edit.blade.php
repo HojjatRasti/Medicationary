@@ -19,16 +19,13 @@
                 @method('put')
                 <div class="input-group mb-3 w-100">
                     <!-- category input -->
-                    <div class="btn-group form-control" >
-                        <select class="form-select text-center cat-multi-select " multiple id="inputGroupSelect03" aria-label="Example select with button addon" dir="rtl">
-                            <option selected>دسته‌بندی</option>
-                            <option value="1">
-                              <span>تناسب اندام</span>
-                              <span>(56)</span>
-                            </option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                          </select>
+                    <div class="btn-group col-md-6" >
+                        <select class="form-select text-center cat-multi-select" name="cat[]" multiple id="inputGroupSelect03" aria-label="Example select with button addon" dir="rtl">
+                            @foreach($categories as $category)
+                                <option value="{{$category->id}}"{{ str_contains($webinar->category_id, $category->title) ? 'selected' : '' }} >
+                                    {{$category->title}}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <!-- middle pic -->
                     <span class="input-group-text">
@@ -49,8 +46,8 @@
                 <div class="col-xl-8 col-12 mb-3 text-center">
                     {{-- author input --}}
                     <input type="text" class="form-control text-center mb-3 col-12" value="{{$webinar->instructor}}" placeholder="نام برگذارکننده" name="instructor" required>
-                    <input type="text" class="form-control text-center mb-3 col-12" placeholder="متا تایتل" name="instructor" required maxlength="70" minlength="40">
-                    <input type="text" class="form-control text-center mb-3 col-12" placeholder="متا دیسکریپشن" name="instructor" required maxlength="170" minlength="140">
+                    <input type="text" class="form-control text-center mb-3 col-12" value="{{$webinar->meta_title}}" placeholder="متا تایتل" name="meta_title" required>
+                    <input type="text" class="form-control text-center mb-3 col-12" value="{{$webinar->meta_description}}" placeholder="متا دیسکریپشن" name="meta_description" required>
                     {{-- webinar hoolder pic --}}
                     <label for="thumbnail_url"><b>تصویر برگذارکننده</b></label>
                     <br>

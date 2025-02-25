@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Webinar\UpdateRequest;
 use App\Http\Requests\Admin\Webinar\WebinarRequest;
 use App\Models\Webinar;
+use App\Models\Webinar_category;
 use App\Utilities\ImageUploader;
 use Illuminate\Http\Request;
 
@@ -24,7 +25,9 @@ class WebinarsController extends Controller
 
         $currentUser = auth()->user();
 
-        return view('admin.webinars.add', compact('currentUser'));
+        $categories = Webinar_category::get();
+
+        return view('admin.webinars.add', compact('currentUser', 'categories'));
     }
 
     public function store(WebinarRequest $request){
@@ -33,11 +36,21 @@ class WebinarsController extends Controller
 
         $currentUser = auth()->user();
 
+        $array_categories = [];
+
+        foreach ($validatedData['cat'] as $cat){
+            $array_categories[] = Webinar_category::where('id',$cat)->value('title');
+        }
+
+        $string_cat = implode(', ', $array_categories);
+
         $createdWebinar = Webinar::create([
             'user_id' => $currentUser['id'],
             'title' => $validatedData['title'],
-            'category' => $validatedData['category'],
+            'category_id' => $string_cat,
             'description' => $validatedData['description'],
+            'meta_description' => $validatedData['meta_description'],
+            'meta_title' => $validatedData['meta_title'],
             'instructor' => $validatedData['instructor'],
             'webinar_status' => $validatedData['webinar_status'],
         ]);
@@ -56,7 +69,9 @@ class WebinarsController extends Controller
 
         $webinar = Webinar::findOrFail($webinar_id);
 
-        return view('admin.webinars.edit', compact('currentUser','webinar'));
+        $categories = Webinar_category::get();
+
+        return view('admin.webinars.edit', compact('currentUser','webinar', 'categories'));
 
     }
 
@@ -67,10 +82,20 @@ class WebinarsController extends Controller
 
         $webinar = Webinar::findOrFail($webinar_id);
 
+        $array_categories = [];
+
+        foreach ($validatedData['cat'] as $cat){
+            $array_categories[] = Webinar_category::where('id',$cat)->value('title');
+        }
+
+        $string_cat = implode(', ', $array_categories);
+
         $updatedWebinar = $webinar->update([
             'title' => $validatedData['title'],
-            'category' => $validatedData['category'],
+            'category_id' => $string_cat,
             'description' => $validatedData['description'],
+            'meta_description' => $validatedData['meta_description'],
+            'meta_title' => $validatedData['meta_title'],
             'instructor' => $validatedData['instructor'],
             'webinar_status' => $validatedData['webinar_status'],
             'user_id' => $currentUser['id']

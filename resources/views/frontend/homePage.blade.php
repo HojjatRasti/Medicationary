@@ -66,7 +66,7 @@
       </div>
     </div>
   </section>
- 
+
   <!-- blog -->
   <section id="blog" class="container">
 
@@ -86,7 +86,7 @@
     <br>
 
     <div id="blog-items" class="d-xl-flex justify-content-between" >
-
+        @if(count($posts) > 0)
       <div id="blog-imp-article" class="col-xl-7 mb-3 p-0  float-xl-end " >
         <a href="{{route('home.post',$posts[0]->id)}}">
           <img src="/{{$posts[0]->thumbnail_url}}" alt="" id="imp-article-img" class="img-fluid object-fit-fill border rounded">
@@ -102,7 +102,7 @@
           <p>{{$posts[0]->abstract}}</p>
         </div>
       </div>
-
+        @endif
       <div class="flex-column col-xl-4">
           @foreach($posts as $post)
               @if($loop->first) @continue @endif

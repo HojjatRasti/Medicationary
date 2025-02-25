@@ -23,11 +23,13 @@ class WebinarRequest extends FormRequest
     {
         return [
             'title' => 'required|min:3|max:128',
-            'category' => 'required|min:3|max:128',
+            'cat' => 'required',
             'instructor' => 'required|min:3|max:50',
             'instructor_thumbnail_url' => 'required|image|mimes:jpeg,png,jpg',
             'webinar_status' => 'required|in:terminated,alive',
             'description' => 'required|min:10',
+            'meta_description' => 'required|min:3',
+            'meta_title' => 'required|min:3',
             'webinar_url' => 'required|file|mimes:mp4,mkv',
             'thumbnail_url' => 'required|image|mimes:jpeg,png,jpg'
         ];

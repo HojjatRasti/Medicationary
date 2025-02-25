@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(\App\Models\User::class)->constrained()->restrictOnDelete();
             $table->foreignIdFor(\App\Models\Post::class)->constrained()->cascadeOnDelete();
-            $table->longText('body');
+            $table->unique(['user_id','post_id']);
+            $table->longText('body')->nullable();
             $table->timestamps();
         });
     }

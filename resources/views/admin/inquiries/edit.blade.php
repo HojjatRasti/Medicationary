@@ -20,22 +20,19 @@
 
         <div class="answer-text mt-3 p-3">
             @include('errors.message')
-            <form action="{{route('admin.inquiries.update', $answer->id)}}" method="post" class="answer-items" enctype="multipart/form-data">
+            <form action="{{route('admin.inquiries.update', $answer->id)}}" id="answer" method="post" class="answer-items" enctype="multipart/form-data">
                 @csrf
                 @method('put')
                 <div class="input-group mb-3 w-100" >
 
                     <!-- category input -->
-                    <div class="btn-group form-control" >
-                        <select class="form-select text-center cat-multi-select " multiple id="inputGroupSelect03" aria-label="Example select with button addon" dir="rtl">
-                            <option selected>دسته‌بندی</option>
-                            <option value="1">
-                              <span>تناسب اندام</span>
-                              <span>(56)</span>
-                            </option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                          </select>
+                    <div class="btn-group col-md-6" >
+                        <select class="form-select text-center cat-multi-select" name="cat[]" multiple id="inputGroupSelect03" aria-label="Example select with button addon" dir="rtl">
+                            @foreach($categories as $category)
+                                <option value="{{$category->id}}"{{ str_contains($answer->category_id, $category->title) ? 'selected' : '' }} >
+                                    {{$category->title}}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <!-- middle pic -->
                     <span class="input-group-text">
@@ -48,18 +45,15 @@
                 <div class="col-xl-8 col-12 mb-3 text-center">
                     {{-- meta input --}}
 
-                    <input type="text" class="form-control text-center mb-3 col-12" placeholder="متا تایتل" name="instructor" required maxlength="70" minlength="40">
-                    <input type="text" class="form-control text-center mb-3 col-12" placeholder="متا دیسکریپشن" name="instructor" required maxlength="170" minlength="140">
+                    <input type="text" value="{{$answer->meta_title}}" class="form-control text-center mb-3 col-12" placeholder="متا تایتل" name="meta_title" required>
+                    <input type="text" value="{{$answer->meta_description}}" class="form-control text-center mb-3 col-12" placeholder="متا دیسکریپشن" name="meta_description" required>
 
                 </div>
 
-                <!-- discription input -->
-                <div class="col-8">
-                    <textarea class="form-control" required rows="5" dir="rtl" placeholder="جواب پرسش" name="description">{{$answer->description}}</textarea>
-                </div>
+
                 <!-- file upload area -->
                 <div class="col-10 mt-3 text-center">
-                    <img src="/{{ $post->thumbnail_url }}" alt="" height="100px" width="100px" class="rounded" >
+                    <img src="/{{ $answer->thumbnail_url }}" alt="" height="100px" width="100px" class="rounded" >
                     <label for="thumbnail_url">افزودن تامبنیل مقاله</label>
                     <input class="form-control mt-3" type="file" id="formFileMultiple" name="thumbnail_url" multiple title="افزودن تامبنیل">
                    {{-- quill text editor --}}
@@ -111,8 +105,10 @@
                             </span>
                         </div>
                         <div id="editor" class="bg-light">
+                            {!!$answer->description!!}
                         </div>
                     </div>
+                    <input type="hidden" name="description">
                     <!-- submit btn -->
                     <div class="col-auto mt-3">
                         <button type="submit" class="btn btn-primary mb-3 ps-5 pe-5 pt-2 pb-2 ">ثبت</button>
@@ -135,5 +131,13 @@
       theme: 'snow',
 
     });
+
+    var form = document.getElementById("answer"); // get form by ID
+
+    form.onsubmit = function() { // onsubmit do this first
+        var name = document.querySelector('input[name=description]'); // set name input var
+        name.value =  quill.root.innerHTML; // populate name input with quill data
+        // return true; // submit form
+    }
 </script>
 @endsection

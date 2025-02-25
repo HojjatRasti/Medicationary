@@ -11,6 +11,8 @@ use App\Models\Answer;
 use App\Models\Answer_category;
 use App\Models\Question;
 use App\Utilities\ImageUploader;
+use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 
 class InquiriesController extends Controller
@@ -107,11 +109,21 @@ class InquiriesController extends Controller
 
         $currentUser = auth()->user();
 
+        $array_categories = [];
+
+        foreach ($validatedData['cat'] as $cat){
+            $array_categories[] = Answer_category::where('id',$cat)->value('title');
+        }
+
+        $string_cat = implode(', ', $array_categories);
+
         $createdAnswer = Answer::create([
             'question_id' => $question_id,
             'title' => $validatedData['title'],
-            'category_id' => $validatedData['category_id'],
+            'category_id' => $string_cat,
             'description' => $validatedData['description'],
+            'meta_description' => $validatedData['meta_description'],
+            'meta_title' => $validatedData['meta_title'],
             'user_id' => $currentUser['id']
         ]);
 
@@ -133,7 +145,9 @@ class InquiriesController extends Controller
 
         $question = Question::findOrFail($question_id);
 
-        return view('admin.inquiries.edit', compact('answer', 'currentUser' , 'question'));
+        $categories = Answer_category::get();
+
+        return view('admin.inquiries.edit', compact('answer', 'currentUser' , 'question', 'categories'));
     }
 
     public function update(UpdateRequest $request, $answer_id){
@@ -143,10 +157,20 @@ class InquiriesController extends Controller
 
         $answer = Answer::findOrFail($answer_id);
 
+        $array_categories = [];
+
+        foreach ($validatedData['cat'] as $cat){
+            $array_categories[] = Answer_category::where('id',$cat)->value('title');
+        }
+
+        $string_cat = implode(', ', $array_categories);
+
         $updatedAnswer = $answer->update([
             'title' => $validatedData['title'],
-            'category_id' => $validatedData['category'],
+            'category_id' => $string_cat,
             'description' => $validatedData['description'],
+            'meta_description' => $validatedData['meta_description'],
+            'meta_title' => $validatedData['meta_title'],
             'user_id' => $currentUser['id']
         ]);
 

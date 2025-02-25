@@ -25,6 +25,8 @@ class UpdateRequest extends FormRequest
             'title' => 'required|min:3|max:128',
             'cat' => 'required',
             'description' => 'required|min:10',
+            'meta_description' => 'required|min:3',
+            'meta_title' => 'required|min:3',
             'podcast_url' => 'nullable|file|mimes:mp3,m4a',
             'thumbnail_url' => 'nullable|image|mimes:jpeg,png,jpg'
         ];

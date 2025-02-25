@@ -42,8 +42,8 @@
                 <div class="col-xl-8 col-12 mb-3 text-center">
                     {{-- meta input --}}
 
-                    <input type="text" class="form-control text-center mb-3 col-12" placeholder="متا تایتل" name="instructor" required maxlength="70" minlength="40">
-                    <input type="text" class="form-control text-center mb-3 col-12" placeholder="متا دیسکریپشن" name="instructor" required maxlength="170" minlength="140">
+                    <input type="text" class="form-control text-center mb-3 col-12" placeholder="متا تایتل" name="meta_title" required>
+                    <input type="text" class="form-control text-center mb-3 col-12" placeholder="متا دیسکریپشن" name="meta_description" required>
 
                 </div>
                 <!-- discription input -->

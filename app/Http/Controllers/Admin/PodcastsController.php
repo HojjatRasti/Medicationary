@@ -52,6 +52,8 @@ class PodcastsController extends Controller
             'title' => $validatedData['title'],
             'category_id' => $string_cat,
             'description' => $validatedData['description'],
+            'meta_description' => $validatedData['meta_description'],
+            'meta_title' => $validatedData['meta_title'],
             'user_id' => $currentUser['id']
         ]);
 
@@ -93,6 +95,8 @@ class PodcastsController extends Controller
             'title' => $validatedData['title'],
             'category_id' => $string_cat,
             'description' => $validatedData['description'],
+            'meta_description' => $validatedData['meta_description'],
+            'meta_title' => $validatedData['meta_title'],
             'user_id' => $currentUser['id']
         ]);
         if (!$this->uploadImage($podcast, $validatedData) or !$updatedPodcast) {
