@@ -97,6 +97,8 @@
         $('#like-button').on('click', function() {
             const input = $(this);
             let status
+            {{--let likeNumber = {{$post->likes}};--}}
+            let likesNumber = document.getElementById('likesNumber').innerHTML;
 
             if(likeON.classList.contains('d-none')){
                 status = 1;
@@ -114,11 +116,11 @@
                     if(response == 0){
                         likeON.classList.add('d-none');
                         likeOff.classList.remove('d-none');
-                        $('#likesNumber').html({{$post->likes}} - 1);
+                        $('#likesNumber').html(Number(likesNumber) - 1);
                     } else if(response == 1){
                         likeON.classList.remove('d-none');
                         likeOff.classList.add('d-none');
-                        $('#likesNumber').html({{$post->likes}} + 1);
+                        $('#likesNumber').html(Number(likesNumber) + 1);
                     }
                     },
             });
