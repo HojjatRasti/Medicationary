@@ -126,5 +126,5 @@ Route::prefix('')->group(function (){
     Route::get('categorySearch',[WeblogController::class, 'categorySearch'])->name('home.blog.categorySearch');
 //    Route::get('DataTable',[WeblogController::class, 'DataTable'])->name('home.blog.index');
     Route::get('blog/post{post_id}',[WeblogController::class, 'article'])->name('home.post');
-    Route::post('blog/postLike{post_id}',[CommentController::class, 'storeLike'])->name('home.blog.like');
+    Route::post('{post_id}/postLiked',[CommentController::class, 'storeLike'])->name('home.blog.like');
 });

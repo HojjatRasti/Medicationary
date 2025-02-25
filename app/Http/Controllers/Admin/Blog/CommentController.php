@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Blog;
 
 use App\Http\Controllers\Controller;
 use App\Models\Comment;
+use App\Models\Post;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
@@ -68,6 +69,7 @@ class CommentController extends Controller
     }
 
     public function storeLike(Request $request, $postId){
+
         $userId = $request->cookie('user_id');
 
 //  UUID (Universally Unique Identifier) - pseudo-anonymous user ID.
@@ -77,22 +79,47 @@ class CommentController extends Controller
             Cookie::queue('user_id', $userId, 60 * 24 * 365 * 5); // 5 years
         }
 
-        try {
+        $specificPost= Post::findOrFail($postId);
+        $likesNumber = $specificPost->value('likes');
+
+//        dd($request['likeStatus']);
+
+        if($request['likeStatus'] == 1){
             Comment::create([
                 'post_id' => $postId,
                 'user_id' => $userId,
             ]);
 
-            return response()->json(['message' => 'Like added'], 200); // Or redirect
+            Post::findOrFail($postId)->Update([
+                'likes' => $likesNumber + 1
+            ]);
+            return response(1);
 
-        } catch (QueryException $e) {
-            if ($e->getCode() === '23000') { // Duplicate entry error code
-                return response()->json(['message' => 'You have already liked this post.'], 400); // Or appropriate error code
-            }
+        } else {
+            Comment::where('user_id','=',$userId)->delete();
 
-            // Handle other database errors
-            return response()->json(['message' => 'An error occurred.'], 500);
+            Post::findOrFail($postId)->Update([
+                'likes' => $likesNumber - 1
+            ]);
+
+            return response(0);
         }
+//        try {
+//            Comment::create([
+//                'post_id' => $postId,
+//                'user_id' => $userId,
+//            ]);
+//
+//            return response()->json(['message' => 'Like added'], 200); // Or redirect
+//
+//        } catch (QueryException $e) {
+//            if ($e->getCode() === '23000') { // Duplicate entry error code
+//                return response()->json(['message' => 'You have already liked this post.'], 400); // Or appropriate error code
+//            }
+//
+//            // Handle other database errors
+//            return response()->json(['message' => 'An error occurred.'], 500);
+//        }
 
     }
 }

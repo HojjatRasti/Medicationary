@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Frontend\Blog\categorySearchRequest;
 use App\Http\Requests\Frontend\Blog\SearchRequest;
 use App\Models\Answer;
+use App\Models\Comment;
 use App\Models\Podcast;
 use App\Models\Post;
 use App\Models\Post_category;
@@ -36,6 +37,7 @@ class WeblogController extends Controller
         $posts = Post::paginate(5);
 
         $categories = Post_category::get();
+
 
         return view('frontend.blog', compact('posts', 'categories'));
     }
@@ -150,7 +152,15 @@ class WeblogController extends Controller
 
         $post = Post::findOrFail($post_id);
 
-        return view('frontend.specificArticle', compact('post'));
+        $comments = Comment::get('user_id')->toArray();
+
+        $users_id_array = [];
+
+        foreach ($comments as $keys => $value){
+            $users_id_array[] = $value['user_id'];
+        }
+
+        return view('frontend.specificArticle', compact('post', 'users_id_array'));
 
 //        return response()->file($post->post_url);
 

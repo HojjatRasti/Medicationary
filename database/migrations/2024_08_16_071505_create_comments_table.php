@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(\App\Models\User::class)->constrained()->restrictOnDelete();
+            $table->char('user_id');
             $table->foreignIdFor(\App\Models\Post::class)->constrained()->cascadeOnDelete();
             $table->unique(['user_id','post_id']);
             $table->longText('body')->nullable();
