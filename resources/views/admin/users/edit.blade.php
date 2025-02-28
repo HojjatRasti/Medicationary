@@ -44,7 +44,7 @@
                 <!-- role -->
                 <div class="mt-5 d-flex flex-column text-center ">
                     <div class="form-group ">
-                        <textarea name="description" id="editor" cols="50" rows="5" placeholder="لطفا متن مورد نظر خودتان را وارد کنید">{{$user->description}}</textarea>
+                        <textarea name="description"  cols="50" rows="5" placeholder="لطفا متن مورد نظر خودتان را وارد کنید">{{$user->description}}</textarea>
                     </div>
                     <div class="form-group">
                        {{-- <label>نقش کاربری</label>--}}
@@ -56,7 +56,7 @@
                     </div>
                 </div>
                 <!-- sub btn -->
-                <div class="text-center mt-5">
+                <div class="text-center mt-3 mb-3">
                     <button type="submit" class="btn btn-success w-25 p-3">ثبت</button>
                 </div>
 
