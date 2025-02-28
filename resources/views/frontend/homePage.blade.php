@@ -10,14 +10,15 @@
     </div>
 
   </header>
+
   <!-- ask a pharmacis -->
-  <section class="container ask-phar">
+  <section class=" ask-phar" >
 
     <a href="{{route('home.ask')}}">
       <p class="h2 col-xl-8 d-flex justify-content-center ">از یک داروساز بپرس</p>
     </a>
 
-    <div class="d-flex justify-content-center justify-content-xl-between">
+    <div class="container d-flex justify-content-center justify-content-xl-between ">
 
       <div class="discription d-xl-inline-block">
         <p > لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و
@@ -35,14 +36,14 @@
 
       <div class="d-flex justify-content-center">
         <a href="{{route('home.ask')}}" >
-        <img src="/images/ask_a_pharmacist.jpg" alt="pharmacistIcon" >
+        <img src="/images/ask_a_pharmacist.png" alt="pharmacistIcon" >
         </a>
       </div>
 
     </div>
   </section>
-  <!-- podcast -->
-  <section id="podcast" >
+  {{-- <!-- podcast -->
+  <section class="podcast" >
     <div class="container ">
       <div style="padding: 25px 0 15px 0;">
 
@@ -65,31 +66,30 @@
 
       </div>
     </div>
-  </section>
-
+  </section> --}}
   <!-- blog -->
-  <section id="blog" class="container">
+  <section id="blog" class=" podcast p-3">
 
     <div id="b-title" class="d-block">
-      <p class="h2">
+      <p class="h2 text-light">
         جدید ترین مقالات منتشرشده
       </p>
     </div>
 
-    <a href="{{route('home.blog')}}">
+    {{-- <a href="{{route('home.blog')}}">
       <button type="button" class="btn float-xl-end" title="برای مقالات بیشتر ضربه بزنید">
         وبلاگ
       </button>
-    </a>
+    </a> --}}
 
     <br>
     <br>
 
-    <div id="blog-items" class="d-xl-flex justify-content-between" >
+    <div id="blog-items" class="d-xl-flex justify-content-between container text-light " >
         @if(count($posts) > 0)
       <div id="blog-imp-article" class="col-xl-7 mb-3 p-0  float-xl-end " >
         <a href="{{route('home.post',$posts[0]->id)}}">
-          <img src="/{{$posts[0]->thumbnail_url}}" alt="" id="imp-article-img" class="img-fluid object-fit-fill border rounded">
+          <img src="/{{$posts[0]->thumbnail_url}}" alt="" id="imp-article-img" class="img-fluid img-thumbnail object-fit-fill border rounded ">
         </a>
 
         <a href="{{route('home.post',$posts[0]->id)}}">
@@ -124,4 +124,6 @@
 
     </div>
   </section>
+
+
 @endsection

@@ -106,8 +106,8 @@ button{
 }
 
 .ask-phar img{
-    width: 355.6px;
-    height: 336.66px;
+    width: 350px;
+    height: 300px;
 }
 
 .ask-phar .h2{
@@ -125,7 +125,7 @@ button{
 }
 
 /* podcast section styles */
-#podcast{
+.podcast{
     background-image: linear-gradient(to bottom left,#0B3096,#06184B);
     margin-top: 50px;
 }
