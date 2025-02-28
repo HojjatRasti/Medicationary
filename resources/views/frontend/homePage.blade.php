@@ -14,9 +14,11 @@
   <!-- ask a pharmacis -->
   <section class=" ask-phar" >
 
-    <a href="{{route('home.ask')}}">
-      <p class="h2 col-xl-8 d-flex justify-content-center ">از یک داروساز بپرس</p>
-    </a>
+
+        <a href="{{route('home.ask')}}" class="h2 col-xl-8 d-flex justify-content-center ">
+            از یک داروساز بپرس
+          </a>
+
 
     <div class="container d-flex justify-content-center justify-content-xl-between ">
 

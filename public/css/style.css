@@ -104,6 +104,10 @@ button{
 .ask-phar{
     margin-top: 55px;
 }
+.ask-phar a{
+    text-decoration: underline;
+    color: #0B3096;
+}
 
 .ask-phar img{
     width: 350px;
@@ -179,6 +183,11 @@ button{
 
 #b-title p{
     font-weight: bold;
+}
+
+#blog a{
+    text-decoration: underline;
+    text-decoration-color: #fff;
 }
 
 #blog .btn{
