@@ -567,3 +567,5 @@ button{
     content: attr(placeholder);
     color: #aaa;
 }
+/* make tabels background color transparent */
+.table_custom { --bs-table-bg: transparent !important; }
