@@ -92,14 +92,14 @@
           <img src="/{{$posts[0]->thumbnail_url}}" alt="" id="imp-article-img" class="img-fluid img-thumbnail object-fit-fill border rounded ">
         </a>
 
-        <a href="{{route('home.post',$posts[0]->id)}}">
+        <a href="{{route('home.post',$posts[0]->id)}}" >
           <div id="blog-imp-title-article">
-            <p class="h3">{{$posts[0]->title}}</p>
+            <p class="h3 link-light">{{$posts[0]->title}}</p>
           </div>
         </a>
 
-        <div id="blog-imp-discription-article">
-          <p>{{$posts[0]->abstract}}</p>
+        <div id="blog-imp-discription-article" class="text-center">
+          <p class="overflow-auto w-75 d-inline-block text-light-emphasis">{{$posts[0]->abstract}}</p>
         </div>
       </div>
         @endif
@@ -112,9 +112,9 @@
               <img src="/{{$post->thumbnail_url}}" alt="" id="article-img" class="col-4 float-end">
             </a>
             <div class="col-8 float-start" id="blog-article-discription" >
-              <a href="{{route('home.post',$post->id)}}"><p class="h5">{{$post->title}}</p></a>
+              <a href="{{route('home.post',$post->id)}}"><p class="h5 link-light">{{$post->title}}</p></a>
 
-              <p style="width: 280px; height: 125px; overflow: hidden; margin-right: 35px;">{{$post->abstract}}</p>
+              <p class="text-light-emphasis" style="width: 280px; height: 125px; overflow: hidden; margin-right: 35px;">{{$post->abstract}}</p>
             </div>
         </div>
           @endforeach
