@@ -57,10 +57,10 @@
     <!-- blog contents -->
     @include('errors.message')
 
-    <div class="allData">
+    <div class="allData ">
     @foreach($posts as $post)
 
-            <div class="article container text-center d-md-flex justify-content-end data-table shadow p-3 mb-5 bg-body-tertiary rounded border border-primary-subtle col-10 pe-md-5">
+            <div class=" container text-center d-md-flex justify-content-end  shadow p-3 mb-5  rounded-4  col-10 pe-md-5">
 
                 <img class="col-md-4  img-thumbnail rounded object-fit-fill " src="/{{$post->thumbnail_url}}" alt=""
                      style="max-height: 245px;">
