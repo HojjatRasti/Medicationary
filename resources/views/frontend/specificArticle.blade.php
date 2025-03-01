@@ -20,7 +20,7 @@
         <p>{{$post->author}}</p>
         <p>{{$post->created_at->jdate('j F Y')}}</p>
     </div>
-    <div class="mt-5 pe-5 ps-5 pt-3 pb-3 container-fluid" dir="ltr">
+    <div class="mt-5 pe-5 ps-5 pt-3 pb-3 container-fluid ql-editor" dir="ltr">
 
             {!!$post->body!!}
 
@@ -51,7 +51,7 @@
     </div>
   </div>
   <script>
-   
+
 {{--    const likeButton = document.getElementById('like-button'); // Your like button--}}
 
 {{--    likeButton.addEventListener('click', () => {--}}
