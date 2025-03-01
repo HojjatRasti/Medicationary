@@ -8,6 +8,8 @@
     <meta name="description" content="@yield('description')">
     <meta name="keywords" content="@yield('keywords')">
     <title>Medicationary</title>
+    {{-- fav icon --}}
+    <link rel="icon" type="image/x-icon" href="/images/medLogo.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
@@ -24,7 +26,9 @@
 
         <!-- nav logo -->
       <div class="col-2">
-        <a class="navbar-brand" href="{{route('home.landscape')}}"> <em>Medicationary</em></a>
+        <a class="navbar-brand" href="{{route('home.landscape')}}">
+            <img src="/images/medLogo.png" alt="Logo" width="50" height="50">
+        </a>
       </div>
 
       <!-- nav button when it collapse to smal size -->
