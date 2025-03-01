@@ -226,13 +226,13 @@ button{
 
 #blog-article-title{
     height: 350px;
-    background-color: #9fc6e4;
+    background-color: #e1f2ff;
     margin-top: -10rem;
 
 }
 
 .article-title{
-    margin-top: 1rem;
+    margin-top: 10rem;
 }
 
 #blog-article-title h3{
@@ -245,12 +245,7 @@ button{
     margin-top: 2rem;
 }
 
-#blog-article-text{
-    background-color: #cbe9ff;
-    /* border: 1px solid #06184B; */
-    border-radius: 5px;
 
-}
 
 #blog-article-text img{
     /* height: 100%; */

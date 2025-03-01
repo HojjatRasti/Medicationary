@@ -20,7 +20,7 @@
         <p>{{$post->author}}</p>
         <p>{{$post->created_at->jdate('j F Y')}}</p>
     </div>
-    <div id="blog-article-text" class="mt-5 pe-5 ps-5 pt-3 pb-3 container-fluid" dir="ltr">
+    <div class="mt-5 pe-5 ps-5 pt-3 pb-3 container-fluid" dir="ltr">
 
             {!!$post->body!!}
 
