@@ -44,12 +44,15 @@
           <li class="nav-item">
             <a class="nav-link " href="{{route('home.blog')}}">وبلاگ</a>
           </li>
+          {{-- webinar nav item --}}
           {{-- <li class="nav-item">
             <a class="nav-link" href="{{route('home.webinarsList')}}" rel="nofallow">وبینار</a>
           </li> --}}
-          <li class="nav-item">
+          {{-- answer nav item --}}
+          {{-- <li class="nav-item">
             <a class="nav-link" href="{{route('home.responses')}}">پاسخ ها</a>
-          </li>
+          </li> --}}
+          {{-- podcast nav item --}}
           {{-- <li class="nav-item ">
             <a class="nav-link" href="{{route('home.podcast')}}" rel="nofallow">پادکست</a>
           </li> --}}
