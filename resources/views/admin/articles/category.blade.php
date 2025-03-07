@@ -26,9 +26,9 @@
                 </div>
             </form>
 
-            <table class="table" dir="rtl">
+            <table class="table table-hover col-12 table_custom"  dir="rtl">
                 <thead>
-                <tr>
+                <tr >
                     <th scope="col">#</th>
                     <th scope="col">نام دسته‌بندی</th>
                 </tr>

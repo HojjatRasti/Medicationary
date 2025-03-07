@@ -57,24 +57,24 @@
     <!-- blog contents -->
     @include('errors.message')
 
-    <div class="allData">
+    <div class="allData ">
     @foreach($posts as $post)
 
-            <div class="article container text-center d-md-flex justify-content-end data-table">
+            <div class=" container text-center d-md-flex justify-content-end  shadow p-3 mb-5  rounded-4  col-10 pe-md-5">
 
-                <img class="col-md-4 ms-3 img-thumbnail rounded object-fit-fill " src="/{{$post->thumbnail_url}}" alt=""
+                <img class="col-md-4  img-thumbnail rounded object-fit-fill " src="/{{$post->thumbnail_url}}" alt=""
                      style="max-height: 245px;">
 
-                <div class="article-data col-md-8 text-md-end">
+                <div class="article-data col-md-8 text-md-end me-md-3">
                     <p class="article-cat h3">{{$post->category_id}}</p>
 
-                    <p class="article-title h2">{{$post->title}}</p>
+                    <p class="h2">{{$post->title}}</p>
 
                     <p class="article-cat h3">نام نویسنده: {{$post->author}}</p>
 
                     <p class="article-date">{{$post->created_at->jdate('j F Y')}}</p>
 
-                    <p class="article-discription">{{$post->abstract}}</p>
+                    <p class="article-discription d-inline-block overflow-hidden col-10">{{$post->abstract}}</p>
                     <a href="{{route('home.post', $post->id)}}">
                         <button class="article-btn btn">مطالعه بیشتر</button>
                     </a>

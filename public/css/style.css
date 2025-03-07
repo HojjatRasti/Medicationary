@@ -104,10 +104,14 @@ button{
 .ask-phar{
     margin-top: 55px;
 }
+.ask-phar a{
+    text-decoration: underline;
+    color: #0B3096;
+}
 
 .ask-phar img{
-    width: 355.6px;
-    height: 336.66px;
+    width: 350px;
+    height: 300px;
 }
 
 .ask-phar .h2{
@@ -125,7 +129,7 @@ button{
 }
 
 /* podcast section styles */
-#podcast{
+.podcast{
     background-image: linear-gradient(to bottom left,#0B3096,#06184B);
     margin-top: 50px;
 }
@@ -181,6 +185,11 @@ button{
     font-weight: bold;
 }
 
+#blog a{
+    text-decoration: underline;
+    text-decoration-color: #fff;
+}
+
 #blog .btn{
     color: #fff;
     background-color:#0B3096 ;
@@ -194,6 +203,8 @@ button{
 
 #blog #imp-article-img{
     margin-top: 10px;
+    height: 300px;
+    width: 600px;
 }
 
 #blog #blog-imp-title-article{
@@ -215,7 +226,7 @@ button{
 
 #blog-article-title{
     height: 350px;
-    background-color: #9fc6e4;
+    background-color: #e1f2ff;
     margin-top: -10rem;
 
 }
@@ -234,12 +245,7 @@ button{
     margin-top: 2rem;
 }
 
-#blog-article-text{
-    background-color: #cbe9ff;
-    /* border: 1px solid #06184B; */
-    border-radius: 5px;
 
-}
 
 #blog-article-text img{
     /* height: 100%; */
@@ -289,10 +295,6 @@ button{
 }
 
 /* blog page styles */
-.article{
-
-    padding: 20px;
-}
 
 .article-cat{
     color: darkgrey;
@@ -567,3 +569,5 @@ button{
     content: attr(placeholder);
     color: #aaa;
 }
+/* make tabels background color transparent */
+.table_custom { --bs-table-bg: transparent !important; }

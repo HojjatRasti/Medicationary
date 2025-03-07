@@ -14,7 +14,7 @@
       @include('errors.message')
         <div class="text-center d-flex justify-content-center">
             <p class="p-3 col-6 border border-danger-subtle border-3 rounded">
-                سولات پرسیده شده در به دو صورت پاسخ داده می شوند در صورت جزئی بودن سوال جواب به ایمیل یا شماره تماس شما ارسال شده و در صورت کلی و مهم بودن جواب را می توانید رد بخش پاسخ‌ها پیدا کنید.
+                سولات پرسیده شده در به دو صورت پاسخ داده می شوند در صورت جزئی بودن سوال جواب به ایمیل یا شماره تماس شما ارسال شده و در صورت کلی و مهم بودن جواب را می توانید رد بخش بلاگ با دسته‌بندی پرسش پیدا کنید.
             </p>
         </div>
     <form action="{{route('admin.inquiries.addInquiries')}}" method="post" class="m-2 p-2 mb-3 d-lg-flex justify-content-center col-12">
