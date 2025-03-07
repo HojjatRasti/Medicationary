@@ -61,7 +61,7 @@
   </section>
 
   <div class="container-fluid text-center ">
-    <img src="/images/Group 26.png" alt="" class="rounded img-fluid h-100 d-none d-sm-inline" id="login-img">
+    <img src="/images/Group 26.webp" alt="" class="rounded img-fluid h-100 d-none d-sm-inline" id="login-img">
   </div>
 
 

@@ -5,7 +5,7 @@
   <header id="header">
 
     <div id="header-img" class="text-center">
-      <img src="../images/ask-a-phar.jpg" alt="headImg" class="img-fluid">
+      <img src="../images/ask-a-phar.webp" alt="headImg" class="img-fluid">
     </div>
 
   </header>

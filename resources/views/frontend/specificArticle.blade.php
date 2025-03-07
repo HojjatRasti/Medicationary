@@ -9,7 +9,7 @@
   <header id="header" class="position-relative">
 
     <div id="header-img" class="text-center">
-      <img src="../images/blog-article-head.png" alt="headImg" class="img-fluid">
+      <img src="../images/blog-article-head.webp" alt="headImg" class="img-fluid">
     </div>
 
   </header>
