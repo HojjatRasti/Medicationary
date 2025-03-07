@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::table('posts', function (Blueprint $table) {
 
             $table->unsignedBigInteger('likes')->default(0);
+            $table->longText('schema')->nullable()->after('meta_description');
 
         });
     }

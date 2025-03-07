@@ -7,6 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description" content="@yield('description')">
     <meta name="keywords" content="@yield('keywords')">
+    @yield('schema')
     <title>Medicationary</title>
     {{-- fav icon --}}
     <link rel="icon" type="image/x-icon" href="/images/medLogo.webp">

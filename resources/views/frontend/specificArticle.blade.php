@@ -2,6 +2,7 @@
 
 @section('description', $post->meta_description)
 @section('keywords', $post->meta_title)
+@section('schema', $post->schema)
 
 @section('content')
 

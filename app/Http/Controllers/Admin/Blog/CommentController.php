@@ -73,9 +73,12 @@ class CommentController extends Controller
         $userId = $request->cookie('user_id');
 
 //  UUID (Universally Unique Identifier) - pseudo-anonymous user ID.
+        $userId = Str::uuid();
+        dd($userId);
 
         if (!$userId) {
             $userId = Str::uuid();
+//            dd($userId); در پست از لایک ها کم نمی کنه
             Cookie::queue('user_id', $userId, 60 * 24 * 365 * 5); // 5 years
         }
 

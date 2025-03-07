@@ -61,6 +61,7 @@ class PostController extends Controller
             'body' => $validatedData['quillBody'],
             'meta_description' => $validatedData['meta_description'],
             'meta_title' => $validatedData['meta_title'],
+            'schema' => $validatedData['schema'],
             'author' => $validatedData['author'],
         ]);
 
@@ -120,6 +121,7 @@ class PostController extends Controller
             'body' => $validatedData['quillBody'],
             'meta_description' => $validatedData['meta_description'],
             'meta_title' => $validatedData['meta_title'],
+            'schema' => $validatedData['schema'],
             'author' => $validatedData['author'],
         ]);
 

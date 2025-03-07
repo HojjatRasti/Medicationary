@@ -29,6 +29,7 @@ class UpdateRequest extends FormRequest
             'quillBody' => 'required|min:20',
             'meta_description' => 'required|min:3',
             'meta_title' => 'required|min:3',
+            'schema' => '',
             'post_url' => 'nullable|file|mimes:pdf',
             'thumbnail_url' => 'nullable|image|mimes:jpeg,png,jpg'
         ];

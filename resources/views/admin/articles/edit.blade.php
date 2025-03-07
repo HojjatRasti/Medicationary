@@ -43,7 +43,7 @@
                 </div>
                 <!-- Schema input -->
                 <div class="col-8 mb-2">
-                    <textarea class="form-control" required rows="2" cols="8" " placeholder="Schema" name="abstract"></textarea>
+                    <textarea class="form-control" required rows="2" cols="8" placeholder="Schema" name="schema">{{$post->schema}}</textarea>
                 </div>
                 <!-- discription input -->
                 <div class="col-8">

@@ -29,6 +29,7 @@ class BlogRequest extends FormRequest
             'abstract' => 'required|min:10',
             'quillBody' => 'required|min:20',
             'meta_description' => 'required|min:3',
+            'schema' => '',
             'meta_title' => 'required|min:3',
             'post_url' => 'file|mimes:pdf',
             'thumbnail_url' => 'required|image|mimes:jpeg,png,jpg'
