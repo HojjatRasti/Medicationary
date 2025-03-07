@@ -67,7 +67,7 @@ class WeblogController extends Controller
                      style='max-height: 245px;'>
 
                 <div class='article-data col-md-8 text-md-end'>
-                    <p class='article-cat h3'>" . $result->category->title . "</p>
+                    <p class='article-cat h3'>" . $result->category_id . "</p>
 
                     <p class='article-title h2'>" . $result->title . "</p>
 
@@ -101,8 +101,9 @@ class WeblogController extends Controller
         // آیدی کتگوری رو تا اینجا داری
 
 //        $category = Post_category::where()
+        $selectedCategory = Post_category::where('id','Like',$validatedData['keyword'])->value('title');
 
-        $results = Post::where('category_id', 'Like', $validatedData['keyword'])->get();
+        $results = Post::where('category_id', 'Like', '%'.$selectedCategory.'%')->get();
 
         foreach ($results as $result){
             $output .=
@@ -112,7 +113,7 @@ class WeblogController extends Controller
                      style='max-height: 245px;'>
 
                 <div class='article-data col-md-8 text-md-end'>
-                    <p class='article-cat h3'>" . $result->category->title . "</p>
+                    <p class='article-cat h3'>" . $result->category_id . "</p>
 
                     <p class='article-title h2'>" . $result->title . "</p>
 
