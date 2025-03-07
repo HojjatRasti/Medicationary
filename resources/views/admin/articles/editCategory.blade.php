@@ -23,7 +23,7 @@
                     <input type="text" class="form-control col-8" name="title" placeholder=""
                            aria-label="Example text with button addon" value="{{$category->title}}" aria-describedby="button-addon1" REQUIRED>
                 </div>
-                <a href="{{route('admin.articles.category')}}">بازگشت به صفحه قبل</a>
+                <a href="{{route('admin.post.category')}}">بازگشت به صفحه قبل</a>
         </div>
 
 
