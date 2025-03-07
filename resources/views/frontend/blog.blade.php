@@ -5,7 +5,7 @@
     <header id="header" class="z-3 text-center d-flex flex-wrap justify-content-center mb-3 ">
 
         <div id="header-img" class="text-center col-12">
-            <img src="../images/blog-head.jpg" alt="headImg" class="img-fluid">
+            <img src="../images/blog-head.webp" alt="headImg" class="img-fluid">
         </div>
 
         {{-- search box --}}

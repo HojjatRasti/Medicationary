@@ -6,7 +6,7 @@
   <header id="header">
 
     <div id="header-img" class="text-center">
-      <img src="/images/header.jpg" alt="headImg" class="img-fluid">
+      <img src="/images/header.webp" alt="headImg" class="img-fluid">
     </div>
 
   </header>
@@ -30,7 +30,7 @@
 
       <div class="d-flex justify-content-center">
         <a href="{{route('home.ask')}}" >
-        <img src="/images/ask_a_pharmacist.png" alt="pharmacistIcon" >
+        <img src="/images/ask_a_pharmacist.webp" alt="pharmacistIcon" >
         </a>
       </div>
 
