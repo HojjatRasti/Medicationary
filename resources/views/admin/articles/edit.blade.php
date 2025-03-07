@@ -41,6 +41,10 @@
                     <input type="text" value="{{$post->meta_description}}" class="form-control text-center mb-3 col-12" placeholder="متا دیسکریپشن" name="meta_description" required>
 
                 </div>
+                <!-- Schema input -->
+                <div class="col-8 mb-2">
+                    <textarea class="form-control" required rows="2" cols="8" " placeholder="Schema" name="abstract"></textarea>
+                </div>
                 <!-- discription input -->
                 <div class="col-8">
                     <textarea class="form-control" required rows="5" dir="rtl" placeholder="توضیحات" name="abstract">{{$post->abstract}}</textarea>
