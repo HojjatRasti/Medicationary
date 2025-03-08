@@ -284,15 +284,6 @@ button{
     color: #fff;
 }
 
-#footer a {
-    text-align: center;
-    font-size: 30px;
-    color: #fff;
-}
-
-#footer a:hover{
-    transform: scale(1.2);
-}
 
 /* blog page styles */
 
