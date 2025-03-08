@@ -1,6 +1,20 @@
 @extends('layouts.frontend.master')
 
 @section('content')
+    {{-- schema --}}
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org/",
+          "@type": "WebSite",
+          "name": "Medicationary",
+          "url": "https://medicationary.ir/",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "{search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        }
+    </script>
 
   <!-- header -->
   <header id="header">
