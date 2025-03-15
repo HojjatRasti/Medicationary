@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->char('user_id');
             $table->foreignIdFor(\App\Models\Post::class)->constrained()->cascadeOnDelete();
-            $table->unique(['user_id','post_id']);
+            $table->char('user_cookie')->nullable();
+            $table->string('fingerprint');
+            $table->string('ip_address')->nullable();
+            $table->text('user_agent')->nullable();
             $table->longText('body')->nullable();
             $table->timestamps();
         });

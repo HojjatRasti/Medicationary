@@ -70,59 +70,36 @@ class CommentController extends Controller
 
     public function storeLike(Request $request, $postId){
 
-        $userId = $request->cookie('user_id');
-
-//  UUID (Universally Unique Identifier) - pseudo-anonymous user ID.
-        $userId = Str::uuid();
-        dd($userId);
-
-        if (!$userId) {
-            $userId = Str::uuid();
-//            dd($userId); در پست از لایک ها کم نمی کنه
-            Cookie::queue('user_id', $userId, 60 * 24 * 365 * 5); // 5 years
-        }
+        $fingerprint = $request->input('fingerprint');
+        $ip = $request->ip();
+        $userAgent = $request->header('User-Agent');
 
         $specificPost= Post::findOrFail($postId);
         $likesNumber = $specificPost->value('likes');
 
-//        dd($request['likeStatus']);
-
         if($request['likeStatus'] == 1){
+            $userId = Str::uuid();    //  UUID (Universally Unique Identifier) - pseudo-anonymous user ID.
+            Cookie::queue('user_id', $userId, 60 * 24 * 365 * 5); // 5 years
             Comment::create([
                 'post_id' => $postId,
-                'user_id' => $userId,
+                'fingerprint' => $fingerprint,
+                'user_cookie' => $userId,
+                'ip_address' => $ip,
+                'user_agent' => $userAgent
             ]);
-
-            Post::findOrFail($postId)->Update([
+            $specificPost->Update([
                 'likes' => $likesNumber + 1
             ]);
             return response(1);
 
         } else {
-            Comment::where('user_id','=',$userId)->delete();
-
-            Post::findOrFail($postId)->Update([
+            $specificPost->Update([
                 'likes' => $likesNumber - 1
             ]);
+            Comment::where('post_id', $postId)->where('fingerprint', $fingerprint)->delete();
 
             return response(0);
         }
-//        try {
-//            Comment::create([
-//                'post_id' => $postId,
-//                'user_id' => $userId,
-//            ]);
-//
-//            return response()->json(['message' => 'Like added'], 200); // Or redirect
-//
-//        } catch (QueryException $e) {
-//            if ($e->getCode() === '23000') { // Duplicate entry error code
-//                return response()->json(['message' => 'You have already liked this post.'], 400); // Or appropriate error code
-//            }
-//
-//            // Handle other database errors
-//            return response()->json(['message' => 'An error occurred.'], 500);
-//        }
 
     }
 }

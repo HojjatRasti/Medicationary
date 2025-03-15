@@ -153,12 +153,13 @@ class WeblogController extends Controller
 
         $post = Post::findOrFail($post_id);
 
-        $comments = Comment::get('user_id')->toArray();
+        $comments = Comment::where('post_id', '=', $post_id)->get('fingerprint')->toArray();
+//        $comments = Comment::get('fingerprint')->toArray();
 
         $users_id_array = [];
 
         foreach ($comments as $keys => $value){
-            $users_id_array[] = $value['user_id'];
+            $users_id_array[] = $value['fingerprint'];
         }
 
         return view('frontend.specificArticle', compact('post', 'users_id_array'));

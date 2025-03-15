@@ -24,6 +24,7 @@
                            aria-label="Example text with button addon" value="{{$category->title}}" aria-describedby="button-addon1" REQUIRED>
                 </div>
                 <a href="{{route('admin.post.category')}}">بازگشت به صفحه قبل</a>
+            </form>
         </div>
 
 
