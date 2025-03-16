@@ -21,7 +21,7 @@
         <p>{{$post->author}}</p>
         <p>{{$post->created_at->jdate('j F Y')}}</p>
     </div>
-    <div class=" pe-5 ps-5 container-fluid ql-editor" dir="ltr">
+    <div class=" pe-5 ps-5 pb-0 pt-0 container-fluid ql-editor " dir="ltr" style="line-height: 2rem">
 
             {!!$post->body!!}
 
