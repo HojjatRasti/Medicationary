@@ -16,8 +16,8 @@
   </header>
   <!-- blog contents -->
   <div class="container">
-    <div id="blog-article-title" class="text-center d-inline-block w-100 ">
-        <h1 class="article-title fw-bold">{{$post->title}}</h1>
+    <div id="blog-article-title" class="text-center d-inline-block w-100 mt-2 ">
+        <h1 class="article-title fw-bold mb-4">{{$post->title}}</h1>
         <p>{{$post->author}}</p>
         <p>{{$post->created_at->jdate('j F Y')}}</p>
     </div>

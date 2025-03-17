@@ -224,37 +224,13 @@ button{
     text-align: center;
 }
 
-#blog-article-title{
-    height: 350px;
-    background-color: #e1f2ff;
-    margin-top: -10rem;
-
-}
-
-.article-title{
-    margin-top: 10rem;
-}
-
-#blog-article-title h3{
-    margin-top: 12rem;
-    color: #04355C;
-}
 
 #blog-article-title p{
     color: #04355C;
-    margin-top: 2rem;
 }
-
-
 
 #blog-article-text img{
-    /* height: 100%; */
     max-width: 100%;
-}
-
-#blog-article-text p{
-    font-size: 20px;
-    line-height: 40px;
 }
 
 /* ask styles */
