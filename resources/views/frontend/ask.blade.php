@@ -1,5 +1,10 @@
 @extends('layouts.frontend.master')
 
+@section('askPageMetaTags')
+    <meta name="mainPageMetaTitle" content="پرسش و پاسخ دارویی و پزشکی – Medicationary">
+    <meta name="mainPageMetaTitle" content="سوالات خود درباره داروها، بیماری‌ها، و درمان‌ها را در Medicationary مطرح کنید. پاسخ‌های معتبر و تخصصی از متخصصان پزشکی و داروسازی دریافت نمایید.">
+@endsection
+
 @section('content')
 <!-- header -->
   <header id="header">

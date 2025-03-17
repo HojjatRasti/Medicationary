@@ -1,9 +1,13 @@
 @extends('layouts.frontend.master')
 
-@section('description', $post->meta_description)
-@section('keywords', $post->meta_title)
-@section('schema', $post->schema)
 
+
+
+@section('articleMetaTags&schema')
+    <meta name="description" content="{{$post->meta_description}}">
+    <meta name="keywords" content="{{$post->meta_title}}">
+    <meta name="schema" content="{{$post->schema}}">
+@endsection
 @section('content')
 
   <!-- header -->

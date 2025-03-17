@@ -61,7 +61,7 @@ class WeblogController extends Controller
 
         foreach ($results as $result){
             $output .=
-                "<div class='article container text-center d-md-flex justify-content-end data-table'>
+                "<div class=' container text-center d-md-flex justify-content-end  shadow p-3 mb-5  rounded-4  col-10 pe-md-5'>
 
                 <img class='col-md-4 ms-3 img-thumbnail rounded object-fit-fill ' src='/" . $result->thumbnail_url . "' alt=''
                      style='max-height: 245px;'>
@@ -107,7 +107,7 @@ class WeblogController extends Controller
 
         foreach ($results as $result){
             $output .=
-                "<div class='article container text-center d-md-flex justify-content-end data-table'>
+                "<div class=' container text-center d-md-flex justify-content-end  shadow p-3 mb-5  rounded-4  col-10 pe-md-5'>
 
                 <img class='col-md-4 ms-3 img-thumbnail rounded object-fit-fill ' src='/" . $result->thumbnail_url . "' alt=''
                      style='max-height: 245px;'>

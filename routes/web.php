@@ -38,7 +38,7 @@ Route::prefix('admin')->group(function(){
         Route::put('{user_id}/update',[UsersController::class, 'update'])->name('admin.users.update');
         Route::delete('{user_id}/delete',[UsersController::class, 'delete'])->name('admin.users.delete');
     });
-        Route::prefix('login')->group(function (){
+        Route::prefix('HoAmId')->group(function (){
             Route::get('',[LoginController::class, 'landscape'])->name('login');
             Route::get('/logout',[LoginController::class, 'logout'])->name('admin.logout');
             Route::post('/login',[LoginController::class, 'check'])->name('admin.login.check');
@@ -106,7 +106,6 @@ Route::prefix('admin')->group(function(){
 
             Route::put('{post_id}/update',[PostController::class, 'update'])->name('admin.post.update');
             Route::delete('{post_id}/delete',[PostController::class, 'delete'])->name('admin.post.delete');
-//            Route::get('create',[CommentController::class, 'create'])->name('admin.articles.create');
             Route::get('{product_id}/download',[PostController::class,'download'])->name('admin.post.download');
 
         });
