@@ -7,6 +7,11 @@
     <meta name="description" content="{{$post->meta_description}}">
     <meta name="keywords" content="{{$post->meta_title}}">
     <meta name="schema" content="{{$post->schema}}">
+    <style>
+        p img{
+            max-width: 100%;
+        }
+    </style>
 @endsection
 @section('content')
 
@@ -56,6 +61,14 @@
     let fingerprint
     let usersIdentifier = @json($users_id_array);
 
+    let imgflex = document.querySelectorAll('.ql-editor p');
+
+
+    for(let i = 0; i < imgflex.length; i++){
+        if(imgflex[i].innerHTML == 'IMG'){
+            imgflex[i].classList.add('d-flex');
+        }
+    };
 
 
     document.addEventListener("DOMContentLoaded", async function(){
