@@ -1,5 +1,9 @@
 @extends('layouts.frontend.master')
 
+@section('title')
+    <title>وبلاگ مدیکیشنری</title>
+@endsection
+
 @section('content')
     <!-- header -->
     <header id="header" class="z-3 text-center d-flex flex-wrap justify-content-center mb-3 ">

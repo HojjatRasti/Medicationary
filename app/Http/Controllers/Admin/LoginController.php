@@ -22,7 +22,7 @@ class LoginController extends Controller
 
         if (\auth()->attempt(['email' => $validatedData['email_X'], 'password' => $validatedData['password_X']])){
 
-            return redirect('/admin');
+            return redirect('/hoamId');
         }
         return redirect()->back()->with('failed', 'اطلاعات وارد شده اشتباه میباشد');
 
@@ -32,7 +32,7 @@ class LoginController extends Controller
 
         \auth()->logout();
 
-        return redirect('/admin/login');
+        return redirect('/hoamId/login');
 
     }
 }

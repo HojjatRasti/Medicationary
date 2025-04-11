@@ -27,7 +27,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::prefix('admin')->group(function(){
+Route::prefix('hoamId')->group(function(){
     Route::get('',[IndexController::class, 'landscape'])->name('admin.index.landscape')->middleware('auth');
 
     Route::prefix('users')->middleware('auth')->group(function (){
@@ -38,7 +38,7 @@ Route::prefix('admin')->group(function(){
         Route::put('{user_id}/update',[UsersController::class, 'update'])->name('admin.users.update');
         Route::delete('{user_id}/delete',[UsersController::class, 'delete'])->name('admin.users.delete');
     });
-        Route::prefix('HoAmId')->group(function (){
+        Route::prefix('login')->group(function (){
             Route::get('',[LoginController::class, 'landscape'])->name('login');
             Route::get('/logout',[LoginController::class, 'logout'])->name('admin.logout');
             Route::post('/login',[LoginController::class, 'check'])->name('admin.login.check');
