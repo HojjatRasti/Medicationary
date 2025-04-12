@@ -34,7 +34,7 @@ class WeblogController extends Controller
 
     public function blog(){
 
-        $posts = Post::paginate(5);
+        $posts = Post::orderBy('created_at', 'desc')->paginate(5);
 
         $categories = Post_category::get();
 

@@ -1,8 +1,5 @@
 @extends('layouts.frontend.master')
 
-
-
-
 @section('articleMetaTags&schema')
     <meta name="description" content="{{$post->meta_description}}">
     <meta name="keywords" content="{{$post->meta_title}}">
@@ -13,6 +10,11 @@
         }
     </style>
 @endsection
+
+@section('title')
+    <title>{{$post->meta_title}}</title>
+@endsection
+
 @section('content')
 
   <!-- header -->

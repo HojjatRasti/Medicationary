@@ -32,7 +32,7 @@ class BlogRequest extends FormRequest
             'schema' => '',
             'meta_title' => 'required|min:3',
             'post_url' => 'file|mimes:pdf',
-            'thumbnail_url' => 'required|image|mimes:jpeg,png,jpg'
+            'thumbnail_url' => 'required|image|mimes:jpeg,png,jpg,webp'
 
         ];
     }

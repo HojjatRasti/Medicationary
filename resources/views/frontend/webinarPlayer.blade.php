@@ -1,5 +1,9 @@
 @extends('layouts.frontend.master')
 
+@section('title')
+    <title>پلیر مدیکشنری</title>
+@endsection
+
 @section('content')
 
 <div class="container">

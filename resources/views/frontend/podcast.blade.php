@@ -1,5 +1,9 @@
 @extends('layouts.frontend.master')
 
+@section('title')
+    <title>پادکست مدیکشنری</title>
+@endsection
+
 @section('content')
   <!-- header -->
   <header id="header">

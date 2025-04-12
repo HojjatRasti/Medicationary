@@ -31,7 +31,7 @@ class UpdateRequest extends FormRequest
             'meta_title' => 'required|min:3',
             'schema' => '',
             'post_url' => 'nullable|file|mimes:pdf',
-            'thumbnail_url' => 'nullable|image|mimes:jpeg,png,jpg'
+            'thumbnail_url' => 'nullable|image|mimes:jpeg,png,jpg,webp'
         ];
     }
 }

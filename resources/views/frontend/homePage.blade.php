@@ -19,6 +19,10 @@
 </script>
 @endsection
 
+@section('title')
+    <title>اطلاعات پزشکی و دارویی با مدیکیشنری</title>
+@endsection
+
 @section('content')
 
 

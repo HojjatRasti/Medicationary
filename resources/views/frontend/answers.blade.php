@@ -1,5 +1,9 @@
 @extends('layouts.frontend.master')
 
+@section('title')
+    <title>پاسخ ها</title>
+@endsection
+
 @section('content')
   <!-- header -->
   <header id="header" class="text-center  d-flex flex-wrap justify-content-center mb-3">

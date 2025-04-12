@@ -1,5 +1,9 @@
 @extends('layouts.frontend.master')
 
+@section('title')
+    <title>** {{$post->title}} **</title>
+@endsection
+
 @section('content')
   <!-- header -->
   <header id="header" class="position-relative">
