@@ -186,6 +186,11 @@ button{
 }
 
 #blog a{
+    text-decoration: none;
+    text-decoration-color: #fff;
+}
+
+#blog a:hover{
     text-decoration: underline;
     text-decoration-color: #fff;
 }

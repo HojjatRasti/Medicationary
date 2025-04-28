@@ -1,8 +1,8 @@
 @extends('layouts.frontend.master')
 
 @section('MainPageMetaTags&schema')
-<meta name="mainPageMetaTitle" content="Medicationary - مرجع تخصصی اطلاعات دارویی ، پزشکی 💊">
-<meta name="mainPageMetaDescription" content="در Medicationary، اطلاعات جامع و معتبر درباره داروها، بیماری‌ها، و درمان‌ها را بیابید. مرجع تخصصی برای داروسازی، پزشکی، و سلامت.">
+
+<meta name="description" content="در Medicationary، اطلاعات جامع و معتبر درباره داروها، بیماری‌ها، و درمان‌ها را بیابید. مرجع تخصصی برای داروسازی، پزشکی، و سلامت.">
 {{-- schema --}}
 <script type="application/ld+json">
         {

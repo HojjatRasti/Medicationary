@@ -3,7 +3,7 @@
 @section('articleMetaTags&schema')
     <meta name="description" content="{{$post->meta_description}}">
     <meta name="keywords" content="{{$post->meta_title}}">
-    <meta name="schema" content="{{$post->schema}}">
+    <script type="application/ld+json">{!! $post->schema !!}</script>
     <style>
         p img{
             max-width: 100%;
