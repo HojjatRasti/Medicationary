@@ -1,26 +1,16 @@
 @extends('layouts.frontend.master')
 
-@section('MainPageMetaTags&schema')
-
-<meta name="description" content="در Medicationary، اطلاعات جامع و معتبر درباره داروها، بیماری‌ها، و درمان‌ها را بیابید. مرجع تخصصی برای داروسازی، پزشکی، و سلامت.">
-{{-- schema --}}
+@section('schema')
+<!-- schema  -->
 <script type="application/ld+json">
-        {
-          "@context": "https://schema.org/",
-          "@type": "WebSite",
-          "name": "Medicationary",
-          "url": "https://medicationary.ir/",
-          "potentialAction": {
-            "@type": "SearchAction",
-            "target": "{search_term_string}",
-            "query-input": "required name=search_term_string"
-          }
-        }
+        
 </script>
 @endsection
 
 @section('title')
-    <title>اطلاعات پزشکی و دارویی با مدیکیشنری</title>
+<!-- Meta Tile & Meta Description -->
+    <title>Medicationary💊</title>
+    <meta name="description" content="At Medicationary, discover reliable and comprehensive information about medications, diseases, and treatments — your trusted reference for pharmacy, medicine, and health.">
 @endsection
 
 @section('content')
@@ -37,63 +27,59 @@
 
   <!-- ask a pharmacis -->
   <section class=" ask-phar" >
-
-
-        <a href="{{route('home.ask')}}" class="h2 col-xl-8 d-flex justify-content-center ">
-            از یک داروساز بپرس
-          </a>
-
-
+    {{-- ask a pharmacis Title --}}
+    <a href="{{route('home.ask')}}" class="h2 col-xl-8 d-flex justify-content-center ">
+        Ask a pharmacist
+    </a>
+    {{-- ask a pharmecist main part --}}
     <div class="container d-flex justify-content-center justify-content-xl-between ">
-
+      {{-- ask a pharmecist text --}}
       <div class="discription d-xl-inline-block">
         <p class="fs-5 " style="text-align: justify;">
-            آیا سوالی در مورد داروها، عوارض جانبی، تداخلات دارویی یا نحوه مصرف داروها دارید؟ با کلیک روی عنوان یا تصویر روبه‌رو وارد بخش پرسش و پاسخ شوید و سوالات خود را از متخصصان داروسازی بپرسید. ما آماده‌ایم تا به شما کمک کنیم تا با اطمینان بیشتر از داروهای خود استفاده کنید.
+          Have questions about your medications, side effects, or drug interactions? Tap on the title or image to enter our Q&A section and get expert advice from professional pharmacists. We're here to empower you to take your medicines safely and confidently.
         </p>
       </div>
-
+      {{-- ask a pharmecist pic --}}
       <div class="d-flex justify-content-center">
         <a href="{{route('home.ask')}}" >
-        <img src="/images/ask_a_pharmacist.webp" alt="pharmacistIcon" >
+          <img src="/images/ask_a_pharmacist.webp" alt="pharmacistIcon" >
         </a>
       </div>
-
     </div>
   </section>
-  {{-- <!-- podcast -->
+  <!-- podcast -->
   <section class="podcast" >
     <div class="container ">
+      {{-- podcast title --}}
       <div style="padding: 25px 0 15px 0;">
-
-        <a href="{{route('home.podcast')}}" id="podcasts-title" class="col-xl-8 d-flex justify-content-center" title="برای مشاهده پادکست های بیشتر کلیک کنید">
-        <p class="h2">پادکست</p>
+        <a href="{{route('home.podcast')}}" id="podcasts-title" class="col-xl-8 d-flex justify-content-center" title="Click here to explore more podcasts">
+          <p class="h2">Podcast</p>
         </a>
-
       </div>
-      <!-- suggested podcasts -->
+      <!--podcasts main -->
       <div class="d-flex justify-content-center align-items-center justify-content-xl-between pb-5">
+        {{-- podcast text --}}
         <p class="text-light col-8 d-none d-md-block">
-            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+          Dive into the world of health and medicine with our podcast! Tune in to expert discussions, latest updates, and practical tips from pharmacists and healthcare professionals. Subscribe now and empower your wellness journey with trusted knowledge—anytime, anywhere.
         </p>
-
+        {{-- podcast pic --}}
         <div class="headphone-img col-xl-3 d-flex justify-content-center col-12 col-md-4">
-            <a href="{{route('home.podcast')}}" title="برای مشاهده پادکست های بیشتر کلیک کنید" >
+            <a href="{{route('home.podcast')}}" title="Click here to explore more podcasts" >
             <img src="/images/headphone.png" alt="pharmacistIcon" class="img-fluid ">
             </a>
         </div>
-
       </div>
     </div>
-  </section> --}}
+  </section>
   <!-- blog -->
   <section id="blog" class=" podcast p-3">
-
+    {{-- blog Title --}}
     <div id="b-title" class="d-block">
       <p class="h2 text-light">
-        جدید ترین مقالات منتشرشده
+        Latest Published Articles
       </p>
     </div>
-
+    {{-- blog latests posts --}}
     <div id="blog-items" class="d-xl-flex justify-content-between container text-light " >
         @if(count($posts) > 0)
       <div id="blog-imp-article" class="col-xl-7 mb-3 p-0  float-xl-end " >
@@ -127,12 +113,9 @@
             </div>
         </div>
           @endforeach
-
         </div>
       </div>
-
     </div>
   </section>
-
 
 @endsection
