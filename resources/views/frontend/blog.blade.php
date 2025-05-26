@@ -27,28 +27,29 @@
             </div>
             {{-- search box --}}
             <div class="collapse col-12" id="collapseExample">
-                <div class="input-group flex-nowrap searchDiv " dir="ltr">
+                <div class="input-group flex-nowrap searchDiv ">
+                    
+                    {{-- search input --}}
+                    <input  type="text" id="searchBox" class=" searchInput form-control text-center" placeholder="Search..."  aria-describedby="addon-wrapping">
                     {{-- switch to category search --}}
                     <button class="btn input-group-text categoryBtn" id="addon-wrapping" style="background-color: #f8f9fa; border:1px solid #dee2e6;">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32"><path fill="#8ad9e6" d="M27 22.141V18a2 2 0 0 0-2-2h-8v-4h2a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-6a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2v4H7a2 2 0 0 0-2 2v4.142a4 4 0 1 0 2 0V18h8v4.142a4 4 0 1 0 2 0V18h8v4.141a4 4 0 1 0 2 0M13 4h6l.001 6H13ZM8 26a2 2 0 1 1-2-2a2 2 0 0 1 2 2m10 0a2 2 0 1 1-2-2a2.003 2.003 0 0 1 2 2m8 2a2 2 0 1 1 2-2a2 2 0 0 1-2 2" stroke-width="1" stroke="#8ad9e6"/></svg>
                     </button>
-                    {{-- search input --}}
-                    <input dir="rtl" type="text" id="searchBox" class=" searchInput form-control text-center" placeholder="جستجو..."  aria-describedby="addon-wrapping">
 
                 </div>
                 {{-- category search --}}
-                <div class="categoryDiv input-group d-none " dir="ltr">
+                <div class="categoryDiv input-group d-none ">
 
+                    <select class="form-select text-center " id="inputGroupSelect03" aria-label="Example select with button addon">
+                      <option disabled selected>Choose a Category</option>
+                    {{-- @foreach($categories as $category)
+                      <option value="{{$category->id}}">{{$category->title}}</option>
+                    @endforeach --}}
+                    </select>
                     <button class="btn input-group-text searchBtn" id="addon-wrapping" style="background-color: #f8f9fa; border:1px solid #dee2e6;">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="#8ad9e6" d="M10 18a7.95 7.95 0 0 0 4.897-1.688l4.396 4.396l1.414-1.414l-4.396-4.396A7.95 7.95 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8s3.589 8 8 8m0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6s-6-2.691-6-6s2.691-6 6-6" stroke-width="0.5" stroke="#8ad9e6"/></svg>
                     </button>
 
-                    <select class="form-select text-center " id="inputGroupSelect03" aria-label="Example select with button addon" dir="rtl">
-                      <option disabled selected>دسته بندی مدنظر خود را انتخاب کنید</option>
-                    @foreach($categories as $category)
-                      <option value="{{$category->id}}">{{$category->title}}</option>
-                    @endforeach
-                    </select>
                 </div>
 
 

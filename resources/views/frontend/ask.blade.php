@@ -1,11 +1,10 @@
 @extends('layouts.frontend.master')
 
 @section('askPageMetaTags')
-    <meta name="mainPageMetaTitle" content="پرسش و پاسخ دارویی و پزشکی – Medicationary">
-    <meta name="mainPageMetaTitle" content="سوالات خود درباره داروها، بیماری‌ها، و درمان‌ها را در Medicationary مطرح کنید. پاسخ‌های معتبر و تخصصی از متخصصان پزشکی و داروسازی دریافت نمایید.">
+    <meta name="mainPageMetaTitle" content="Ask your questions about medications, diseases, and treatments on Medicationary. Get trusted, expert answers from medical and pharmaceutical professionals.">
 @endsection
 @section('title')
-    <title>از ما بپرس</title>
+    <title>Ask a pharmacist</title>
 @endsection
 
 @section('content')
@@ -22,7 +21,7 @@
       @include('errors.message')
         <div class="text-center d-flex justify-content-center">
             <p class="p-3 col-6 border border-danger-subtle border-3 rounded">
-                سولات پرسیده شده در به دو صورت پاسخ داده می شوند در صورت جزئی بودن سوال جواب به ایمیل یا شماره تماس شما ارسال شده و در صورت کلی و مهم بودن جواب را می توانید رد بخش بلاگ با دسته‌بندی پرسش پیدا کنید.
+              Questions submitted are answered in two ways: if your question is specific or personal, the response will be sent directly to your email or phone number. If it's a general or important topic, you'll find the answer published in the Blog section under the “Questions” category.
             </p>
         </div>
     <form action="{{route('admin.inquiries.addInquiries')}}" method="post" class="m-2 p-2 mb-3 d-lg-flex justify-content-center col-12">
@@ -32,7 +31,7 @@
       <!-- qusetion and tittle section -->
      <div id="ask-left-items" class="col-12 p-3 col-lg-6">
       <div class="input-group mb-3">
-        <input type="text" id="questionTitle" class="form-control" placeholder="عنوان پرسش" name="question_title" dir="rtl" required>
+        <input type="text" id="questionTitle" class="form-control" placeholder="Ask Title" name="question_title" dir="rtl" required>
         <span class="input-group-text" id="basic-addon1">
           <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><path fill="#4867bc" d="M4 20q-.825 0-1.413-.588T2 18V6q0-.825.588-1.413T4 4h16q.825 0 1.413.588T22 6v12q0 .825-.588 1.413T20 20H4Zm2-4h8v-2H6v2Zm10 0h2v-2h-2v2ZM6 12h2v-2H6v2Zm4 0h8v-2h-8v2Z"/></svg>
         </span>
@@ -49,7 +48,7 @@
      <div id="ask-right-items" class="col-12 p-3 col-lg-6">
       <!-- name input -->
       <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="نام و نام‌خانوادگی" name="name" aria-label="Username" aria-describedby="basic-addon1" dir="rtl"  autofocus>
+        <input type="text" class="form-control" placeholder="First & Last Name" name="name" aria-label="Username" aria-describedby="basic-addon1" dir="rtl"  autofocus>
         <span class="input-group-text" id="basic-addon1">
           <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
             <g id="Group_27" data-name="Group 27" transform="translate(-836 -270)">
@@ -86,7 +85,7 @@
 
     <!-- submit btn -->
     <div class="col-12 m-3  text-center col-lg-2 m-lg-0 lg-hidden h-auto ">
-      <button id="askSubBtn" type="submit" class="btn p-2 w-50 h-100 " style="color: #fff; background-color: #4867BC;">ارسال</button>
+      <button id="askSubBtn" type="submit" class="btn p-2 w-50 h-100 " style="color: #fff; background-color: #4867BC;">Submit</button>
     </div>
 
 
