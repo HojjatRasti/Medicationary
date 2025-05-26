@@ -30,7 +30,7 @@
     {{-- <script>@yield('schema')</script> --}}
     {{-- // @turnstileScripts() --}}
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
   <!-- nav bar -->
   <nav class="navbar sticky-top navbar-expand-md" id="nav-bar">
     <div class="container">

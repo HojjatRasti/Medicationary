@@ -39,8 +39,8 @@
       <div class="mb-3">
         <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" name="explanation" dir="rtl" required></textarea>
       </div>
-{{--Turnstile code:   --}}
-             <x-turnstile name="turnstile_response"/>
+      {{-- Turnstile code:  
+             <x-turnstile name="turnstile_response"/> --}}
 
      </div>
 

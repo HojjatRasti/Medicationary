@@ -58,7 +58,7 @@
   </header>
 
   {{-- podcast content --}}
-  <div class="container">
+  <div class="container flex-grow-1">
       @foreach($podcasts as $podcast)
     <div id="podcast-player" class=" p-3 mb-5 mt-5 bg-body-tertiary rounded-3 d-md-flex flex-wrap justify-content-between " dir="ltr" style="height: 250px">
 

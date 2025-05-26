@@ -58,7 +58,7 @@
   </header>
   <!-- answear list -->
   @foreach($responses as $response)
-  <div class="container">
+  <div class="container flex-grow-1">
     <div class="ask text-center d-md-flex justify-content-between  m-3">
 
         <div id="answear-img" class="col-md-3 h-auto col-12 " >

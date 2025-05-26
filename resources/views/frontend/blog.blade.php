@@ -62,7 +62,7 @@
     <!-- blog contents -->
     @include('errors.message')
 
-    <div class="allData ">
+    <div class="allData flex-grow-1">
     @foreach($posts as $post)
 
             <div class=" container text-center d-md-flex justify-content-end  shadow p-3 mb-5  rounded-4  col-10 pe-md-5">

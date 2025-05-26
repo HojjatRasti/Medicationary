@@ -57,7 +57,7 @@
 
   </header>
   <!-- webinar cards -->
-  <div class="container text-center d-flex justify-content-between flex-wrap" id="webinar">
+  <div class="container text-center d-flex justify-content-between flex-wrap flex-grow-1" id="webinar">
       @foreach($webinars as $webinar)
     <div class="webinar-card card  m-3">
 
