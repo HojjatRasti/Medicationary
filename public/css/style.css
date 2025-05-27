@@ -42,12 +42,6 @@ a{
 button{
     font-family: Sahel;
 }
-/* news */
-#news {
-    width: 100%;
-    height: 30px;
-    background-color:#04355C;
-}
 
 /* nav bar */
 #nav-bar{
@@ -60,24 +54,15 @@ button{
     font-weight: bold;
 }
 
-#nav-bar a:hover{
-    color:#fff;
-    transform: scale(1.2);
-}
-
-#mynavbar li {
-    padding: 10px;
-
-}
 /* nav bar collapse icon sytles */
 #nav-bar .navbar-toggler {
     color: #fff;
-    border: 2px solid #fff !important;
+    border: none;
 }
 
 #nav-bar .navbar-toggler:focus {
     color: #fff;
-    border: 2px solid #fff !important;
+    border: none;
     box-shadow: none !important;
 }
 
@@ -86,17 +71,7 @@ button{
     display: inline-block;
     margin-top: 5px;
 }
-/* navbar search icon styles */
-#search{
-    font-size: 30px;
-    font-weight: bold;
-    margin-right: 45px;
-}
 
-#search:hover{
-    cursor: pointer;
-    transform: scale(1.2);
-}
 /* Homepage styles */
 /* ask a pharmacis section styls */
 .ask-phar{

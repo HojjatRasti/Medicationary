@@ -9,7 +9,8 @@
   <header id="header" class="text-center  d-flex flex-wrap justify-content-center mb-3">
 
     <div id="header-img" class="text-center">
-      <img src="../images/podcast-head.jpg" alt="headImg" class="img-fluid">
+      <img src="../images/podcast-head.webp" alt="headImg" class="img-fluid">
+
     </div>
     {{-- search box --}}
         <div  class="z-3 search-box col-10 col-md-5 d-flex flex-wrap justify-content-center ">

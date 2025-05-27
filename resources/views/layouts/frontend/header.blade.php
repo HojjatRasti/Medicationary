@@ -50,22 +50,22 @@
       </button>
 
       <!-- the elemts of navbar -->
-      <div class="collapse navbar-collapse" id="mynavbar">
-        <ul class="navbar-nav col-10 ">
+      <div class="collapse navbar-collapse " id="mynavbar">
+        <ul class="navbar-nav text-center col-12 ">
           <li class="nav-item">
-            <a class="nav-link " href="{{route('home.blog')}}">Blog</a>
+            <a class="nav-link " href="{{route('home.blog')}}">Blog 📃</a>
           </li>
           {{-- webinar nav item --}}
           <li class="nav-item">
-            <a class="nav-link" href="{{route('home.webinarsList')}}" rel="nofallow">Webinar</a>
+            <a class="nav-link" href="{{route('home.webinarsList')}}" rel="nofallow">Webinar 🎬</a>
           </li>
-          {{-- answer nav item --}}
+          {{-- answer nav item
           <li class="nav-item">
             <a class="nav-link" href="{{route('home.responses')}}">Answers</a>
-          </li>
+          </li> --}}
           {{-- podcast nav item --}}
           <li class="nav-item ">
-            <a class="nav-link" href="{{route('home.podcast')}}" rel="nofallow">Podcast</a>
+            <a class="nav-link" href="{{route('home.podcast')}}" rel="nofallow">Podcast 🎙️</a>
           </li>
 
         </ul>
