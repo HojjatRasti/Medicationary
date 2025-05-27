@@ -33,7 +33,7 @@
      <div id="ask-right-items" class="col-12 p-3 col-lg-6">
       <!-- name input -->
       <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="First & Last Name" name="name" aria-label="Username" aria-describedby="basic-addon1" dir="rtl"  autofocus>
+        <input type="text" class="form-control" placeholder="First & Last Name" name="name" aria-label="Username" aria-describedby="basic-addon1" autofocus>
         <span class="input-group-text" id="basic-addon1">
           <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
             <g id="Group_27" data-name="Group 27" transform="translate(-836 -270)">
@@ -68,20 +68,20 @@
     <!-- qusetion and tittle section -->
      <div id="ask-left-items" class="col-12 p-3 col-lg-6">
       <div class="input-group mb-3">
-        <input type="text" id="questionTitle" class="form-control" placeholder="Ask Title" name="question_title" dir="rtl" required>
+        <input type="text" id="questionTitle" class="form-control" placeholder="Ask Title" name="question_title" required>
         <span class="input-group-text" id="basic-addon1">
           <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><path fill="#4867bc" d="M4 20q-.825 0-1.413-.588T2 18V6q0-.825.588-1.413T4 4h16q.825 0 1.413.588T22 6v12q0 .825-.588 1.413T20 20H4Zm2-4h8v-2H6v2Zm10 0h2v-2h-2v2ZM6 12h2v-2H6v2Zm4 0h8v-2h-8v2Z"/></svg>
         </span>
       </div>
       <div class="mb-3">
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" name="explanation" dir="rtl" required></textarea>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" name="explanation"  required></textarea>
       </div>
-      {{-- Turnstile code:  
+        {{-- Turnstile code:  
              <x-turnstile name="turnstile_response"/> --}}
 
-     </div>
+      </div>
 
-     </div>
+    </div>
 
     <!-- submit btn -->
     <div class="col-12 m-3  text-center col-lg-2 m-lg-0 lg-hidden h-auto ">
