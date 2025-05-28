@@ -3,7 +3,7 @@
 @section('content')
     <div class="container-fluid ">
         <!-- user lists -->
-        <div id="all-users" class="col-12 col-lg-9 float-start d-flex justify-content-around grid gap-3 flex-wrap mt-lg-3">
+        <div id="all-users" class="col-12 col-lg-9 float-end d-flex justify-content-around grid gap-3 flex-wrap mt-lg-3">
             @foreach($users as $user)
                 @if($user->role !== 'user')
             <div class="card card-online col-12 col-lg-4 col-md-6">
