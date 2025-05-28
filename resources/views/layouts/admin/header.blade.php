@@ -35,11 +35,11 @@
 
 <body class="admin-main">
     <!-- header -->
-    <header class="admin-status col-7 float-start">
+    <header class="admin-status col-7 float-end">
 
         <!-- user info and log out btn -->
-        <div id="admin-user-status" dir="ltr" class="ms-4 mt-3
-         float-start">
+        <div id="admin-user-status" class="me-4 mt-3
+         float-end">
             <div class="btn-group w-auto" role="group" aria-label="Basic example">
                 <!-- logout btn -->
 
