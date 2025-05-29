@@ -5,11 +5,11 @@
     <div class="contaienr-fluid position-relative">
 
         <!-- upload form -->
-        <div id="webinar-up" class="col-12 col-lg-9 float-start pe-5 ps-5 " dir="ltr">
+        <div id="webinar-up" class="col-12 col-lg-9 float-end pe-5 ps-5 ">
             {{-- page title --}}
-            <nav aria-label="breadcrumb" class="d-flex flex-row-reverse mt-3 fs-3 fw-bold" dir="ltr">
+            <nav aria-label="breadcrumb" class="d-flex mt-3 fs-3 fw-bold">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item" aria-current="page">ویرایش وبینار</li>
+                    <li class="breadcrumb-item" aria-current="page">Edir Webinar</li>
                 </ol>
             </nav>
             @include('errors.message')
@@ -18,14 +18,8 @@
                 @csrf
                 @method('put')
                 <div class="input-group mb-3 w-100">
-                    <!-- category input -->
-                    <div class="btn-group col-md-6" >
-                        <select class="form-select text-center cat-multi-select" name="cat[]" multiple id="inputGroupSelect03" aria-label="Example select with button addon" dir="rtl">
-                            @foreach($categories as $category)
-                                <option value="{{$category->id}}"{{ str_contains($webinar->category_id, $category->title) ? 'selected' : '' }} >
-                                    {{$category->title}}</option>
-                            @endforeach
-                        </select>
+                    <!-- title input -->
+                    <input type="text" class="form-control text-center" name="title" value="{{$webinar->title}}" placeholder="Title" required>
                     </div>
                     <!-- middle pic -->
                     <span class="input-group-text">
@@ -40,23 +34,30 @@
                             </g>
                         </svg>
                     </span>
-                    <!-- title input -->
-                    <input type="text" class="form-control text-center" name="title" value="{{$webinar->title}}" placeholder="عنوان" required>
+                    
+                    <!-- category input -->
+                    <div class="btn-group col-md-6" >
+                        <select class="form-select text-center cat-multi-select" name="cat[]" multiple id="inputGroupSelect03" aria-label="Example select with button addon">
+                            @foreach($categories as $category)
+                                <option value="{{$category->id}}"{{ str_contains($webinar->category_id, $category->title) ? 'selected' : '' }} >
+                                    {{$category->title}}</option>
+                            @endforeach
+                        </select>
                 </div>
                 <div class="col-xl-8 col-12 mb-3 text-center">
                     {{-- author input --}}
-                    <input type="text" class="form-control text-center mb-3 col-12" value="{{$webinar->instructor}}" placeholder="نام برگذارکننده" name="instructor" required>
-                    <input type="text" class="form-control text-center mb-3 col-12" value="{{$webinar->meta_title}}" placeholder="متا تایتل" name="meta_title" required>
-                    <input type="text" class="form-control text-center mb-3 col-12" value="{{$webinar->meta_description}}" placeholder="متا دیسکریپشن" name="meta_description" required>
+                    <input type="text" class="form-control text-center mb-3 col-12" value="{{$webinar->instructor}}" placeholder="Orgnizer" name="instructor" required>
+                    <input type="text" class="form-control text-center mb-3 col-12" value="{{$webinar->meta_title}}" placeholder="Meta Title" name="meta_title" required>
+                    <input type="text" class="form-control text-center mb-3 col-12" value="{{$webinar->meta_description}}" placeholder="Meta Description" name="meta_description" required>
                     {{-- webinar hoolder pic --}}
-                    <label for="thumbnail_url"><b>تصویر برگذارکننده</b></label>
+                    <label for="thumbnail_url"><b>Orgnizer Image</b></label>
                     <br>
                     <img src="/{{ $webinar->thumbnail_url }}" alt="" height="100px" width="100px" class="rounded mt-3">
                     <input class="form-control mt-2 col-12" type="file" id="formFileMultiple" name="instructor_thumbnail_url" accept="image/*">
 
                     <select class="form-select mt-3 text-center" aria-label="Default select example" name="webinar_status">
-                        <option value="alive" {{$webinar->webinar_status == 'alive' ? 'selected' : ''}}>درحال برگذاری</option>
-                        <option value="terminated" {{$webinar->webinar_status == 'terminated' ? 'selected' : ''}}>به اتمام رسیده</option>
+                        <option value="alive" {{$webinar->webinar_status == 'alive' ? 'selected' : ''}}>Rolling</option>
+                        <option value="terminated" {{$webinar->webinar_status == 'terminated' ? 'selected' : ''}}>Ended</option>
                     </select>
 
                 </div>
@@ -66,23 +67,23 @@
                 </div>
                 <!-- discription input -->
                 <div class="col-8">
-                    <textarea class="form-control" required rows="5" dir="rtl" name="description" placeholder="توضیحات">{{$webinar->description}}</textarea>
+                    <textarea class="form-control" required rows="5" name="description" placeholder="Descriptions">{{$webinar->description}}</textarea>
                 </div>
                 <!-- file upload area -->
                 <div class="col-10 mt-3 text-center">
 
-                    <label for="thumbnail_url"><b> تامبنیل وبینار</b></label>
+                    <label for="thumbnail_url"><b>Webinar Thumbnail</b></label>
                     <br>
                     <img src="/{{ $webinar->thumbnail_url }}" alt="" height="100px" width="100px" class="rounded">
-                    <input class="form-control m-3" type="file" id="formFileMultiple" name="thumbnail_url" multiple title="افزودن تامبنیل">
+                    <input class="form-control m-3" type="file" id="formFileMultiple" name="thumbnail_url" multiple title="Add Thumbnail">
 
-                    <label for="thumbnail_url" class=""><b> فایل وبینار</b></label>
+                    <label for="thumbnail_url" class=""><b>Webinar File</b></label>
                     <br>
                     Current video file: {{$webinar->webinar_url}}
                     <input class="form-control m-3" type="file" name="webinar_url" id="formFileMultiple" multiple>
                     <!-- submit btn -->
                     <div class="col-auto">
-                        <button type="submit" class="btn btn-primary mb-3 ps-5 pe-5 pt-2 pb-2 ">ثبت</button>
+                        <button type="submit" class="btn btn-primary mb-3 ps-5 pe-5 pt-2 pb-2 ">Change</button>
                     </div>
                 </div>
 
