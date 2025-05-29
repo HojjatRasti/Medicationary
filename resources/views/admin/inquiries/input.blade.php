@@ -4,11 +4,11 @@
 
 <div class="container-fluid position-relative">
 
-    <div class="main-list col-12 col-lg-9 float-start pe-5 ps-5">
+    <div class="main-list col-12 col-lg-9 float-end pe-5 ps-5">
         {{--page title --}}
-        <nav aria-label="breadcrumb" class="d-flex flex-row-reverse mt-3 fs-3 fw-bold" dir="ltr">
+        <nav aria-label="breadcrumb" class="d-flex mt-3 fs-3 fw-bold">
             <ol class="breadcrumb">
-            <li class="breadcrumb-item" aria-current="page">لیست پرسش های دریافتی</li>
+            <li class="breadcrumb-item" aria-current="page">Qustions list</li>
             </ol>
         </nav>
 
@@ -16,9 +16,9 @@
         <div class="list-page-titles d-flex justify-content-start p-3 text-center">
 
             <div class="h4 col-1">#</div>
-            <div class="h4 col-2">تاریخ ایجاد</div>
-            <div class="h4 col-6 text-center">عنوان پرسش</div>
-            <div class="h4 col-2">وضیعت پاسخ</div>
+            <div class="h4 col-2">Modify Date</div>
+            <div class="h4 col-6 text-center">Question Title</div>
+            <div class="h4 col-2">Status</div>
 
         </div>
 
@@ -34,11 +34,11 @@
             </div>
 
             <div class="col-2" >
-                <button type="button" class="statusToggle {{ $question->toggle_status ? 'btn btn-primary' : '' }}" questionId="{{$question->id}}">پاسخ داده شد</button>
+                <button type="button" class="statusToggle {{ $question->toggle_status ? 'btn btn-primary' : '' }}" questionId="{{$question->id}}">Answered</button>
             </div>
 
 
-            <div class="list-icons d-flex justify-content-around col-1 pe-4 ps-4" title="جواب دادن به پرسش">
+            <div class="list-icons d-flex justify-content-around col-1 pe-4 ps-4" title="Answer Qustion">
                 <a href="{{ route('admin.inquiries.answer', $question->id)}}">
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
                         <g transform="translate(24 0) scale(-1 1)">

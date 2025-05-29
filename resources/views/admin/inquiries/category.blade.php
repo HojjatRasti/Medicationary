@@ -4,11 +4,11 @@
     <div class="container-fluid position-relative">
 
         <!-- category form -->
-        <div class="col-12 col-lg-9 float-start pe-5 ps-5 " dir="ltr">
+        <div class="col-12 col-lg-9 float-end pe-5 ps-5 ">
             {{--page title --}}
-            <nav aria-label="breadcrumb" class="d-flex flex-row-reverse mt-3 fs-3 fw-bold" dir="ltr">
+            <nav aria-label="breadcrumb" class="d-flex mt-3 fs-3 fw-bold">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item" aria-current="page">دسته‌بندی پاسخ به سوالات</li>
+                    <li class="breadcrumb-item" aria-current="page">Ask Categorys</li>
                 </ol>
             </nav>
             @include('errors.message')
@@ -16,19 +16,20 @@
                   class="d-flex justify-content-center flex-wrap mt-3">
                 @csrf
                 {{-- add category --}}
-                <span class="fs-3 ">افزودن دسته‌بندی</span>
+                <span class="fs-3 ">Add Category</span>
                 <div class="input-group mb-3 p-5 question-text border-start-0">
-                    <button class="btn btn-secondary col-4" type="submit" id="button-addon1">افزودن</button>
+                    
                     <input type="text" class="form-control col-8" name="title" placeholder=""
                            aria-label="Example text with button addon" aria-describedby="button-addon1" REQUIRED>
+                    <button class="btn btn-secondary col-4" type="submit" id="button-addon1">Add</button>
                 </div>
             </form>
 
-            <table class="table table-hover col-12 table_custom" dir="rtl">
+            <table class="table table-hover col-12 table_custom">
                 <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">نام دسته‌بندی</th>
+                    <th scope="col">Category name</th>
                 </tr>
                 </thead>
                 <tbody class="table-group-divider">
