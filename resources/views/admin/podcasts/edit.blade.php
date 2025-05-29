@@ -4,11 +4,11 @@
     <div class="container-fluid position-relative">
 
         <!-- upload form -->
-        <div id="webinar-up" class="col-12 col-lg-9 float-start pe-5 ps-5 " dir="ltr">
+        <div id="webinar-up" class="col-12 col-lg-9 float-end pe-5 ps-5 ">
             {{-- page title --}}
-            <nav aria-label="breadcrumb" class="d-flex flex-row-reverse mt-3 fs-3 fw-bold" dir="ltr">
+            <nav aria-label="breadcrumb" class="d-flex mt-3 fs-3 fw-bold" >
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item" aria-current="page">ویرایش پادکست</li>
+                    <li class="breadcrumb-item" aria-current="page">Edit Podcast</li>
                 </ol>
             </nav>
             @include('errors.message')
@@ -16,15 +16,8 @@
                 @csrf
                 @method('put')
                 <div class="input-group mb-3 w-100">
-                    <!-- category input -->
-                    <div class="btn-group col-md-6" >
-                        <select class="form-select text-center cat-multi-select" name="cat[]" multiple id="inputGroupSelect03" aria-label="Example select with button addon" dir="rtl">
-                            @foreach($categories as $category)
-                            <option value="{{$category->id}}"{{ str_contains($podcast->category_id, $category->title) ? 'selected' : '' }} >
-                                {{$category->title}}</option>
-                            @endforeach
-                          </select>
-                    </div>
+                    <!-- title input -->
+                    <input type="text" class="form-control text-center" name="title" value="{{$podcast->title}}" placeholder="Title" required>
                     <!-- middle pic -->
                     <span class="input-group-text">
                         <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 64 64">
@@ -38,14 +31,22 @@
                             </g>
                         </svg>
                     </span>
-                    <!-- title input -->
-                    <input type="text" class="form-control text-center" name="title" value="{{$podcast->title}}" placeholder="عنوان" required>
+                    
+                    <!-- category input -->
+                    <div class="btn-group col-md-6" >
+                        <select class="form-select text-center cat-multi-select" name="cat[]" multiple id="inputGroupSelect03" aria-label="Example select with button addon">
+                            @foreach($categories as $category)
+                            <option value="{{$category->id}}"{{ str_contains($podcast->category_id, $category->title) ? 'selected' : '' }} >
+                                {{$category->title}}</option>
+                            @endforeach
+                          </select>
+                    </div>
                 </div>
                 <div class="col-xl-8 col-12 mb-3 text-center">
                     {{-- meta input --}}
 
-                    <input type="text" class="form-control text-center mb-3 col-12" value="{{$podcast->meta_title}}" placeholder="متا تایتل" name="meta_title" required>
-                    <input type="text" class="form-control text-center mb-3 col-12" value="{{$podcast->meta_description}}" placeholder="متا دیسکریپشن" name="meta_description" required>
+                    <input type="text" class="form-control text-center mb-3 col-12" value="{{$podcast->meta_title}}" placeholder="Meta Title" name="meta_title" required>
+                    <input type="text" class="form-control text-center mb-3 col-12" value="{{$podcast->meta_description}}" placeholder="Meta Description" name="meta_description" required>
 
                 </div>
                 <!-- Schema input -->
@@ -54,22 +55,22 @@
                 </div>
                 <!-- discription input -->
                 <div class="col-8">
-                    <textarea class="form-control" required rows="5" dir="rtl" name="description" placeholder="توضیحات">{{$podcast->description}}</textarea>
+                    <textarea class="form-control" required rows="5" name="description" placeholder="Descriptions">{{$podcast->description}}</textarea>
                 </div>
                 <!-- file upload area -->
                 <div class="col-10 mt-3 text-center">
-                    <label for="thumbnail_url"><b>تامبنیل پادکست</b></label>
+                    <label for="thumbnail_url"><b>Podcast Thumbnail</b></label>
                     <br>
                     <img src="/{{ $podcast->thumbnail_url }}" alt="" height="100px" width="100px" class="rounded mt-3">
                     <input class="form-control m-3" type="file" name="thumbnail_url" id="formFileMultiple" accept="image/*">
-                    <label for="thumbnail_url" class=""> <b>فایل پادکست</b></label>
+                    <label for="thumbnail_url" class=""> <b>Podcast File</b></label>
                     <br>
                     Current Audio File: {{$podcast->podcast_url}}
                     <input class="form-control m-3" type="file" name="podcast_url" id="formFileMultiple" multiple>
 
                     <!-- submit btn -->
                     <div class="col-auto">
-                        <button type="submit" class="btn btn-primary mb-3 ps-5 pe-5 pt-2 pb-2 ">ثبت</button>
+                        <button type="submit" class="btn btn-primary mb-3 ps-5 pe-5 pt-2 pb-2 ">Change</button>
                     </div>
                 </div>
             </form>

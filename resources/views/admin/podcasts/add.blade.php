@@ -4,25 +4,19 @@
     <div class="container-fluid position-relative">
 
         <!-- upload form -->
-        <div  class="col-12 col-lg-9 float-start pe-5 ps-5 " dir="ltr">
+        <div  class="col-12 col-lg-9 float-end pe-5 ps-5 ">
             {{-- page title --}}
-            <nav aria-label="breadcrumb" class="d-flex flex-row-reverse mt-3 fs-3 fw-bold" dir="ltr">
+            <nav aria-label="breadcrumb" class="d-flex mt-3 fs-3 fw-bold">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item" aria-current="page">افزودن پادکست</li>
+                    <li class="breadcrumb-item" aria-current="page">Add Podcast</li>
                 </ol>
             </nav>
             @include('errors.message')
             <form action="{{route('admin.podcasts.store')}}" method="post" class="d-flex justify-content-center flex-wrap mt-5" enctype="multipart/form-data">
                 @csrf
                 <div class="input-group mb-3 w-100">
-                    <!-- category input -->
-                    <div class="btn-group form-control" >
-                        <select class="form-select text-center cat-multi-select" name="cat[]" multiple id="inputGroupSelect03" aria-label="Example select with button addon" dir="rtl">
-                            @foreach($categories as $category)
-                            <option value="{{$category->id}}">{{$category->title}}</option>
-                            @endforeach
-                          </select>
-                    </div>
+                    <!-- title input -->
+                    <input type="text" class="form-control text-center " name="title" placeholder="Title" required>
                     <!-- middle pic -->
                     <span class="input-group-text d-none d-sm-inline ">
                         <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 64 64">
@@ -36,14 +30,21 @@
                             </g>
                         </svg>
                     </span>
-                    <!-- title input -->
-                    <input type="text" class="form-control text-center " name="title" placeholder="عنوان" required>
+                    
+                    <!-- category input -->
+                    <div class="btn-group form-control" >
+                        <select class="form-select text-center cat-multi-select" name="cat[]" multiple id="inputGroupSelect03" aria-label="Example select with button addon">
+                            @foreach($categories as $category)
+                            <option value="{{$category->id}}">{{$category->title}}</option>
+                            @endforeach
+                          </select>
+                    </div>
                 </div>
                 <div class="col-xl-8 col-12 mb-3 text-center">
                     {{-- meta input --}}
 
-                    <input type="text" class="form-control text-center mb-3 col-12" placeholder="متا تایتل" name="meta_title" required>
-                    <input type="text" class="form-control text-center mb-3 col-12" placeholder="متا دیسکریپشن" name="meta_description" required>
+                    <input type="text" class="form-control text-center mb-3 col-12" placeholder="Meta Title" name="meta_title" required>
+                    <input type="text" class="form-control text-center mb-3 col-12" placeholder="Meta Description" name="meta_description" required>
 
                 </div>
                 <!-- Schema input -->
@@ -52,17 +53,17 @@
                 </div>
                 <!-- discription input -->
                 <div class="col-8">
-                    <textarea class="form-control" required rows="5" dir="rtl" name="description" placeholder="توضیحات"></textarea>
+                    <textarea class="form-control" required rows="5" name="description" placeholder="Descriptoin"></textarea>
                 </div>
                 <!-- file upload area -->
                 <div class="col-10 mt-3 text-center">
-                    <label for="thumbnail_url">افزودن تامبنیل پادکست</label>
-                    <input class="form-control m-3" type="file" id="formFileMultiple" name="thumbnail_url" multiple title="افزودن تامبنیل">
-                    <label for="thumbnail_url" class="">افزودن فایل پادکست</label>
+                    <label for="thumbnail_url">Podcast Thimbnail</label>
+                    <input class="form-control m-3" type="file" id="formFileMultiple" name="thumbnail_url" multiple title="Add Thumbnail">
+                    <label for="thumbnail_url" class="">Podcast File</label>
                     <input class="form-control m-3" type="file" id="formFileMultiple" name="podcast_url" multiple>
                     <!-- submit btn -->
                     <div class="col-auto">
-                        <button type="submit" class="btn btn-primary mb-3 ps-5 pe-5 pt-2 pb-2 ">ثبت</button>
+                        <button type="submit" class="btn btn-primary mb-3 ps-5 pe-5 pt-2 pb-2 ">Submit</button>
                     </div>
 
                 </div>
