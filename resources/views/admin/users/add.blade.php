@@ -3,10 +3,10 @@
 @section('content')
     <div class="container-fluid position-relative">{{--page title --}}
 
-        <div class="main-list col-12 col-lg-9 float-start pe-5 ps-5 ">
-            <nav aria-label="breadcrumb" class="d-flex flex-row-reverse mt-3 fs-3 fw-bold" dir="ltr">
+        <div class="main-list col-12 col-lg-9 float-end pe-5 ps-5 ">
+            <nav aria-label="breadcrumb" class="d-flex mt-3 fs-3 fw-bold">
                 <ol class="breadcrumb">
-                <li class="breadcrumb-item" aria-current="page">افزودن کاربر</li>
+                <li class="breadcrumb-item" aria-current="page">Add User</li>
                 </ol>
             </nav>
             @include('errors.message')
@@ -15,7 +15,7 @@
                 <div class="d-flex flex-wrap justify-content-between mt-5">
                     <!-- first & lastname fild -->
                     <div class="col-md-3 col-12">
-                        <input class="form-control m-3" type="text" name="name" placeholder="نام و نام خانوادگی">
+                        <input class="form-control m-3" type="text" name="name" placeholder="First & Last name">
                         <input class="form-control m-3 text-start" type="tel" name="mobile" placeholder="09xxxxxxxxx">
                     </div>
                     <!-- image upload input -->
@@ -27,7 +27,7 @@
                         </div>
                         <div class="d-flex justify-content-center">
                             <div class="btn btn-secondary" id="add-userImgBtn">
-                                <label class="form-label text-white m-1" for="customFile2">آپلود عکس</label>
+                                <label class="form-label text-white m-1" for="customFile2">Set Profile</label>
                                 <input type="file" name="profile_url" class="form-control d-none" id="customFile2" accept="image/*" />
                             </div>
                         </div>
@@ -42,20 +42,20 @@
                 <!-- role -->
                 <div class="mt-5 d-flex flex-column text-center ">
                     <div class="form-group ">
-                        <textarea name="description"  cols="50" rows="5" placeholder="لطفا متن مورد نظر خودتان را وارد کنید"></textarea>
+                        <textarea name="description"  cols="50" rows="5" placeholder=""></textarea>
                     </div>
                     <div class="form-group">
                        {{-- <label>نقش کاربری</label>--}}
                         <select class="form-control mt-4 d-inline w-25 text-center " name="role">
-                            <option value="user" >کاربر</option>
+                            <option value="user" >User</option>
 
-                            <option value="admin" >ادمین</option>
+                            <option value="admin" >Admin</option>
                         </select>
                     </div>
                 </div>
                 <!-- sub btn -->
                 <div class="text-center mt-5">
-                    <button type="submit" class="btn btn-success w-25 p-3">ثبت</button>
+                    <button type="submit" class="btn btn-success w-25 p-3">Submit</button>
                 </div>
 
             </form>

@@ -4,21 +4,21 @@
     <div class="container-fluid position-relative">
 
         <!-- main list table -->
-        <div id="webinar-list" class="main-list col-12 col-lg-9 float-start pe-5 ps-5">
+        <div id="webinar-list" class="main-list col-12 col-lg-9 float-end pe-5 ps-5">
             {{--page title --}}
-            <nav aria-label="breadcrumb" class="d-flex flex-row-reverse mt-3 fs-3 fw-bold" dir="ltr">
+            <nav aria-label="breadcrumb" class="d-flex mt-3 fs-3 fw-bold"">
                 <ol class="breadcrumb">
-                <li class="breadcrumb-item" aria-current="page">لیست کاربران</li>
+                <li class="breadcrumb-item" aria-current="page">Users List</li>
                 </ol>
             </nav>
             <!-- table title -->
             <div class="list-page-titles d-flex justify-content-start p-3 text-center">
                 <div class="h4 col-1"></div>
-                <div class="h4 col-2">آیدی</div>
-                <div class="h4 col-3">نام و نام‌خوانوادگی</div>
-                <div class="h4 col-2">سمت</div>
+                <div class="h4 col-2">ID</div>
+                <div class="h4 col-3">Name</div>
+                <div class="h4 col-2">Position</div>
                 <div class="h4 col-2"></div>
-                <div class="h4 col-2">عملیات</div>
+                <div class="h4 col-2">Actions</div>
             </div>
             <!-- table elements each row -->
 
@@ -34,7 +34,7 @@
                     <button type="button" class="btn btn-secondary col-2" data-bs-container="body" data-bs-toggle="popover"
                             data-bs-placement="bottom"
                             data-bs-content="{{$user->description}}">
-                        توضیحات
+                        Descriptions
                     </button>
                     <!-- icons -->
                     <div class="list-icons d-flex justify-content-around col-2 pe-4 ps-4">
