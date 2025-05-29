@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medcationary-Admin</title>
+    <title>Medcationary_Admin</title>
     <link rel="icon" type="image/x-icon" href="/images/medLogo.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
@@ -25,7 +25,7 @@
 
                 <form action="{{ route('admin.login.check') }}" method="post">
                 @csrf
-                    <div class="input-group mb-4 mt-5" dir="ltr">
+                    <div class="input-group mb-4 mt-5">
                     <span class="input-group-text" id="basic-addon1"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
                         <defs>
                         <clipPath id="clip-path">
@@ -38,11 +38,11 @@
                     </svg>
                     </span>
 
-                    <input type="email" name="email_X" id="typeEmailX" class="form-control text-center rounded-start-0" placeholder="ایمیل" />
+                    <input type="email" name="email_X" id="typeEmailX" class="form-control text-center rounded-start-0" placeholder="Email" />
                     </div>
 
                     <div class="input-group mb-4">
-                    <input type="password" name="password_X" id="typePasswordX" class="form-control  text-center" placeholder="رمزعبور" />
+                    <input type="password" name="password_X" id="typePasswordX" class="form-control  text-center" placeholder="Password" />
                     <span class="input-group-text" id="basic-addon2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 29.493 16.087">
                         <path id="password" d="M2.341,23.087V20.406H29.152v2.681Zm1.542-8.11L2.139,13.971,3.279,11.96H1V9.949H3.279L2.139,8.005,3.882,7,5.022,8.944,6.161,7,7.9,8.005,6.764,9.949H9.043V11.96H6.764L7.9,13.971,6.161,14.976,5.022,12.966,3.882,14.976Zm10.725,0-1.743-1.005L14,11.96H11.725V9.949H14L12.864,8.005,14.607,7l1.139,1.944L16.886,7l1.743,1.005L17.489,9.949h2.279V11.96H17.489l1.139,2.011-1.743,1.005-1.139-2.011Zm10.725,0-1.743-1.005,1.139-2.011H22.449V9.949h2.279L23.589,8.005,25.331,7l1.139,1.944L27.61,7l1.743,1.005L28.214,9.949h2.279V11.96H28.214l1.139,2.011L27.61,14.976l-1.139-2.011Z" transform="translate(-1 -7)" fill="#04355c"/>
                     </svg>
@@ -50,7 +50,7 @@
 
                     </div>
 
-                    <button class="btn btn-lg px-5" id="log-btn" type="submit">ورود</button>
+                    <button class="btn btn-lg px-5" id="log-btn" type="submit">Log In</button>
                 </form>
 
             </div>
