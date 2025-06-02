@@ -34,17 +34,17 @@
             </div>
 
             <div class="col-2" >
-                <button type="button" class="statusToggle {{ $question->toggle_status ? 'btn btn-primary' : '' }}" questionId="{{$question->id}}">Answered</button>
+                <button type="button" class="btn statusToggle {{ $question->toggle_status ? ' btn-primary' : '' }}" questionId="{{$question->id}}">Not Answered</button>
             </div>
 
 
             <div class="list-icons d-flex justify-content-around col-1 pe-4 ps-4" title="Answer Qustion">
                 <a href="{{ route('admin.inquiries.answer', $question->id)}}">
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
-                        <g transform="translate(24 0) scale(-1 1)">
+                        
                             <path fill="#04355c"
                                   d="m18 21l-1.4-1.4l1.575-1.6H14v-2h4.175L16.6 14.4L18 13l4 4l-4 4ZM7 10h8V8H7v2Zm0 4h5v-2H7v2Zm-4 7V6q0-.825.588-1.413T5 4h12q.825 0 1.413.588T19 6v5.075q-.25-.05-.5-.063T18 11q-2.525 0-4.263 1.75T12 17q0 .25.013.5t.062.5H6l-3 3Z"/>
-                        </g>
+                        
                     </svg>
                 </a>
             </div>
@@ -70,7 +70,13 @@ $(document).ready(function(){
             data: {status:btn.attr('questionId')},
             success: function(response) {
                 if(response == 1){
-                    btn.toggleClass('btn btn-primary')
+                    btn.toggleClass('btn-primary')
+                    if(btn.hasClass('btn-primary') ){
+                        btn.html('Answered')
+                    }else{
+                        btn.html('Not Answered')
+                    }
+                    
                 }
             },
         });

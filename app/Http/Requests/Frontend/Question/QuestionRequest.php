@@ -28,7 +28,7 @@ class QuestionRequest extends FormRequest
             'email' => 'nullable|email|min:3|max:200',
             'mobile' => 'nullable|digits:11',
             'explanation' => 'required|min:10',
-            'turnstile_response' => ['required', Rule::turnstile()],
+            // 'turnstile_response' => ['required', Rule::turnstile()],
         ];
     }
 }
