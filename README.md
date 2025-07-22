@@ -26,30 +26,29 @@ Visitors can easily browse content on any device thanks to the responsive, clean
 
 **Home Page**  
 
-![landing](https://github.com/user-attachments/assets/e23f560f-08c1-4765-ac3c-2775778f32a5)
+<img width="1847" height="912" alt="main" src="https://github.com/user-attachments/assets/cebaa9f4-0eaa-46db-af07-34df71472b0a" />
 
 
 **Admin Panel**  
 
-![admin](https://github.com/user-attachments/assets/218a4f45-c8a2-4eac-938a-6328ca8361a4)
+<img width="1856" height="918" alt="admin" src="https://github.com/user-attachments/assets/e0aabdb6-3d6a-48a6-a7d9-2491fc134be2" />
 
 
 **Admin upload**  
 
-![upload](https://github.com/user-attachments/assets/c1db9bec-66e8-4aa3-b999-f860f338a2f8)
+<img width="1855" height="907" alt="upload" src="https://github.com/user-attachments/assets/7221cc41-e1bf-44b6-a87c-d36a5ba30001" />
 
 
 ## 📱 Mobile view
 
 **Home Page**  
 
-![Recording 2025-07-07 185321](https://github.com/user-attachments/assets/76ebac07-d0a9-4d9f-9198-d0e11bd0b0a8)
+<img width="468" height="782" alt="main-mobile" src="https://github.com/user-attachments/assets/3c15f97a-d270-425f-85d2-3613f11f0e30" />
 
 
 **Admin Panel**  
 
-![admin-mobile](https://github.com/user-attachments/assets/52eda28d-14ef-40d9-8c96-3c07a3dfabed)
-
+<img width="466" height="811" alt="admin-mobile" src="https://github.com/user-attachments/assets/689c9eb1-cbc2-4a97-afc6-71823e48328f" />
 
 
 ## 🗂️ Installation
