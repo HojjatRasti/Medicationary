@@ -5,7 +5,7 @@
 
 
         <!-- upload form -->
-        <div id="webinar-up" class="col-12 col-lg-9 float-start pe-5 ps-5 " dir="ltr">
+        <div id="webinar-up" class="col-12 col-lg-9 float-end pe-5 ps-5 ">
             {{--page title --}}
             <nav aria-label="breadcrumb" class="d-flex mt-3 fs-3 fw-bold">
                     <ol class="breadcrumb">
