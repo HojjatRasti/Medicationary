@@ -1,0 +1,233 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\Question\InsertRequest;
+use App\Http\Requests\Admin\Question\ToggleRequest;
+use App\Http\Requests\Admin\Question\UpdateRequest;
+use App\Http\Requests\Frontend\Question\QuestionRequest;
+use App\Models\Answer;
+use App\Models\Answer_category;
+use App\Models\Question;
+use App\Utilities\ImageUploader;
+use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+
+
+class InquiriesController extends Controller
+{
+    public function landscape(){
+
+        $currentUser = auth()->user();
+
+        $inquiries = Answer::paginate(10);
+
+        return view('admin.inquiries.index', compact('currentUser', 'inquiries'));
+    }
+
+    public function addInquiries(QuestionRequest $request){
+
+//        $currentUser = auth()->user();
+
+        $validatedData = $request->validated();
+
+        $createQuestion= Question::create([
+            'name' => $validatedData['name'],
+            'title' => $validatedData['question_title'],
+            'mobile' => $validatedData['mobile'],
+            'explanation' => $validatedData['explanation'],
+            'email' => $validatedData['email']
+        ]);
+
+        if (!$createQuestion){
+            return back()->with('failed','خطا در ثبت درخواست');
+        }
+        return back()->with('success', 'درخواست با موفقیت ثبت شد');
+
+    }
+
+    public function submit(Request $request)
+    {
+        $request->validate([
+            'cf-turnstile-response' => ['required', Rule::turnstile()],
+        ]);
+    }
+
+    public function input(){
+
+        $currentUser = auth()->user();
+
+        $questions = Question::paginate(10);
+
+        return view('admin.inquiries.input', compact('currentUser','questions'));
+    }
+
+    public function toggleStatus(ToggleRequest $request){
+
+        $question = Question::findOrFail($request['status']);
+
+        $outPut = "";
+
+        $changeToggle = $question->Update([
+            'toggle_status' => 1 - $question['toggle_status']
+        ]);
+
+        return response($changeToggle);
+
+//        $status= '';
+//
+//        if ($question->toggle_status == 0){
+//            $status = "پاسخ داده نشده";
+//        } else {
+//            $status = 'پاسخ داده شده';
+//        }
+
+//        $outPut .= "
+//                <input type='checkbox' class='btn-check' questionId='{{$question->id}}' id='btn-check-outlined' autocomplete='off'>
+//                <label  for='btn-check-outlined' class='btn btn-outline-primary p-0  ansStaus " .   $question->toggle_status == 0 ? 'noAns' : '' . "'>
+//                    <p class='answerStatus m-2'>".
+//            $status
+//                    ."</p>
+//                </label>";
+    }
+
+    public function answer($question_id){
+
+        $currentUser = auth()->user();
+
+        $question = Question::findOrFail($question_id);
+
+        $categories = Answer_category::get();
+
+        return view('admin.inquiries.answer', compact('currentUser','question','categories'));
+    }
+
+    public function insert(InsertRequest $request, $question_id){
+
+        $validatedData = $request->validated();
+
+        $currentUser = auth()->user();
+
+        $array_categories = [];
+
+        foreach ($validatedData['cat'] as $cat){
+            $array_categories[] = Answer_category::where('id',$cat)->value('title');
+        }
+
+        $string_cat = implode(', ', $array_categories);
+
+        $createdAnswer = Answer::create([
+            'question_id' => $question_id,
+            'title' => $validatedData['title'],
+            'category_id' => $string_cat,
+            'description' => $validatedData['description'],
+            'meta_description' => $validatedData['meta_description'],
+            'meta_title' => $validatedData['meta_title'],
+            'user_id' => $currentUser['id']
+        ]);
+
+        if (!$this->uploadImage($createdAnswer, $validatedData) or !$createdAnswer){
+            return back()->with('failed', 'خطا در ثبت پاسخ');
+        }
+
+        return back()->with('success', 'پاسخ با موفقیت ثبت شد');
+
+    }
+
+    public function edit($answer_id){
+
+        $currentUser = auth()->user();
+
+        $answer = Answer::findOrFail($answer_id);
+
+        $question_id = $answer->question_id;
+
+        $question = Question::findOrFail($question_id);
+
+        $categories = Answer_category::get();
+
+        return view('admin.inquiries.edit', compact('answer', 'currentUser' , 'question', 'categories'));
+    }
+
+    public function update(UpdateRequest $request, $answer_id){
+        $validatedData = $request->validated();
+
+        $currentUser = auth()->user();
+
+        $answer = Answer::findOrFail($answer_id);
+
+        $array_categories = [];
+
+        foreach ($validatedData['cat'] as $cat){
+            $array_categories[] = Answer_category::where('id',$cat)->value('title');
+        }
+
+        $string_cat = implode(', ', $array_categories);
+
+        $updatedAnswer = $answer->update([
+            'title' => $validatedData['title'],
+            'category_id' => $string_cat,
+            'description' => $validatedData['description'],
+            'meta_description' => $validatedData['meta_description'],
+            'meta_title' => $validatedData['meta_title'],
+            'user_id' => $currentUser['id']
+        ]);
+
+        if (!$this->uploadImage($answer, $validatedData) or !$updatedAnswer){
+            return back()->with('failed', 'خطا در بروزرسانی پاسخ');
+        }
+
+        return back()->with('success', 'پاسخ به روزرسانی شدند');
+
+    }
+
+    public function download($answer_id)
+    {
+        $answer = Answer::findOrFail($answer_id);
+
+        return response()->download(public_path($answer->file_url));
+    }
+
+    public function delete($answer_id){
+        $answer = Answer::findOrFail($answer_id);
+
+        $answer->delete();
+
+        return back()->with('success', 'پاسخ با موفقیت حذف شد');
+    }
+
+    private function uploadImage($createdAnswer, $validatedData){
+
+        try {
+            $data = [];
+
+            if (isset($validatedData['thumbnail_url'])){
+                $path = 'Answers/' . $createdAnswer->id . '/' . $validatedData['thumbnail_url']->getClientOriginalName();
+
+                ImageUploader::Upload($validatedData['thumbnail_url'],$path,'public_storage');
+
+                $data += ['thumbnail_url' => $path] ;
+            }
+
+            if (isset($validatedData['file_url'])){
+                $path = 'Answers/' . $createdAnswer->id . '/' . $validatedData['file_url']->getClientOriginalName();
+
+                ImageUploader::Upload($validatedData['file_url'],$path,'public_storage');
+
+                $data += ['file_url' => $path] ;
+            }
+
+            $updatedAnswer = $createdAnswer->Update($data);
+
+            if(!$updatedAnswer){
+                throw new \Exception('تصویر آپلود نشد');
+            }
+
+            return true;
+
+        }catch (\Exception $e){
+            return false;
+        }
+    }
+}
